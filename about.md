@@ -21,7 +21,7 @@ Now thinking about app design and framework, that is my joy for sure. I like to 
 
 I’m also knowledgeable in `Agile`, `Scrum`, `Jira`, `DevOps`, you name it, `software life cycle` is my thing. In another company, I successfully implemented `VSTS` on the cloud (now `DevOps`), replacing their old system with a fresh and more user-friendly system. I had to develop some webhooks for some services running in Azure to make some calculations, sums and validations that were not available on the out-of-the-box product.<br>
 
-If interested, ping me on [Linked In](https://www.linkedin.com/in/sergioibagy/).<br><br><br><br>
+If interested, ping me on [Linked In](https://www.linkedin.com/in/sergioibagy/){:target="_blank"}.<br><br><br><br>
 
 
 

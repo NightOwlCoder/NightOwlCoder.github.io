@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 
 <article>
@@ -7,18 +8,7 @@ layout: default
   <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
   {{ content }}
 
-  {{ page }}
-  {{'/' | prepend: site.baseurl | replace: '//', '/' }}
-  <form method="POST" action="https://staticman3.herokuapp.com/v3/entry/github/NightOwlCoder/NightOwlCoder.github.io/master">
-  <input name="options[redirect]" type="hidden" value="{{ '/' | prepend: site.baseurl | replace: '//', '/'  }}">
-  <!-- e.g. "2016-01-02-this-is-a-post" -->
-  <input name="options[slug]" type="hidden" value="{{ page.slug }}">
-  <label><input name="fields[name]" type="text">Name</label>
-  <label><input name="fields[email]" type="email">E-mail</label>
-  <label><textarea name="fields[message]"></textarea>Message</label>
-  
-  <button type="submit">Go!</button>
-</form>
+  {% include disqus_comments.html %}
 
   {% include twitter_plug.html %}
 </article>
