@@ -21,6 +21,9 @@ Now thinking about app design and framework, that is my joy for sure. I like to 
 
 I’m also knowledgeable in `Agile`, `Scrum`, `Jira`, `DevOps`, you name it, `software life cycle` is my thing. In another company, I successfully implemented `VSTS` on the cloud (now `DevOps`), replacing their old system with a fresh and more user-friendly system. I had to develop some webhooks for some services running in Azure to make some calculations, sums and validations that were not available on the out-of-the-box product.<br>
 
+I am available for remot contracts. I am happy to travel to you so we can start a project together, but not for long term contracts at your site.
+I am also happy to meet with your team for code reviews, guidance on architecture and development or to get your project back on track.
+
 If interested, ping me on [Linked In](https://www.linkedin.com/in/sergioibagy/){:target="_blank"}.<br><br><br><br>
 
 
