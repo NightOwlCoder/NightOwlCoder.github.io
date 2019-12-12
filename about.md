@@ -27,9 +27,9 @@ All of these give me the ability to tackle a large project, identifying all the 
 I am available for remote contracts. I am happy to travel to you so we can start a project together, but not for long term contracts at your site.
 I am also happy to meet with your team for code reviews, guidance on architecture and development or to get your project back on track.
 
-If interested, ping me on [Linked In](https://www.linkedin.com/in/sergioibagy/){:target="_blank"}.<br><br><br><br>
+If interested, ping me on [Linked In<sup style="font-size: 20px;">⇗</sup>](https://www.linkedin.com/in/sergioibagy/){:target="_blank"}.<br><br><br><br>
 
 
 
 
-Done with the amazing [jekyll](https://github.com/jekyll/jekyll) on the even better (and really simple) [GitHub Pages](https://help.github.com/en/github/working-with-github-pages), highly recommend both.
+Done with the amazing [jekyll<sup style="font-size: 20px;">⇗</sup>](https://github.com/jekyll/jekyll){:target="_blank"} on the even better (and really simple) [GitHub Pages<sup style="font-size: 20px;">⇗</sup>](https://help.github.com/en/github/working-with-github-pages){:target="_blank"}, highly recommend both.

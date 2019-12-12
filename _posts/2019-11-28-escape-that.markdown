@@ -16,7 +16,7 @@ To output the highlight fence, I surrounded it with above and we get:
 
 `{% raw %}{% highlight ruby %}{% endraw %}`
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh].
+Check out the [Jekyll docs<sup style="font-size: 20px;">⇗</sup>][jekyll-docs]{:target="_blank"} for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo<sup style="font-size: 20px;">⇗</sup>][jekyll-gh]{:target="_blank"}.
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
 [jekyll-gh]:   https://github.com/jekyll/jekyll

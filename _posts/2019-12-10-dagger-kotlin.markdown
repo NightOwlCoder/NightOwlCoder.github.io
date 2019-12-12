@@ -10,9 +10,9 @@ Probably you have already felt something like this in your mind:
 
 >  I wanna know about this, but I wish I was learning it with that other method/language/framework I prefer.
 
-I was learning `dagger`, but the [tutorial](https://dagger.dev/tutorial/){:target="_blank"} code samples are in `java`.
+I was learning `dagger`, but the [tutorial<sup style="font-size: 20px;">⇗</sup>](https://dagger.dev/tutorial/){:target="_blank"} code samples are in `java`.
 
-Here came my good friend [Augusto Pedroza](https://github.com/augustopedroza){:target="_blank"} to the rescue. He converted the tutorial code to [Kotlin](https://github.com/augustopedroza/daggerTutorial){:target="_blank"}!
+Here came my good friend [Augusto Pedroza<sup style="font-size: 20px;">⇗</sup>](https://github.com/augustopedroza){:target="_blank"} to the rescue. He converted the tutorial code to [Kotlin<sup style="font-size: 20px;">⇗</sup>](https://github.com/augustopedroza/daggerTutorial){:target="_blank"}!
 
 Great, now he made it easier for me to learn in what has become my preferred language by far.
 
