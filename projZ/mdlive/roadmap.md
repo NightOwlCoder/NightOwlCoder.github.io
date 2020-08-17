@@ -19,8 +19,8 @@ This was it would be easier on our users to "follow" some trades.
 
 Brokers like TD-Ameritrade and E-Trade offer an API access, that could be used to submit trades.
 
-It is a conection that needs to be configured by the end user, so are are protected under a "you are the once that connected the app" kind of clause.
+It is a connection that needs to be configured by the end user, so we are protected under a "you are the one that connected the app" kind of clause.
 
-The auto-thingy could submit the trades on user behalf, with some parameters that he could set, like `max of 5% of account value`, `no more that 5 options`, `expiration at least 4 weeks ahead`, etc.
+The auto-thingy could submit the trades on user's behalf, with some parameters that he could set, like `max of 5% of account value`, `no more that 5 options`, `expiration at least 4 weeks ahead`, etc.
 
-Off course this woudld need to be tested/validated for a long time, but the whole system is not something hard to create.
+Off course this would need to be tested/validated for a long time, but the whole system is not something hard to create.
