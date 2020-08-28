@@ -7,6 +7,10 @@ title: MDLive Alert App Roadmap
 
 ## 1 Prime Channels
 
+[ ] reviewed
+
+[ ] accepted
+
 Expose the trades done on the private channels, off course for additional \$\$\$.
 
 ![](2020-08-17-12-49-34.png){:width="250px"}
@@ -17,6 +21,10 @@ This was it would be easier on our users to "follow" some trades.
 
 ## 2 Integration with Brokers
 
+[ ] reviewed
+
+[ ] accepted
+
 Brokers like TD-Ameritrade and E-Trade offer an API access, that could be used to submit trades.
 
 It is a connection that needs to be configured by the end user, so we are protected under a "you are the one that connected the app" kind of clause.
@@ -26,6 +34,12 @@ The auto-thingy could submit the trades on user's behalf, with some parameters t
 Off course this would need to be tested/validated for a long time, but the whole system is not something hard to create.
 
 ## 3 New alerts when app on BG
+
+[x] reviewed
+
+[x] accepted
+
+- working on this, RTW Monday, August 31st, 2020
 
 Android/iOS allows for a background task to fetch some info every 15 minutes.
 
