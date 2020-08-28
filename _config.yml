@@ -8,7 +8,7 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'bundle exec jekyll serve'. If you change this file, please restart the server process.
 #
-# If you need help with YAML syntax, here are some quick references for you: 
+# If you need help with YAML syntax, here are some quick references for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 #
@@ -21,15 +21,13 @@
 title: NightOwl code realm
 email: "nightowlcoder@outlook.com"
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  NightOwlCoder internet corner, or is that a tree? Come read my bio, understand what I work on and also see some great posts about things I did/do/will do.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://nightowlcoder.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: OwlCoder
-github_username:  NightOwlCoder
-logo: 'assets/NightOwlCoderLogo.jpg'
-favicon: 'assets/NightOwlCoderLogo.jpg'
+github_username: NightOwlCoder
+logo: "assets/NightOwlCoderLogo.jpg"
+favicon: "assets/NightOwlCoderLogo.jpg"
 
 # Build settings
 theme: jekyll-theme-hacker
@@ -38,7 +36,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
-
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -67,8 +64,7 @@ paginate: 4
 paginate_path: /page/:num/
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -76,24 +72,24 @@ defaults:
 
 future: true
 
-owner : "NightOwlCoder"
-year : "2019"
+owner: "NightOwlCoder"
+year: "2019"
 
 google_analytics: UA-153504785-1
 
 # To use Staticman comments, fill in repository, branch, and endpoint
-repository : NightOwlCoder/NightOwlCoder.github.io # GitHub username/repository eg. "daattali/beautiful-jekyll"
+repository: NightOwlCoder/NightOwlCoder.github.io # GitHub username/repository eg. "daattali/beautiful-jekyll"
 staticman:
-  branch     : master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
-  endpoint   : https://staticman3.herokuapp.com/v3/entry/github/ # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
+  branch: master # If you're not using `master` branch, then you also need to update the `branch` parameter in `staticman.yml`
+  endpoint: https://staticman3.herokuapp.com/v3/entry/github/ # URL of your own deployment, with a trailing slash (will fallback to a public GitLab instance) eg. https://<your-api>/v3/entry/github/
   reCaptcha:
     # reCaptcha for Staticman (OPTIONAL, but recommended for spam protection)
     # If you use reCaptcha, you must also set these parameters in staticman.yml
-    siteKey  : # Use your own site key, you need to apply for one on Google
-    secret   : # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
+    siteKey: # Use your own site key, you need to apply for one on Google
+    secret: # ENCRYPT your password by going to https://staticman3.herokuapp.com/v3/encrypt/<your-site-secret>
 
 # Disqus Comments
 disqus:
-    # Leave shortname blank to disable comments site-wide.
-    # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
-    shortname: NightOwlCoder
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  shortname: NightOwlCoder
