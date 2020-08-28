@@ -24,3 +24,13 @@ It is a connection that needs to be configured by the end user, so we are protec
 The auto-thingy could submit the trades on user's behalf, with some parameters that he could set, like `max of 5% of account value`, `no more that 5 options`, `expiration at least 4 weeks ahead`, etc.
 
 Off course this would need to be tested/validated for a long time, but the whole system is not something hard to create.
+
+## 3 New alerts when app on BG
+
+Android/iOS allows for a background task to fetch some info every 15 minutes.
+
+The plan is to hit the alerts endpoint to see if there are any new alerts. If there is, send a local push notification to alert the user.
+
+The check for new alerts would happen only during market open times.
+
+The user can tap on the alert and open the app, what would cause a refresh.
