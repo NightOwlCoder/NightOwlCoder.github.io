@@ -166,9 +166,32 @@ layout: post              # Required: Always 'post'
 title: "Your Title"       # Required: Post title
 date: YYYY-MM-DD HH:MM:SS -0800  # Required: Publication date
 categories: cat1 cat2     # Optional: Post categories
+excerpt: "Short summary"  # Recommended: Used for auto-tweet and previews
+image: /assets/post-image.png  # Optional: Custom social media preview image
 comments: true            # Optional: Enable/disable Disqus comments
 ---
 ```
+
+### Auto-Tweet Feature
+
+**🐦 Automatic Twitter Posting**
+
+When you push a new blog post to GitHub, it automatically posts to [@OwlCoder](https://twitter.com/OwlCoder) with:
+- Post title
+- Custom excerpt (if provided)
+- Link to the full post
+- Preview card with image
+
+**Setup Requirements:**
+- Twitter API credentials configured in GitHub Secrets
+- See `docs/X-API-SETUP-GUIDE.md` for setup instructions
+- See `docs/AUTO-TWEET-SUMMARY.md` for complete documentation
+
+**Best Practices:**
+- Always include an `excerpt:` field for better tweet text
+- Add an `image:` field for custom preview images (optional)
+- Without custom image, defaults to NightOwlCoder logo
+- Keep excerpts under 150 characters for best results
 
 ## 🔧 Configuration Files
 

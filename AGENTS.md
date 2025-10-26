@@ -422,6 +422,203 @@ After creating a post, suggest the user:
 
 ---
 
+## 🐦 Auto-Tweet Feature
+
+### Overview
+
+This blog automatically posts to Twitter ([@OwlCoder](https://twitter.com/OwlCoder)) when new posts are pushed to GitHub.
+
+### Required Fields for Auto-Tweet
+
+```yaml
+---
+layout: post
+title: "Your Post Title"
+date: 2025-10-25 21:00:00 -0700
+categories: category1 category2
+excerpt: "A compelling 1-2 sentence summary for the tweet"
+image: /assets/post-specific-image.png  # Optional but recommended
+---
+```
+
+### Writing Good Excerpts
+
+The `excerpt` field is crucial for auto-tweets. Best practices:
+
+1. **Length**: Keep under 150 characters for best results
+2. **Hook**: Start with a problem, question, or intriguing statement
+3. **Clarity**: Be specific about what the post covers
+4. **Action**: Use active voice and strong verbs
+5. **Avoid**: Don't repeat the title word-for-word
+
+**Good Examples:**
+```yaml
+excerpt: "AI coding assistants get stuck waiting for terminal commands in VSCode? Here's a simple one-line alias that fixes it instantly."
+
+excerpt: "Stop fighting with async code. This Kotlin coroutines pattern makes concurrent operations 10x easier."
+
+excerpt: "Spent 3 hours debugging a production issue. Here's the subtle bug that caused it and how to prevent it."
+```
+
+**Poor Examples:**
+```yaml
+excerpt: "This post is about terminal detection in VSCode."  # Too vague
+excerpt: "In this comprehensive guide, I will show you..."   # Too wordy
+excerpt: "Check out my latest blog post about coding!"       # No value proposition
+```
+
+## 🎨 Image Selection and Generation
+
+### Why Images Matter
+
+- **Higher engagement**: Tweets with images get 150% more retweets
+- **Professional appearance**: Preview cards look polished
+- **Visual interest**: Stands out in feed
+- **Context**: Reinforces the post's topic
+
+### Image Strategy
+
+**For AI Agents Creating Blog Posts:**
+
+When creating a blog post, you should:
+
+1. **Assess the topic** - Determine what visual would best represent it
+2. **Choose an approach** - Select from options below
+3. **Generate/find image** - Create or locate appropriate image
+4. **Add to post** - Include in front matter and save to assets
+
+### Image Options
+
+#### Option 1: No Custom Image (Default)
+If no `image:` field is provided, tweets use the NightOwlCoder logo.
+- **Use when**: Post is text-focused or conceptual
+- **Pros**: Zero effort, consistent branding
+- **Cons**: Less visually engaging
+
+#### Option 2: Code Screenshots
+For technical posts, create syntax-highlighted code screenshots.
+- **Use when**: Post features specific code solutions
+- **Tools**: Carbon.now.sh, ray.so, or VS Code screenshots
+- **Best for**: "How-to" posts, bug fixes, code patterns
+
+**Example Front Matter:**
+```yaml
+image: /assets/2025-10-25-terminal-fix-code.png
+```
+
+#### Option 3: Conceptual Graphics
+Simple, clean graphics that represent the concept.
+- **Use when**: Explaining concepts, architectures, workflows
+- **Style**: Minimalist, high contrast, clear typography
+- **Tools**: Figma, Canva, Excalidraw
+- **Best for**: Architecture posts, design patterns, explainers
+
+#### Option 4: AI-Generated Images
+Generate relevant imagery using AI tools.
+- **Use when**: Need quick, topical illustrations
+- **Tools**: DALL-E, Midjourney, Stable Diffusion
+- **Prompts**: "minimalist technical illustration of [topic], clean, professional, code theme, dark background"
+- **Best for**: Abstract concepts, general tech topics
+
+#### Option 5: Screenshots/Diagrams
+Actual screenshots or diagrams from the post content.
+- **Use when**: Post includes visual demonstrations
+- **Process**: Take key screenshot from post, add to assets
+- **Best for**: UI/UX posts, tool comparisons, bug reports
+
+### Image Specifications
+
+**Technical Requirements:**
+- **Format**: PNG or JPG
+- **Size**: 1200x630px recommended (Twitter Large Card)
+- **Min size**: 600x314px
+- **Max size**: 5MB
+- **Aspect ratio**: ~1.91:1 (wider is better)
+
+**Design Guidelines:**
+- **Text**: If adding text, use large, readable fonts (60pt+)
+- **Contrast**: Ensure good contrast for readability
+- **Branding**: Consider adding small NightOwl logo in corner
+- **Colors**: Match blog theme (dark background, green accents)
+- **Simplicity**: Less is more - focus on one key visual
+
+### AI Agent Image Workflow
+
+When an AI agent creates a blog post:
+
+**Step 1: Analyze the Post**
+```
+Post type: [Technical tutorial / Concept explanation / Problem-solution / etc]
+Key visual: [Code snippet / Diagram / Concept / etc]
+Image needed: [Yes/No]
+```
+
+**Step 2: Determine Best Approach**
+```
+IF post has critical code solution:
+  → Use code screenshot (Option 2)
+ELSE IF post explains architecture/concept:
+  → Use conceptual graphic (Option 3)
+ELSE IF post is opinion/discussion:
+  → Use default logo (Option 1)
+ELSE:
+  → Suggest custom image to user
+```
+
+**Step 3: Implementation**
+```yaml
+# If using custom image:
+---
+image: /assets/YYYY-MM-DD-post-slug-image.png
+---
+
+# Note: Agent should inform user:
+# "I recommend adding a custom image. I can help you:
+#  1. Generate one with AI (describe what you'd like)
+#  2. Create a code screenshot (I'll format the key code)
+#  3. Use the default NightOwlCoder logo"
+```
+
+**Step 4: Image File Naming**
+```
+Format: YYYY-MM-DD-post-slug-description.png
+Example: 2025-10-25-terminal-fix-code-screenshot.png
+Location: NightOwlCoder.github.io/assets/
+```
+
+### Example Complete Post with Image
+
+```markdown
+---
+layout: post
+title: "Fixing AI Terminal Detection in VSCode"
+date: 2025-10-25 21:00:00 -0700
+categories: ai-tools vscode terminal
+excerpt: "AI coding assistants get stuck waiting for terminal commands? Here's a simple one-line alias that fixes it instantly."
+image: /assets/2025-10-25-terminal-fix-preview.png
+---
+
+# Content starts here...
+```
+
+### Image Generation Prompts
+
+**For AI-Generated Images:**
+
+```
+Technical Post:
+"minimalist technical illustration of [topic], clean lines, professional, technology theme, dark blue background, subtle code elements, modern, 16:9 aspect ratio"
+
+Code/Programming:
+"abstract representation of [concept], coding symbols, terminal window, syntax highlighting colors, dark theme, professional developer aesthetic, wide format"
+
+Problem-Solving:
+"before and after concept, [problem] being solved, clean minimal design, tech illustration style, green accent color, dark background"
+
+Tutorial/Guide:
+"step-by-step visual metaphor for [topic], clear progression, modern tech aesthetic, instructional design, professional"
+```
+
 ## 🚀 Quick Start Template for AI Agents
 
 When asked to create a blog post, use this template:
@@ -430,8 +627,10 @@ When asked to create a blog post, use this template:
 ---
 layout: post
 title: "[TITLE]"
-date: [YYYY-MM-DD HH:MM:SS -0800]
+date: [YYYY-MM-DD HH:MM:SS -0700]
 categories: [category1 category2]
+excerpt: "[Compelling 1-2 sentence hook that sells the post]"
+image: /assets/[YYYY-MM-DD-slug-image.png]  # Optional but recommended
 ---
 
 # [Title]
@@ -456,6 +655,27 @@ categories: [category1 category2]
 ```
 
 Save to: `NightOwlCoder.github.io/_posts/[YYYY-MM-DD]-[slug].md`
+
+### Post-Creation Checklist
+
+After creating a blog post:
+
+- [ ] Filename follows `YYYY-MM-DD-slug.md` format
+- [ ] Front matter includes all required fields
+- [ ] `excerpt` field is present and under 150 characters
+- [ ] `image` field included (or consciously omitted)
+- [ ] If custom image: file saved to `assets/` directory
+- [ ] If custom image: filename follows `YYYY-MM-DD-slug-description.png`
+- [ ] Content is well-structured with headers
+- [ ] Code blocks specify language
+- [ ] All links work correctly
+- [ ] Post ready to commit and push
+
+**Note:** Upon pushing to GitHub:
+1. GitHub Actions will automatically trigger
+2. Auto-tweet posts to @OwlCoder within 30-60 seconds
+3. Preview card will include image (custom or default logo)
+4. GitHub Pages will rebuild and deploy the site
 
 ---
 
