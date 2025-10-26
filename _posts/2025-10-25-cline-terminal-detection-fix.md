@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fixing AI Terminal Detection in VSCode: The 'd' Alias Solution"
-date: 2025-10-25 19:50:00 -0700
+date: 2025-10-25 21:29:00 -0700
 categories: ai-tools vscode terminal productivity
 excerpt: "AI coding assistants get stuck waiting for terminal commands in VSCode? Here's a simple one-line alias that fixes it instantly."
 ---
