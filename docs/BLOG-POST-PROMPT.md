@@ -1,9 +1,3 @@
-# Blog Post Creation Prompt
-
-**Copy and paste this entire prompt to any LLM when you want to create a blog post:**
-
----
-
 # Instructions for Creating a NightOwlCoder Blog Post
 
 You are helping create a new blog post for the NightOwlCoder blog (nightowlcoder.github.io). Follow these instructions carefully.
