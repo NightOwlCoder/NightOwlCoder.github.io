@@ -10,7 +10,7 @@ hashtags: "#AIAgents #LLM #ContextWindow #JetBrains #Programming"
 
 # Implementing JetBrains' Observation Masking: 80% Context Reduction for AI Agents
 
-*How we applied cutting-edge research to solve context overflow in LLM-powered coding assistants*
+*Applying cutting-edge research to solve context overflow in LLM-powered coding assistants*
 
 ---
 
