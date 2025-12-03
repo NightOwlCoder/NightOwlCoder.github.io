@@ -2,8 +2,7 @@
 <br>
 <br>
 If you liked this post, you can
-<a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}&via=OwlCoder" 
+<a href="https://twitter.com/intent/tweet?url={{ site.url | append: page.url | url_encode }}&text={{ page.title | url_encode }}&via=OwlCoder" 
    target="_blank">
   share it with your followers<sup style="font-size: 20px;">⇗</sup></a> 
 and/or <a href="https://twitter.com/OwlCoder"> follow me on Twitter</a>!
-
