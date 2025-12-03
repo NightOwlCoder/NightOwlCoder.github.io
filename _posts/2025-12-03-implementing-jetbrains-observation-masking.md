@@ -5,6 +5,7 @@ date: 2025-12-03 10:00:00 -0800
 categories: ai-agents llm context-management
 excerpt: "AI coding agents hit context limits fast. JetBrains' research shows simple observation masking beats complex summarization—here's how to implement it."
 image: /assets/2025-12-03-observation-masking-preview.jpg
+hashtags: "#AIAgents #LLM #ContextWindow #JetBrains #Programming"
 ---
 
 # Implementing JetBrains' Observation Masking: 80% Context Reduction for AI Agents

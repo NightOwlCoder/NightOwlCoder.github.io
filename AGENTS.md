@@ -438,8 +438,31 @@ date: 2025-10-25 21:00:00 -0700
 categories: category1 category2
 excerpt: "A compelling 1-2 sentence summary for the tweet"
 image: /assets/post-specific-image.png  # Optional but recommended
+hashtags: "#AIAgents #LLM #ContextWindow #Programming"  # Optional - for Twitter discoverability
 ---
 ```
+
+### Writing Good Hashtags
+
+The `hashtags` field improves tweet discoverability. Best practices:
+
+1. **Quantity**: 3-5 hashtags is optimal
+2. **Relevance**: Match the post's core topics
+3. **Mix**: Combine broad (#Programming) with specific (#ContextWindow)
+4. **Format**: Include # prefix, CamelCase for multi-word (#AIAgents not #aiagents)
+5. **Trending**: Consider current developer trends when applicable
+
+**Good Examples:**
+```yaml
+hashtags: "#AIAgents #LLM #ContextWindow #JetBrains"  # AI/ML post
+hashtags: "#Kotlin #AndroidDev #Coroutines"          # Android post
+hashtags: "#VSCode #DevTools #Productivity"          # Tooling post
+hashtags: "#Java #DesignPatterns #CleanCode"         # Java post
+```
+
+**Fallback**: If `hashtags` is omitted, the script auto-generates them from `categories`.
+
+---
 
 ### Writing Good Excerpts
 

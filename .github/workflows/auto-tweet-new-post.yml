@@ -26,6 +26,11 @@ jobs:
       run: |
         pip install tweepy pyyaml
     
+    - name: Wait for GitHub Pages to deploy
+      run: |
+        echo "Waiting 180 seconds for GitHub Pages to deploy..."
+        sleep 180
+    
     - name: Detect new blog post and tweet
       env:
         TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
