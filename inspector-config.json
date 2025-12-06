@@ -1,0 +1,13 @@
+  {
+    "mcpServers": {
+      "weblab-mcp": {
+        "command": "uvx",
+        "args": [
+          "mcp-proxy",
+          "https://qlolno26l45xvqs4i33ibizvle0oozrf.lambda-url.us-east-1.on.aws",
+          "--transport=streamablehttp"
+        ]
+      }
+    }
+  }
+  
