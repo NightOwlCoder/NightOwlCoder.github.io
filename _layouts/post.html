@@ -6,6 +6,16 @@ comments: true
 <article>
   <h2>{{ page.title }}</h2>
   <time datetime="{{ page.date | date_to_xmlschema }}" class="by-line">{{ page.date | date_to_string }}</time>
+  
+  {% if page.image %}
+  <figure class="hero-image">
+    <img src="{{ page.image }}" alt="{{ page.title }}">
+    {% if page.image_caption %}
+    <figcaption>{{ page.image_caption }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+  
   {{ content }}
 
   {% include disqus_comments.html %}
