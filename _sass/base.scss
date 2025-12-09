@@ -321,3 +321,47 @@ article pre {
   overflow-x: auto;
   max-width: 100%;
 }
+
+/* Post listing with thumbnails */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-item {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #333;
+}
+
+.post-preview {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.post-thumbnail {
+  width: 120px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.post-preview p {
+  margin: 0;
+  flex: 1;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 500px) {
+  .post-preview {
+    flex-direction: column;
+  }
+  
+  .post-thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+}
