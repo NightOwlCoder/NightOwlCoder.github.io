@@ -315,18 +315,7 @@ a:active, a:focus {
   clear: both;
 }
 
-/* Fix: code blocks don't overflow when next to floated image */
-.hero-image + p + div.highlight,
-.hero-image + p + pre,
-article pre,
-article .highlight {
-  clear: both;
-}
 
-/* Alternative: code blocks inside float area scroll nicely */
-article code {
-  word-wrap: break-word;
-}
 
 article pre {
   overflow-x: auto;
