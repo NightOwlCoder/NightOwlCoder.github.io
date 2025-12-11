@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /contact.html
+
+Sitemap: https://nightowlcoder.github.io/sitemap.xml
