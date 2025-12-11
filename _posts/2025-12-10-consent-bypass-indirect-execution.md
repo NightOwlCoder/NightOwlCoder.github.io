@@ -4,6 +4,7 @@ title: "The AI That Helped Catch Itself: Consent Bypass via Indirect Script Exec
 date: 2025-12-10
 categories: [ai, security, quick-launch]
 tags: [claude, consent, security, gpt-oss]
+image: /assets/2025-12-10-consent-bypass-indirect-execution.jpg
 series: "AI Consent Security"
 series_part: 3
 ---
