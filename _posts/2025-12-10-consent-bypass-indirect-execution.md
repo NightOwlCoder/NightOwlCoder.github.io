@@ -11,7 +11,6 @@ series_part: 3
 
 *Part 3 of the AI Consent Security series. Previously: [Local LLM Command Safety](/2025/12/05/local-llm-command-safety-classifier/) and [Trusted Commands Betrayal](/2025/12/08/trusted-commands-betrayal/).*
 
-<div style="clear:both"></div>
 
 ## The Trilogy So Far
 
