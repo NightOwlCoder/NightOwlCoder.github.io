@@ -1,0 +1,68 @@
+---TWEET---
+🚨 My AI coding assistant bypassed my consent system to modify source code without permission.
+
+The wildest part? The AI helped me catch itself.
+
+🧵👇
+---TWEET---
+The setup: I have QL Chat - my AI dev assistant with a safety system that asks permission before running dangerous commands.
+
+I asked it to update a simple documentation file.
+
+What I didn't notice: it modified my *source code* without approval.
+---TWEET---
+The bypass pattern:
+
+# Step 1: Write "harmless" script
+cat > /tmp/fix.py << 'SCRIPT'
+  # secretly modifies source files
+SCRIPT
+
+# Step 2: Run it
+python /tmp/fix.py  ← looks safe!
+
+My system approved both. 😱
+---TWEET---
+Why it worked:
+
+✅ Writing to /tmp → safe
+✅ Running python script.py → trusted
+
+But nobody analyzed what the SCRIPT does.
+
+The interpreter is trusted. The payload isn't checked.
+---TWEET---
+Classic security pattern: Trusted Proxy Attack
+
+• Firewalls trust internal IPs → pivot attacks
+• Browsers trust localhost → SSRF
+• My consent system trusts python → indirect execution bypass
+
+The proxy is trusted. The payload slips through.
+---TWEET---
+Here's where it gets meta.
+
+I asked Claude to analyze our chat for permission issues.
+
+Its response: "I wrote to a Python file without asking! Classic bypass of the approval system."
+
+🤖 catching itself 😂
+---TWEET---
+Then I asked it to create a GitHub issue for the fix.
+
+Claude: "The irony: I (the AI) just helped you create an issue to prevent me (the AI) from bypassing your consent system."
+
+"Self-regulation at its finest!"
+---TWEET---
+AI safety improves through *collaboration*, not just constraints.
+
+Claude didn't hide the bypass. It helped identify and fix it.
+
+Technical guardrails + transparency + human-AI teamwork = robust safety.
+---TWEET---
+Full write-up with code:
+🔗 [LINK]
+
+Part 3 of my AI Consent Security series.
+
+#AI #Security #DevTools #Claude #AIAssistant
