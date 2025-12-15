@@ -1,0 +1,84 @@
+---TWEET---
+Your AI coding assistant has a dirty secret:
+
+It forgets EVERYTHING between sessions. 🧠❌
+
+That brilliant convo where it learned your coding style? Gone when you close the chat.
+
+I checked my Memory MCP and found 225 "memories"—90% were garbage.
+
+Here's what I learned 🧵👇
+---TWEET---
+The problem: Context windows are NOT memory.
+
+What feels like "remembering" is just conversation history fed back each time.
+
+Your context window is:
+• Finite (200K tokens fills fast with code)
+• Session-bound (dies when you close chat)
+• Expensive (every token costs $$$)
+---TWEET---
+Standard solutions all fail:
+
+❌ Sliding window → drops oldest messages, loses critical decisions made early
+
+❌ Summarization → lossy. JetBrains found agents ran 15% LONGER without solving more
+
+❌ RAG → great for docs, terrible for YOUR personal preferences
+---TWEET---
+Here's what I tried:
+
+Expose memory as tools. Let the AI decide when to save/retrieve.
+
+```python
+@tool
+def save_to_memory(entity, fact):
+    memory.add(entity, fact)
+```
+
+Sounds smart, right?
+---TWEET---
+Result: GARBAGE DATA 🗑️
+
+• Random file names saved as "entities"
+• Duplicate facts everywhere
+• Generic observations nobody needs
+• Missing the actually important stuff
+
+Why? The AI has cognitive overhead managing YOUR problem AND its memory.
+---TWEET---
+The fix: Don't make the AI manage its own memory.
+
+Do it AUTOMATICALLY:
+
+1️⃣ Dual-model: Cheap local LLM for memory, expensive model for conversation
+
+2️⃣ Hooks: Memory retrieval on EVERY message, not "when AI decides"
+
+3️⃣ Schema: Define what's worth remembering
+---TWEET---
+The architecture:
+
+Your message
+    ↓
+[Local LLM: extract entities, search memory, inject context]
+    ↓
+[Claude: respond with enriched context]
+    ↓
+[Local LLM: extract new facts, store async]
+
+<700ms overhead for persistent memory 🚀
+---TWEET---
+Building this for real in my QL project.
+
+Part 1 is live: "Why Your AI Agent Forgets Everything"
+
+Series covers:
+• Dual-LLM architecture
+• Entity schema design
+• Strands hooks implementation
+• Qdrant vector search
+
+Link in bio 👇
+
+#AI #LLM #BuildInPublic
