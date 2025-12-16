@@ -1,0 +1,50 @@
+---TWEET---
+Yesterday my AI assistant forgot who it was.
+
+It couldn't help with basic commands. Didn't know the project it was built for.
+
+Then something weird happened: the broken AI helped me debug itself. 🧵👇
+---TWEET---
+I built an AI Mentor for my dev tools. It loads an AGENTS.md file with all its knowledge.
+
+Worked great from the project directory.
+But from ANY other directory? Total amnesia.
+---TWEET---
+The bug was a Python classic:
+
+```python
+# ❌ Bug
+path = Path.cwd() / "AGENTS.md"
+
+# ✅ Fix  
+path = Path(__file__).parent / "AGENTS.md"
+```
+
+cwd() = where you RUN from
+__file__ = where the code LIVES
+---TWEET---
+Here's the wild part:
+
+The BROKEN AI helped me find this bug.
+
+It couldn't access its knowledge, but it could still:
+• Read its own source code
+• Spot the path resolution issue
+• Propose the fix
+• Implement it
+---TWEET---
+The GitHub issue closure message:
+
+"🤖 Self-fixed! Mentor diagnosed its own missing knowledge and implemented the fix."
+
+The AI performed surgery on its own brain while conscious.
+---TWEET---
+Lessons learned:
+
+1. Path.cwd() vs Path(__file__) - know the difference
+2. Test your tools from MULTIPLE directories
+3. Even "broken" AI retains enough reasoning to debug itself
+
+Full story: https://sergioibagy.com/2025/06/19/the-day-my-ai-fixed-itself
+
+#AI #Python #Debugging #BuildInPublic
