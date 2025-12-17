@@ -56,17 +56,19 @@ def parse_post(filepath):
         return None
 
 def get_post_url(filepath):
-    """Generate the full URL for a blog post using Jekyll's default format."""
+    """Generate the full URL for a blog post.
+    
+    Uses permalink: /:title format (no date in URL).
+    """
     filename = os.path.basename(filepath)
-    # Extract date and slug from filename: YYYY-MM-DD-title-slug.md
-    match = re.match(r'^(\d{4})-(\d{2})-(\d{2})-(.*?)\.md$', filename)
+    # Extract slug from filename: YYYY-MM-DD-title-slug.md -> title-slug
+    match = re.match(r'^\d{4}-\d{2}-\d{2}-(.*?)\.md$', filename)
     if match:
-        year, month, day, title_slug = match.groups()
-        # Jekyll default permalink format: /YYYY/MM/DD/title/
-        return f"https://nightowlcoder.github.io/{year}/{month}/{day}/{title_slug}/"
-    # Fallback
+        title_slug = match.group(1)
+        return f"https://nightowlcoder.github.io/{title_slug}"
+    # Fallback - strip .md
     slug = filename.replace('.md', '').replace('.markdown', '')
-    return f"https://nightowlcoder.github.io/{slug}/"
+    return f"https://nightowlcoder.github.io/{slug}"
 
 def extract_url_from_thread(thread_path):
     """Extract URL from thread file if it contains one."""
