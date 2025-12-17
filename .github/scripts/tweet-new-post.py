@@ -63,18 +63,18 @@ def get_post_url(filepath):
     if match:
         year, month, day, title_slug = match.groups()
         # Jekyll default permalink format: /YYYY/MM/DD/title/
-        return f"https://sergioibagy.com/{year}/{month}/{day}/{title_slug}/"
+        return f"https://nightowlcoder.github.io/{year}/{month}/{day}/{title_slug}/"
     # Fallback
     slug = filename.replace('.md', '').replace('.markdown', '')
-    return f"https://sergioibagy.com/{slug}/"
+    return f"https://nightowlcoder.github.io/{slug}/"
 
 def extract_url_from_thread(thread_path):
     """Extract URL from thread file if it contains one."""
     try:
         with open(thread_path, 'r', encoding='utf-8') as f:
             content = f.read()
-        # Look for https://sergioibagy.com URL in the content
-        match = re.search(r'https://sergioibagy\.com/[^\s\)]+', content)
+        # Look for https://nightowlcoder.github.io URL in the content
+        match = re.search(r'https://nightowlcoder.github.io/[^\s\)]+', content)
         if match:
             return match.group(0)
     except Exception:
