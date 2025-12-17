@@ -1,0 +1,69 @@
+---TWEET---
+I designed an AI multi-agent system.
+
+Then I asked Gemini, GPT 5.2, and Grok to tear it apart.
+
+They found bugs I never imagined. And they disagreed in fascinating ways. 🧵👇
+---TWEET---
+The experiment:
+• Same spec
+• Same prompt: "Be my Devil's Advocate"
+• Three different AI models
+
+What I learned: different models have completely different "review personalities"
+---TWEET---
+Gemini was like a systems architect:
+"You'll stare at a spinner for 4 minutes. Users will abandon it."
+
+Focus: workflow, UX, operational reality
+---TWEET---
+GPT 5.2 was a ruthless auditor:
+"This WILL break. That regex injection defense is security theater."
+
+Focus: vulnerabilities, edge cases, enforcement
+---TWEET---
+Grok was... Grok:
+"What if one of your agents is compromised? Who watches the watchers?"
+
+Focus: meta-risks, novel angles, things nobody else asked
+---TWEET---
+The gold was in their DISAGREEMENTS.
+
+Same feature:
+• Gemini: "Latency problem"
+• GPT: "Security problem"
+• Grok: "Meta-trust problem"
+
+All three were right. The fix had to address all of them.
+---TWEET---
+GPT's killer line:
+
+"Remove 'find something even if minor.' That one line is going to poison your signal-to-noise ratio faster than anything else."
+
+I had literally trained my AI to generate busywork. 🤦
+---TWEET---
+The result: spec went from 12 pages → 41 pages.
+
+Not bloat—fixes:
+• Evidence validators
+• Goal validation
+• LLM memory guardrail
+• User Proxy agent
+• Threat Modeler
+• Async job mode
+---TWEET---
+The meta-lesson:
+
+I was building a system to make AI agents argue productively.
+
+To design it, I made AI agents argue productively.
+
+The spec IS the proof of concept.
+---TWEET---
+Before you ship your next AI system, try this prompt:
+
+"Be critical. Be adversarial. Be my Devil's Advocate. I want friction, not agreement."
+
+Full story + V3 spec: https://sergioibagy.com/2025/12/20/i-asked-3-ais-to-roast-my-design
+
+#AI #MultiAgent #BuildInPublic
