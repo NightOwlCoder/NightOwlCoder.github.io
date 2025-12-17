@@ -56,14 +56,30 @@ def parse_post(filepath):
         return None
 
 def get_post_url(filepath):
-    """Generate the full URL for a blog post."""
+    """Generate the full URL for a blog post using Jekyll's default format."""
     filename = os.path.basename(filepath)
-    slug = filename.replace('.md', '').replace('.markdown', '')
-    match = re.match(r'^\d{4}-\d{2}-\d{2}-(.*)', slug)
+    # Extract date and slug from filename: YYYY-MM-DD-title-slug.md
+    match = re.match(r'^(\d{4})-(\d{2})-(\d{2})-(.*?)\.md$', filename)
     if match:
-        title_slug = match.group(1)
-        return f"https://nightowlcoder.github.io/{title_slug}/"
-    return f"https://nightowlcoder.github.io/{slug}/"
+        year, month, day, title_slug = match.groups()
+        # Jekyll default permalink format: /YYYY/MM/DD/title/
+        return f"https://sergioibagy.com/{year}/{month}/{day}/{title_slug}/"
+    # Fallback
+    slug = filename.replace('.md', '').replace('.markdown', '')
+    return f"https://sergioibagy.com/{slug}/"
+
+def extract_url_from_thread(thread_path):
+    """Extract URL from thread file if it contains one."""
+    try:
+        with open(thread_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+        # Look for https://sergioibagy.com URL in the content
+        match = re.search(r'https://sergioibagy\.com/[^\s\)]+', content)
+        if match:
+            return match.group(0)
+    except Exception:
+        pass
+    return None
 
 def get_thread_file(post_filepath):
     """Check if a thread file exists for this post."""
@@ -168,10 +184,19 @@ def main():
         if not post_data:
             continue
         
-        post_url = get_post_url(post_file)
-        
         # Check for thread file
         thread_file = get_thread_file(post_file)
+        
+        # Try to get URL from thread file first, fall back to generated URL
+        post_url = None
+        if thread_file:
+            post_url = extract_url_from_thread(thread_file)
+            if post_url:
+                print(f"   Using URL from thread file: {post_url}")
+        
+        if not post_url:
+            post_url = get_post_url(post_file)
+            print(f"   Generated URL: {post_url}")
         
         if thread_file:
             print(f"🧵 Thread file found: {thread_file}")
