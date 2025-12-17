@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "The Day My AI Fixed Itself"
-date: 2025-12-19
+date: 2025-12-16
 categories: [ai, debugging, meta]
 tags: [ai-agents, self-healing, python, debugging]
-image: /assets/2025-12-19-ai-fixed-itself.jpg
+image: /assets/2025-12-16-ai-fixed-itself.jpg
 excerpt: "What happens when your AI assistant forgets who it is? Mine diagnosed the bug, proposed a fix, and implemented it—while broken."
 ---
 

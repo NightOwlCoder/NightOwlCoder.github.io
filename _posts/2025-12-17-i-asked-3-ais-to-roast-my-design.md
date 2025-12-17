@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "I Asked 3 AIs to Roast My AI Design"
-date: 2025-12-20 10:00:00 -0800
+date: 2025-12-17 10:00:00 -0800
 categories: ai multi-agent design
 tags: [ai-agents, code-review, gemini, gpt, grok, multi-agent, ql-crew-series]
-image: /assets/2025-12-20-ai-roast.jpg
+image: /assets/2025-12-17-ai-roast.jpg
 excerpt: "I designed an AI multi-agent system, then asked Gemini, GPT 5.2, and Grok to tear it apart. Here's what they found."
 ---
 

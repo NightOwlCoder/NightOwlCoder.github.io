@@ -45,6 +45,6 @@ Lessons learned:
 2. Test your tools from MULTIPLE directories
 3. Even "broken" AI retains enough reasoning to debug itself
 
-Full story: https://nightowlcoder.github.io/2025/12/19/the-day-my-ai-fixed-itself
+Full story: https://nightowlcoder.github.io/2025/12/16/the-day-my-ai-fixed-itself
 
 #AI #Python #Debugging #BuildInPublic
