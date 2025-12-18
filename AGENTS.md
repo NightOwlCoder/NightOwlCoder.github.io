@@ -428,6 +428,119 @@ After creating a post, suggest the user:
 
 This blog automatically posts to Twitter ([@OwlCoder](https://twitter.com/OwlCoder)) when new posts are pushed to GitHub.
 
+### How It Works
+
+**Architecture:**
+```
+Push to _posts/ → GitHub Action → Python script → Twitter API
+```
+
+**Key Files:**
+- `.github/workflows/tweet.yml` - GitHub Action workflow definition
+- `.github/scripts/tweet-new-post.py` - Python script that posts to Twitter
+
+**Workflow Trigger:**
+The action triggers on pushes to `master` branch that modify files in `_posts/`:
+```yaml
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '_posts/**'
+```
+
+### Twitter Thread Support
+
+When a matching `_threads/` file exists, the script posts a **multi-tweet thread** instead of a single tweet.
+
+**Thread File Format:**
+```
+Location: _threads/YYYY-MM-DD-slug.txt
+
+---TWEET---
+First tweet with hook 🧵👇
+---TWEET---
+Second tweet with context
+---TWEET---
+Final tweet with link and #hashtags
+```
+
+**Important:** 
+- Thread filename must match the post slug exactly
+- Each tweet separated by `---TWEET---`
+- Last tweet should include the URL to the full post
+
+### Checking Tweet Status
+
+**View recent workflow runs:**
+```bash
+gh run list --repo NightOwlCoder/nightowlcoder.github.io --limit 10
+```
+
+**View logs for a specific run:**
+```bash
+gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.github.io --log
+```
+
+**Common workflow statuses:**
+- `success` - Tweet posted successfully
+- `failure` - Tweet failed (check logs for error)
+
+### Rate Limiting (IMPORTANT!)
+
+**Twitter Free Tier Limits:**
+- ~50 tweets per day total
+- ~15 tweets per 15-minute window
+- Threads count as MULTIPLE tweets (10-tweet thread = 10 API calls!)
+
+**Error `429 Too Many Requests`:**
+This means you've hit Twitter's rate limit. Solutions:
+
+1. **Wait** - Rate limits reset in 15 minutes to 24 hours
+2. **Reduce thread size** - Keep threads under 5 tweets
+3. **Space out posts** - Don't publish multiple posts at once
+4. **Retry manually** - Push an empty commit to re-trigger:
+   ```bash
+   git commit --allow-empty -m "chore: Retry tweet" && git push
+   ```
+
+**Best Practice:** 
+- Limit threads to 5 tweets max
+- Don't publish more than 2-3 posts per day
+- If hitting limits, post threads manually
+
+### Debugging Failed Tweets
+
+**Step 1: Check workflow status**
+```bash
+gh run list --repo NightOwlCoder/nightowlcoder.github.io --limit 5
+```
+
+**Step 2: View error logs**
+```bash
+gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.github.io --log | tail -50
+```
+
+**Common Errors:**
+
+| Error | Cause | Fix |
+|-------|-------|-----|
+| `429 Too Many Requests` | Rate limit hit | Wait 15min-24h, reduce thread size |
+| `403 Forbidden` | API keys invalid | Check GitHub secrets |
+| `No thread file found` | Missing `_threads/` file | Create thread file or use single tweet |
+| `URL 404` | Post not deployed yet | Action waits 180s, but may need longer |
+
+### URL Configuration
+
+**Permalink format:** `/:title` (no date in URL)
+
+**Generated URLs:** `https://nightowlcoder.github.io/post-slug` (NO trailing slash!)
+
+**Important:** 
+- ✅ `https://nightowlcoder.github.io/post-slug` 
+- ❌ `https://nightowlcoder.github.io/post-slug/` (404!)
+
 ### Required Fields for Auto-Tweet
 
 ```yaml
@@ -487,7 +600,7 @@ excerpt: "Spent 3 hours debugging a production issue. Here's the subtle bug that
 ```yaml
 excerpt: "This post is about terminal detection in VSCode."  # Too vague
 excerpt: "In this comprehensive guide, I will show you..."   # Too wordy
-excerpt: "Check out my latest blog post about coding!"       # No value proposition
+excerpt: "Check out my latest blog post about coding!"       # Too generic
 ```
 
 ## 🎨 Image Selection and Generation
@@ -536,12 +649,31 @@ Simple, clean graphics that represent the concept.
 - **Tools**: Figma, Canva, Excalidraw
 - **Best for**: Architecture posts, design patterns, explainers
 
-#### Option 4: AI-Generated Images
-Generate relevant imagery using AI tools.
+#### Option 4: AI-Generated Images (MLX Stable Diffusion)
+Generate relevant imagery using local AI tools.
 - **Use when**: Need quick, topical illustrations
-- **Tools**: DALL-E, Midjourney, Stable Diffusion
-- **Prompts**: "minimalist technical illustration of [topic], clean, professional, code theme, dark background"
+- **Tools**: MLX Stable Diffusion (built into QL!), DALL-E, Midjourney
 - **Best for**: Abstract concepts, general tech topics
+
+**Using QL's built-in image generation:**
+```bash
+# From QL chat (once GH#96 is done):
+> generate an image of [topic], save to ~/Downloads/blog-image
+
+# Or via CLI:
+python -m src.image_gen.generate "minimalist tech illustration of [topic]" \
+    --output ~/fileZ/projZ/blog/assets/YYYY-MM-DD-slug \
+    --n_images 4
+```
+
+**Prompts for tech blog images:**
+```
+"minimalist technical illustration of [topic], clean lines, professional, 
+technology theme, dark blue background, subtle code elements, modern"
+
+"abstract representation of [concept], coding symbols, terminal window, 
+syntax highlighting colors, dark theme, professional developer aesthetic"
+```
 
 #### Option 5: Screenshots/Diagrams
 Actual screenshots or diagrams from the post content.
@@ -692,11 +824,13 @@ After creating a blog post:
 - [ ] Content is well-structured with headers
 - [ ] Code blocks specify language
 - [ ] All links work correctly
+- [ ] Thread file created in `_threads/` (if using threads)
+- [ ] Thread has ≤5 tweets to avoid rate limits
 - [ ] Post ready to commit and push
 
 **Note:** Upon pushing to GitHub:
 1. GitHub Actions will automatically trigger
-2. Auto-tweet posts to @OwlCoder within 30-60 seconds
+2. Auto-tweet posts to @OwlCoder within 3-4 minutes (180s wait for deploy)
 3. Preview card will include image (custom or default logo)
 4. GitHub Pages will rebuild and deploy the site
 
