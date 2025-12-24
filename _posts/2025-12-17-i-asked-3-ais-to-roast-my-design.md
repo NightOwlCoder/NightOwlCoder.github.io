@@ -220,3 +220,4 @@ You'll be surprised what they find. And even more surprised when they disagree.
 
 **GitHub:** [QL Crew Spec (V3)](https://github.com/NightOwlCoder/quick-launch/blob/master/docs/specs/SPEC_QL_CREW_MULTI_AGENT_V3.md){:target="_blank"}
 
+
