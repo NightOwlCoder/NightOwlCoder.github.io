@@ -840,10 +840,14 @@ After creating a blog post:
 
 ---
 
+---
+
+---
+
 <!-- QL-SHARED-AGENTS-START -->
 <!-- Managed by the awesome QL Mentor ❤️ -->
 <!-- Source: ~/fileZ/projZ/quick-launch/AGENTS-SHARED.md -->
-<!-- Last sync: 2025-12-24T10:04:16 -->
+<!-- Last sync: 2025-12-30T13:28:45 -->
 
 # Shared Agent Rules
 
@@ -969,6 +973,105 @@ Old docs go to `docs/archive/`, NOT deleted:
 ### General
 - Write code that makes sense with **zero context** of the conversation
 - If tempted to explain a "fix", explain the **business logic** instead
+
+---
+
+## File Editing Guidelines
+
+### Available Tools
+
+1. **write_file** - Create new file or replace entire content
+2. **write_file_diff** - Apply targeted changes using unified diff format
+
+### Choosing the Right Tool
+
+**Use write_file when:**
+- Creating new files
+- Changes affect >50% of file content
+- Complete restructure needed
+- File is small (<100 lines) and changes are extensive
+
+**Use write_file_diff when:**
+- Making targeted, localized changes
+- Updating a few functions or sections
+- File is large and most content stays unchanged
+- Preserving git history is important
+
+### Critical Workflow for write_file_diff
+
+⚠️ **MANDATORY STEPS** - Skipping these causes "context lines do not match" errors:
+
+```
+STEP 1: Read the file FIRST
+   └─ read_file(path) to get current content
+
+STEP 2: Copy EXACT lines for context
+   └─ Character-for-character match required
+   └─ Do NOT use file content from memory or assumptions!
+
+STEP 3: Generate your diff
+   └─ Use content from STEP 1
+   └─ Context lines (starting with space) must match exactly
+
+STEP 4: If error occurs
+   └─ Read file again (may have auto-formatted)
+   └─ Use LATEST content for next attempt
+```
+
+### Unified Diff Format Rules
+
+**Context lines (starting with space ` `) MUST match file EXACTLY:**
+
+✅ **DO:**
+- Same quote style (`"` vs `'`)
+- Same whitespace and indentation
+- Same import order (lines are NOT interchangeable!)
+- Complete lines only (never truncate mid-line)
+- Copy-paste directly from read_file output
+
+❌ **DON'T:**
+- Guess file content without reading
+- Reorder imports or lines
+- Change quote styles in context lines
+- Use partial/truncated lines
+- Trust memory - always read first!
+
+### Multiple Changes in One File
+
+**Preferred:** Single diff with multiple hunks (list in file order)
+```diff
+@@ -10,3 +10,3 @@
+ context line
+-old line at position 10
++new line at position 10
+
+@@ -50,2 +50,4 @@
+ context line
+-old line at position 50
++new line at position 50
+```
+
+**Not preferred:** Multiple write_file_diff calls to same file
+
+### Auto-Formatting Awareness
+
+Sergio's IDE may auto-format files after write_file or write_file_diff:
+- Adjusting indentation (spaces vs tabs)
+- Converting quote styles
+- Organizing imports
+- Adding/removing trailing commas
+
+**The tool returns the final state** after formatting - use THIS for subsequent edits!
+
+### Common Mistakes & Solutions
+
+| Mistake | Why It Fails | Solution |
+|---------|-------------|----------|
+| Didn't read file first | Context doesn't match actual content | Always call read_file(path) first |
+| Changed quote style | `"imports"` ≠ `'imports'` | Use exact quotes from file |
+| Reordered lines | Line 5 and 6 swapped | Keep exact order from file |
+| Partial line | `def foo(` missing closing `)` | Include complete lines |
+| Trusted memory | File changed since last read | Read again before each diff |
 
 ---
 
