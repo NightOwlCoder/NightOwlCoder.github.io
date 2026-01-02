@@ -109,6 +109,10 @@ def get_twitter_client():
         print("Error: Missing Twitter API credentials")
         return None
     
+    # Print partial keys for debugging (first 4 chars only)
+    print(f"   API Key: {api_key[:4]}...")
+    print(f"   Access Token: {access_token[:4]}...")
+    
     return tweepy.Client(
         consumer_key=api_key,
         consumer_secret=api_secret,
@@ -140,8 +144,24 @@ def post_thread(client, tweets, post_url):
         print(f"🧵 Thread posted successfully! ({len(tweets)} tweets)")
         return True
         
+    except tweepy.errors.Forbidden as e:
+        print(f"❌ 403 Forbidden Error!")
+        print(f"   Error message: {e}")
+        if hasattr(e, 'api_messages'):
+            print(f"   API messages: {e.api_messages}")
+        if hasattr(e, 'api_codes'):
+            print(f"   API codes: {e.api_codes}")
+        if hasattr(e, 'response') and e.response is not None:
+            print(f"   Response text: {e.response.text}")
+        return False
+    except tweepy.errors.Unauthorized as e:
+        print(f"❌ 401 Unauthorized Error!")
+        print(f"   Error message: {e}")
+        print("   → Check that API keys and tokens are correct")
+        print("   → Verify app is attached to a Project in Developer Portal")
+        return False
     except Exception as e:
-        print(f"Error posting thread: {e}")
+        print(f"❌ Error posting thread: {type(e).__name__}: {e}")
         return False
 
 def post_single_tweet(client, post_data, post_url):
@@ -158,8 +178,22 @@ def post_single_tweet(client, post_data, post_url):
         print(f"✓ Tweet posted successfully! (ID: {response.data['id']})")
         return True
         
+    except tweepy.errors.Forbidden as e:
+        print(f"❌ 403 Forbidden Error!")
+        print(f"   Error message: {e}")
+        if hasattr(e, 'api_messages'):
+            print(f"   API messages: {e.api_messages}")
+        if hasattr(e, 'api_codes'):
+            print(f"   API codes: {e.api_codes}")
+        if hasattr(e, 'response') and e.response is not None:
+            print(f"   Response text: {e.response.text}")
+        return False
+    except tweepy.errors.Unauthorized as e:
+        print(f"❌ 401 Unauthorized Error!")
+        print(f"   Error message: {e}")
+        return False
     except Exception as e:
-        print(f"Error posting tweet: {e}")
+        print(f"❌ Error posting tweet: {type(e).__name__}: {e}")
         return False
 
 def main():
