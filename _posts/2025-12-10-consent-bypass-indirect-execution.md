@@ -148,3 +148,4 @@ Until then, watch out for the "write to /tmp, execute the payload" pattern. Your
 *The AI consent security series continues as Claude helps me catch Claude. Each post is a real vulnerability discovered during daily development work with AI assistants.*
 
 *[Follow the series](/tags/consent/) for more adventures in human-AI security collaboration.*
+
