@@ -527,9 +527,53 @@ gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.github.io --log | tail -
 | Error | Cause | Fix |
 |-------|-------|-----|
 | `429 Too Many Requests` | Rate limit hit | Wait 15min-24h, reduce thread size |
-| `403 Forbidden` | API keys invalid | Check GitHub secrets |
+| `403 Forbidden` | API keys invalid OR Cloudflare blocking | Check secrets OR use local script |
+| `Cloudflare challenge` | GitHub Actions IP blocked | **Use local script** (see below) |
 | `No thread file found` | Missing `_threads/` file | Create thread file or use single tweet |
 | `URL 404` | Post not deployed yet | Action waits 180s, but may need longer |
+
+### Local Tweet Script (Cloudflare Workaround)
+
+**As of Jan 2026**, Twitter/X has Cloudflare protection that sometimes blocks GitHub Actions datacenter IPs. When this happens, use the local script instead.
+
+**Location:** `scripts/tweet-local.py`
+
+**Prerequisites:**
+```bash
+# Twitter credentials in ~/.zshrc (or environment)
+export TWITTER_API_KEY="..."
+export TWITTER_API_SECRET="..."
+export TWITTER_ACCESS_TOKEN="..."
+export TWITTER_ACCESS_TOKEN_SECRET="..."
+
+# Install tweepy (one time)
+pip3 install tweepy
+```
+
+**Usage:**
+```bash
+cd ~/fileZ/projZ/blog
+
+# Preview thread without posting
+python3 scripts/tweet-local.py --dry-run
+
+# Post the default pending thread (consent-bypass)
+python3 scripts/tweet-local.py
+
+# Post a specific thread
+python3 scripts/tweet-local.py --thread _threads/2025-12-10-my-post.txt
+
+# List available threads
+python3 scripts/tweet-local.py --list
+```
+
+**For QL Chat Mentor:**
+When user asks to "post the thread" or "tweet this", run:
+```bash
+cd ~/fileZ/projZ/blog && python3 scripts/tweet-local.py
+```
+
+This works from local machine (home IP not blocked by Cloudflare).
 
 ### URL Configuration
 

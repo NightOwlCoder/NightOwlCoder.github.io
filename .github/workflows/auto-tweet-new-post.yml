@@ -38,4 +38,12 @@ jobs:
         TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
         TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
       run: |
-        python .github/scripts/tweet-new-post.py
+        python .github/scripts/tweet-new-post.py || {
+          echo ""
+          echo "⚠️  Tweet failed - likely Cloudflare blocking GitHub Actions IPs"
+          echo "👉 Use local script instead: python3 scripts/tweet-local.py"
+          echo ""
+          echo "This is a known issue as of Jan 2026."
+          echo "The blog post was still published successfully!"
+          exit 0  # Don't fail the workflow - blog is deployed
+        }
