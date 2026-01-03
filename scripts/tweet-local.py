@@ -124,8 +124,14 @@ def main():
     if args.thread:
         thread_file = args.thread
     else:
-        # Default to consent-bypass (the pending one)
-        thread_file = '_threads/2025-12-10-consent-bypass-indirect-execution.txt'
+        # No default - force user to be explicit
+        print("❌ No thread specified!")
+        print("\nUsage:")
+        print("  python3 scripts/tweet-local.py --thread _threads/YYYY-MM-DD-slug.txt")
+        print("\nAvailable threads:")
+        for t in list_threads():
+            print(f"  • _threads/{t}")
+        sys.exit(1)
     
     if not os.path.exists(thread_file):
         print(f"❌ Thread file not found: {thread_file}")
