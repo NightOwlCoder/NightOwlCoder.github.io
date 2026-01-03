@@ -27,11 +27,10 @@ Just me staring at my terminal wondering if the singularity is really ready when
 ---TWEET---
 Lessons learned:
 ✅ Backup your AI conversations
-✅ High context = higher risk of weird failures  
-✅ LLMs aren't thinking—they're pattern matching
-✅ When patterns break, chaos ensues
+✅ High context = higher failure risk  
+✅ LLMs = pattern matching, not thinking
+✅ When patterns break, chaos
 
-📖 Full story (with the actual Lua output samples!):
-https://nightowlcoder.github.io/the-day-my-ai-had-a-stroke
+📖 Full story: https://nightowlcoder.github.io/the-day-my-ai-had-a-stroke
 
 #AIAgents #LLM #Hallucination #Programming
