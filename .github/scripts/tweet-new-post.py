@@ -123,11 +123,19 @@ def get_twitter_client():
 def post_thread(client, tweets, post_url):
     """Post a thread (multiple tweets as replies)."""
     try:
+        # CRITICAL: Validate no [LINK] placeholders remain
+        for i, tweet_text in enumerate(tweets):
+            if '[LINK]' in tweet_text:
+                print(f"❌ VALIDATION FAILED!")
+                print(f"   Tweet {i+1} contains [LINK] placeholder!")
+                print(f"   Text: {tweet_text[:100]}...")
+                print(f"\n   This means the thread file has [LINK] but no actual URL.")
+                print(f"   Fix the thread file to include the real URL!")
+                return False
+        
         previous_tweet_id = None
         
         for i, tweet_text in enumerate(tweets):
-            # Replace [LINK] placeholder with actual URL
-            tweet_text = tweet_text.replace('[LINK]', post_url)
             
             # Truncate if too long (280 char limit)
             if len(tweet_text) > 280:
@@ -167,6 +175,12 @@ def post_thread(client, tweets, post_url):
 def post_single_tweet(client, post_data, post_url):
     """Post a single tweet for the post."""
     try:
+        # CRITICAL: Validate no [LINK] placeholders
+        if '[LINK]' in post_url:
+            print(f"❌ VALIDATION FAILED!")
+            print(f"   URL contains [LINK] placeholder: {post_url}")
+            return False
+        
         tweet = f"📝 New post: {post_data['title']}\n\n{post_url}"
         
         if post_data['hashtags']:
