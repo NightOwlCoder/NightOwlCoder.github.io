@@ -36,18 +36,35 @@ def get_twitter_client():
 def get_my_tweets(client, count=5):
     """Get my recent tweets."""
     try:
-        # Get authenticated user's ID
-        me = client.get_me()
-        user_id = me.data.id
+        # For OAuth 1.0a (user context), we need to get user first
+        # Twitter username for @OwlCoder
+        username = "OwlCoder"
         
-        # Get recent tweets
+        # Get user by username (force user context)
+        user = client.get_user(username=username, user_auth=True)
+        if not user.data:
+            print(f"❌ User @{username} not found")
+            return []
+        
+        user_id = user.data.id
+        print(f"✅ Found user: @{username} (ID: {user_id})")
+        
+        # Get recent tweets (use user_auth=True to force OAuth 1.0a user context)
         tweets = client.get_users_tweets(
             id=user_id,
-            max_results=count,
-            tweet_fields=['created_at', 'conversation_id']
+            max_results=max(5, min(count, 100)),  # API: min=5, max=100
+            tweet_fields=['created_at', 'conversation_id', 'entities'],
+            user_auth=True  # CRITICAL: Use OAuth 1.0a user context, not bearer token
         )
         
         return tweets.data if tweets.data else []
+    except tweepy.errors.Unauthorized as e:
+        print(f"❌ 401 Unauthorized: {e}")
+        print("   Possible causes:")
+        print("   1. App doesn't have 'Read' permissions")
+        print("   2. Access token/secret are invalid")
+        print("   3. App is not properly configured for OAuth 1.0a")
+        return []
     except Exception as e:
         print(f"❌ Error fetching tweets: {e}")
         return []
