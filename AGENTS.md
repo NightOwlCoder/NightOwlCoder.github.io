@@ -6,6 +6,54 @@ This guide explains how an AI assistant (LLM) can help create new blog posts for
 
 This document provides a structured workflow for AI agents to assist in creating well-formatted Jekyll blog posts that integrate seamlessly with the existing site structure.
 
+## 🏷️ Tagging Blog-Worthy Ideas
+
+When something interesting happens during development conversations, **TAG IT** so we don't forget!
+
+### How to Tag
+
+During QL Chat (mentor) sessions, when you spot something blog-worthy:
+
+1. **Create a memory entity** with type `BlogTopic`:
+   ```
+   memory_create_entities([{
+     "name": "Descriptive-Title-With-Hyphens",
+     "entityType": "BlogTopic",
+     "observations": ["Brief description of why it's blog-worthy"]
+   }])
+   ```
+
+2. **Or mention it in chat**: "This is #BlogWorthy!" or "Tag this as a #BlogTopic"
+
+### What Makes Something Blog-Worthy?
+
+| Score | Criteria | Example |
+|-------|----------|---------|
+| ⭐⭐⭐⭐⭐ | Self-healing AI, unexpected behavior, "wow" moments | AI fixes its own bugs |
+| ⭐⭐⭐⭐ | Novel solution, architecture insight, debugging story | Hospital Wi-Fi failure recovery |
+| ⭐⭐⭐ | Useful pattern, reusable code, time-saver | Terminal detection fix |
+| ⭐⭐ | Interesting but niche, might combine with others | Config optimization |
+| ⭐ | Note for later, needs more meat | Random observation |
+
+### Finding Tagged Topics
+
+In QL Chat, ask:
+- "Find my #BlogTopic tags"
+- "What have we tagged as blog-worthy?"
+- "Search memory for BlogTopic entities"
+
+Or use unified search:
+```bash
+ql search "#BlogTopic" 
+# or in chat: unified_search("BlogTopic")
+```
+
+### Current Tagged Topics
+
+Check memory for entities with `entityType: "BlogTopic"` - these are your blog idea backlog!
+
+---
+
 ## 📋 Pre-Creation Checklist
 
 Before creating a blog post, the AI agent should gather the following information:

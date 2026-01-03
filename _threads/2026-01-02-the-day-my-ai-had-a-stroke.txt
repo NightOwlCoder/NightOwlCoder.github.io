@@ -31,6 +31,7 @@ Lessons learned:
 ✅ LLMs aren't thinking—they're pattern matching
 ✅ When patterns break, chaos ensues
 
-Full story: https://nightowlcoder.github.io/the-day-my-ai-had-a-stroke
+📖 Full story (with the actual Lua output samples!):
+https://nightowlcoder.github.io/the-day-my-ai-had-a-stroke
 
 #AIAgents #LLM #Hallucination #Programming

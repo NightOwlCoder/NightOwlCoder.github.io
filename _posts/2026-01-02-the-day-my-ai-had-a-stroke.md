@@ -4,6 +4,7 @@ title: "The Day My AI Had a Stroke (And Lived to Tell About It)"
 date: 2026-01-02 16:00:00 -0800
 categories: ai-tools llm debugging
 excerpt: "Asked about a diff viewer. Got 3,000 lines of a Lua manual in English and Chinese instead. Here's what went wrong."
+image: /assets/2026-01-02-the-day-my-ai-had-a-stroke.png
 hashtags: "#AIAgents #LLM #Hallucination #Programming"
 ---
 
