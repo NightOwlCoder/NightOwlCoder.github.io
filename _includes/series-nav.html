@@ -18,16 +18,19 @@ Usage: {% include series-nav.html %}
     </div>
     
     <div class="series-links">
+      {% assign prev_part = current_part | minus: 1 %}
+      {% assign next_part = current_part | plus: 1 %}
+      
       {% for post in series_posts %}
-        {% if post.series_part == current_part | minus: 1 %}
+        {% if post.series_part == prev_part %}
           <div class="series-prev">
-            ← Previous: <a href="{{ post.url }}">Part {{ post.series_part }}: {{ post.title }}</a>
+            <a href="{{ post.url }}">← Previous: Part {{ post.series_part }} - {{ post.title }}</a>
           </div>
         {% endif %}
         
-        {% if post.series_part == current_part | plus: 1 %}
+        {% if post.series_part == next_part %}
           <div class="series-next">
-            → Next: <a href="{{ post.url }}">Part {{ post.series_part }}: {{ post.title }}</a>
+            <a href="{{ post.url }}">→ Next: Part {{ post.series_part }} - {{ post.title }}</a>
           </div>
         {% endif %}
       {% endfor %}
@@ -36,14 +39,14 @@ Usage: {% include series-nav.html %}
       {% if current_part < series_total %}
         {% assign next_exists = false %}
         {% for post in series_posts %}
-          {% if post.series_part == current_part | plus: 1 %}
+          {% if post.series_part == next_part %}
             {% assign next_exists = true %}
           {% endif %}
         {% endfor %}
         
         {% unless next_exists %}
           <div class="series-next">
-            → Next: Part {{ current_part | plus: 1 }} (Coming soon!)
+            <span class="coming-soon-text">→ Next: Part {{ next_part }} (Coming soon!)</span>
           </div>
         {% endunless %}
       {% endif %}
@@ -103,6 +106,11 @@ Usage: {% include series-nav.html %}
     
     .series-nav a:hover {
       text-shadow: 0 0 10px rgba(181, 232, 83, 0.5);
+    }
+    
+    .coming-soon-text {
+      color: #888;
+      font-style: italic;
     }
   </style>
 {% endif %}
