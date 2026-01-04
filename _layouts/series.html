@@ -61,9 +61,10 @@ layout: default
   }
   
   .series-description {
-    font-size: 1.2rem;
-    color: #555;
+    font-size: 1.1rem;
+    color: #ddd;
     margin: 1rem 0 2rem 0;
+    line-height: 1.6;
   }
   
   .series-meta {
@@ -71,10 +72,11 @@ layout: default
   }
   
   .series-status {
-    background: #e7f3ff;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px dashed #b5e853;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-weight: 500;
+    display: inline-block;
+    color: #b5e853;
   }
   
   .series-posts {
@@ -85,28 +87,35 @@ layout: default
   
   .series-post-card {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     padding: 1.5rem;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 4px solid #007bff;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(181, 232, 83, 0.3);
+    transition: border-color 0.2s;
+  }
+  
+  .series-post-card:hover {
+    border-color: #b5e853;
   }
   
   .series-post-card.coming-soon {
-    opacity: 0.6;
-    border-left-color: #6c757d;
+    opacity: 0.5;
+    border-style: dashed;
   }
   
   .series-post-number {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #007bff;
-    min-width: 80px;
+    color: #b5e853;
+    min-width: 100px;
     text-align: center;
+    font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
+    text-shadow: 0 0 10px rgba(181, 232, 83, 0.3);
   }
   
   .series-post-card.coming-soon .series-post-number {
-    color: #6c757d;
+    color: #666;
+    text-shadow: none;
   }
   
   .series-post-content {
@@ -115,24 +124,27 @@ layout: default
   
   .series-post-content h3 {
     margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
   }
   
   .series-post-content h3 a {
-    color: #212529;
+    color: #b5e853;
     text-decoration: none;
+    text-shadow: 0 0 5px rgba(181, 232, 83, 0.3);
   }
   
   .series-post-content h3 a:hover {
-    color: #007bff;
+    text-shadow: 0 0 10px rgba(181, 232, 83, 0.5);
   }
   
   .series-post-excerpt {
     margin: 0.5rem 0;
-    color: #6c757d;
+    color: #aaa;
+    line-height: 1.5;
   }
   
   .series-post-content time {
-    font-size: 0.9rem;
-    color: #6c757d;
+    font-size: 0.85rem;
+    color: #888;
   }
 </style>

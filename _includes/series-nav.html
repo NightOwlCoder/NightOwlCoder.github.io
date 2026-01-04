@@ -56,20 +56,22 @@ Usage: {% include series-nav.html %}
   
   <style>
     .series-nav {
-      background: #f8f9fa;
-      border-left: 4px solid #007bff;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed #b5e853;
       padding: 1rem;
       margin: 1.5rem 0;
-      border-radius: 4px;
+      font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
     }
     
     .series-header {
       margin-bottom: 0.75rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+      color: #b5e853;
+      text-shadow: 0 0 5px rgba(181, 232, 83, 0.3);
     }
     
     .series-part {
-      color: #6c757d;
+      color: #999;
       font-size: 0.9rem;
       margin-left: 0.5rem;
     }
@@ -83,22 +85,24 @@ Usage: {% include series-nav.html %}
     
     .series-prev, .series-next {
       font-size: 0.95rem;
+      color: #ddd;
     }
     
     .series-index-link {
       font-size: 0.9rem;
-      border-top: 1px solid #dee2e6;
+      border-top: 1px dashed #444;
       padding-top: 0.75rem;
       margin-top: 0.75rem;
     }
     
     .series-nav a {
-      color: #007bff;
+      color: #b5e853;
       text-decoration: none;
+      text-shadow: 0 0 5px rgba(181, 232, 83, 0.3);
     }
     
     .series-nav a:hover {
-      text-decoration: underline;
+      text-shadow: 0 0 10px rgba(181, 232, 83, 0.5);
     }
   </style>
 {% endif %}
