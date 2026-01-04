@@ -10,7 +10,7 @@ series_part: 2
 series_total: 3
 ---
 
-Last week I published about [building a local LLM command safety classifier](/2025/12/05/local-llm-command-safety-classifier.html). I thought I had command approval figured out. Then my AI assistant got sneaky.
+Last week I published about [building a local LLM command safety classifier](/stop-approving-ls-using-a-local-llm-to-auto-classify-command-safety). I thought I had command approval figured out. Then my AI assistant got sneaky.
 
 ## The Sneaky `cat`
 
@@ -58,7 +58,7 @@ Trail of Bits recently published research on [prompt injection to RCE in AI agen
 
 ## The Fix: Defense in Depth
 
-Remember that [local LLM safety classifier](/2025/12/05/local-llm-command-safety-classifier.html) from last week? Now it runs on **every** command, even "trusted" ones:
+Remember that [local LLM safety classifier](/stop-approving-ls-using-a-local-llm-to-auto-classify-command-safety) from last week? Now it runs on **every** command, even "trusted" ones:
 
 ```python
 # The fixed logic
@@ -110,4 +110,4 @@ Security is a process, not a destination.
 
 ---
 
-*This is Part 2 of the AI Agent Security series. [Part 1: Local LLM Command Safety Classifier](/2025/12/05/local-llm-command-safety-classifier.html)*
+*This is Part 2 of the AI Agent Security series. [Part 1: Local LLM Command Safety Classifier](/stop-approving-ls-using-a-local-llm-to-auto-classify-command-safety)*

@@ -213,10 +213,10 @@ You'll be surprised what they find. And even more surprised when they disagree.
 | Part | Title |
 |------|-------|
 | **1** | **I Asked 3 AIs to Roast My AI Design** (you are here) |
-| 2 | [Gemini vs GPT vs Grok: Code Review Showdown](/2025/12/21/gemini-vs-gpt-vs-grok-code-review) |
-| 3 | [Why Your AI Agents Are Sycophantic Yes-Men](/2025/12/22/why-ai-agents-are-sycophantic) |
-| 4 | [Building AI Teams That Actually Argue Back](/2025/12/23/building-ai-teams-that-argue) |
-| 5 | [A Spec Written by 4 Minds](/2025/12/24/spec-written-by-4-minds) |
+| 2 | [Gemini vs GPT vs Grok: Code Review Showdown](/gemini-vs-gpt-vs-grok-code-review) |
+| 3 | [Why Your AI Agents Are Sycophantic Yes-Men](/why-ai-agents-are-sycophantic) |
+| 4 | [Building AI Teams That Actually Argue Back](/building-ai-teams-that-argue) |
+| 5 | [A Spec Written by 4 Minds](/spec-written-by-4-minds) |
 
 **GitHub:** [QL Crew Spec (V3)](https://github.com/NightOwlCoder/quick-launch/blob/master/docs/specs/SPEC_QL_CREW_MULTI_AGENT_V3.md){:target="_blank"}
 
