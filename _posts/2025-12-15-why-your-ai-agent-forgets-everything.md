@@ -5,6 +5,9 @@ date: 2025-12-15 22:00:00 -0800
 categories: ai agents memory llm
 excerpt: "Your AI coding assistant has a dirty secret: it forgets everything between sessions. Here's why context windows aren't enough."
 image: /assets/2025-12-15-ai-memory.jpg
+series: "Building AI Memory Systems"
+series_part: 1
+series_total: 6
 ---
 
 # Why Your AI Agent Forgets Everything

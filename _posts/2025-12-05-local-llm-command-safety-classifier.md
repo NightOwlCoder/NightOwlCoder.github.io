@@ -6,6 +6,9 @@ categories: [ai, development-tools, llm]
 tags: [ollama, local-llm, ai-coding-assistant, command-safety, cline, cursor, claude-code, gpt-oss, terminal, automation, developer-experience]
 description: "How I built a command safety classifier using gpt-oss via Ollama that auto-approves safe commands and prompts only for destructive ones—ahead of what VSCode is planning."
 image: /assets/2025-12-05-command-safety-classifier.jpg
+series: "AI Consent Security"
+series_part: 1
+series_total: 3
 ---
 
 If you use AI coding assistants like Cline, Cursor, or Claude Code, you know this pain:

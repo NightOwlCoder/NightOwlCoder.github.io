@@ -7,6 +7,7 @@ tags: [claude, consent, security, gpt-oss]
 image: /assets/2025-12-10-consent-bypass-indirect-execution.jpg
 series: "AI Consent Security"
 series_part: 3
+series_total: 3
 ---
 
 *Part 3 of the AI Consent Security series. Previously: [Local LLM Command Safety](/2025/12/05/local-llm-command-safety-classifier/) and [Trusted Commands Betrayal](/2025/12/08/trusted-commands-betrayal/).*

@@ -1,0 +1,138 @@
+---
+layout: default
+---
+
+<article class="series-index">
+  <h1>{{ page.title }}</h1>
+  
+  {% if page.description %}
+  <p class="series-description">{{ page.description }}</p>
+  {% endif %}
+  
+  <div class="series-meta">
+    <span class="series-status">
+      {% if page.complete %}
+        ✅ Complete ({{ page.posts.size }} parts)
+      {% else %}
+        🚧 In Progress ({{ page.posts.size }} of {{ page.series_total }} published)
+      {% endif %}
+    </span>
+  </div>
+  
+  <div class="series-posts">
+    {% assign series_posts = site.posts | where: "series", page.series_name | sort: "series_part" %}
+    
+    {% for post in series_posts %}
+      <div class="series-post-card">
+        <div class="series-post-number">Part {{ post.series_part }}</div>
+        <div class="series-post-content">
+          <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+          <p class="series-post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+        </div>
+      </div>
+    {% endfor %}
+    
+    {% comment %}Show coming soon parts{% endcomment %}
+    {% if page.series_total %}
+      {% assign published_count = series_posts.size %}
+      {% if published_count < page.series_total %}
+        {% for i in (published_count..page.series_total) %}
+          {% assign part_num = i | plus: 1 %}
+          <div class="series-post-card coming-soon">
+            <div class="series-post-number">Part {{ part_num }}</div>
+            <div class="series-post-content">
+              <h3>Coming Soon!</h3>
+              <p class="series-post-excerpt">Check back soon for the next part of this series.</p>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endif %}
+  </div>
+  
+  {{ content }}
+</article>
+
+<style>
+  .series-index {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .series-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 1rem 0 2rem 0;
+  }
+  
+  .series-meta {
+    margin-bottom: 2rem;
+  }
+  
+  .series-status {
+    background: #e7f3ff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  
+  .series-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .series-post-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+  }
+  
+  .series-post-card.coming-soon {
+    opacity: 0.6;
+    border-left-color: #6c757d;
+  }
+  
+  .series-post-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    min-width: 80px;
+    text-align: center;
+  }
+  
+  .series-post-card.coming-soon .series-post-number {
+    color: #6c757d;
+  }
+  
+  .series-post-content {
+    flex: 1;
+  }
+  
+  .series-post-content h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .series-post-content h3 a {
+    color: #212529;
+    text-decoration: none;
+  }
+  
+  .series-post-content h3 a:hover {
+    color: #007bff;
+  }
+  
+  .series-post-excerpt {
+    margin: 0.5rem 0;
+    color: #6c757d;
+  }
+  
+  .series-post-content time {
+    font-size: 0.9rem;
+    color: #6c757d;
+  }
+</style>

@@ -5,7 +5,9 @@ date: 2025-12-08
 categories: [ai, security, cli]
 tags: [llm, command-safety, cline, ai-agents, security]
 image: /assets/2025-12-08-trusted-commands-betrayal.jpg
-series: "AI Agent Security"
+series: "AI Consent Security"
+series_part: 2
+series_total: 3
 ---
 
 Last week I published about [building a local LLM command safety classifier](/2025/12/05/local-llm-command-safety-classifier.html). I thought I had command approval figured out. Then my AI assistant got sneaky.

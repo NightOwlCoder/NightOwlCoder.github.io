@@ -1,0 +1,104 @@
+{% comment %}
+Series Navigation Include
+Generates prev/next links for blog series posts
+Usage: {% include series-nav.html %}
+{% endcomment %}
+
+{% if page.series %}
+  {% assign series_posts = site.posts | where: "series", page.series | sort: "series_part" %}
+  {% assign current_part = page.series_part %}
+  {% assign series_total = page.series_total | default: series_posts.size %}
+  
+  <div class="series-nav">
+    <div class="series-header">
+      <strong>📚 {{ page.series }}</strong>
+      {% if current_part %}
+        <span class="series-part">(Part {{ current_part }} of {{ series_total }})</span>
+      {% endif %}
+    </div>
+    
+    <div class="series-links">
+      {% for post in series_posts %}
+        {% if post.series_part == current_part | minus: 1 %}
+          <div class="series-prev">
+            ← Previous: <a href="{{ post.url }}">Part {{ post.series_part }}: {{ post.title }}</a>
+          </div>
+        {% endif %}
+        
+        {% if post.series_part == current_part | plus: 1 %}
+          <div class="series-next">
+            → Next: <a href="{{ post.url }}">Part {{ post.series_part }}: {{ post.title }}</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+      
+      {% comment %}Show "coming soon" if next part doesn't exist yet{% endcomment %}
+      {% if current_part < series_total %}
+        {% assign next_exists = false %}
+        {% for post in series_posts %}
+          {% if post.series_part == current_part | plus: 1 %}
+            {% assign next_exists = true %}
+          {% endif %}
+        {% endfor %}
+        
+        {% unless next_exists %}
+          <div class="series-next">
+            → Next: Part {{ current_part | plus: 1 }} (Coming soon!)
+          </div>
+        {% endunless %}
+      {% endif %}
+    </div>
+    
+    <div class="series-index-link">
+      <a href="/series/{{ page.series | slugify }}.html">📖 View complete series</a>
+    </div>
+  </div>
+  
+  <style>
+    .series-nav {
+      background: #f8f9fa;
+      border-left: 4px solid #007bff;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 4px;
+    }
+    
+    .series-header {
+      margin-bottom: 0.75rem;
+      font-size: 1.1rem;
+    }
+    
+    .series-part {
+      color: #6c757d;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+    }
+    
+    .series-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    
+    .series-prev, .series-next {
+      font-size: 0.95rem;
+    }
+    
+    .series-index-link {
+      font-size: 0.9rem;
+      border-top: 1px solid #dee2e6;
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+    }
+    
+    .series-nav a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    
+    .series-nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+{% endif %}
