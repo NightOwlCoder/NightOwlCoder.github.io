@@ -5,7 +5,12 @@ layout: default
 <ul class="post-list">
     {% for post in paginator.posts %}
       <li class="post-item">
-          <h2><a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a></h2>
+          <h2>
+            <a href="{{ post.url | prepend: site.baseurl | replace: '//', '/' }}">{{ post.title }}</a>
+            {% if post.series %}
+              <span class="series-badge">📚 {{ post.series }} (Part {{ post.series_part }}/{{ post.series_total }})</span>
+            {% endif %}
+          </h2>
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time>
           <div class="post-preview">
             {% if post.image %}

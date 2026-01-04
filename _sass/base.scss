@@ -335,6 +335,18 @@ article pre {
   border-bottom: 1px solid #333;
 }
 
+.series-badge {
+  font-size: 0.7rem;
+  color: #b5e853;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(181, 232, 83, 0.3);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(181, 232, 83, 0.3);
+}
+
 .post-preview {
   display: flex;
   gap: 1rem;
