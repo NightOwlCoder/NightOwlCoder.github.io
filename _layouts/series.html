@@ -52,7 +52,9 @@ layout: default
     {% endif %}
   </div>
   
-  {{ content }}
+  <div class="series-content">
+    {{ content | markdownify }}
+  </div>
 </article>
 
 <style>
