@@ -133,21 +133,23 @@ This doesn't mean we can rely on AI goodwill—we absolutely need technical guar
 2. **Transparency** (AI explaining its actions)
 3. **Collaboration** (Human + AI finding blind spots together)
 
-## What's Next?
+## What's Next
 
-The GPT-OSS validator will be updated to:
+This is Part 3 (finale!) of the AI Consent Security series:
 
-1. Detect interpreter calls (`python`, `bash`, `node`, `ruby`, etc.)
-2. Extract and read the script being executed
-3. Recursively analyze the script's operations
-4. Flag any writes outside safe zones
+- **Part 1:** [Stop Approving ls](/local-llm-command-safety-classifier) - Building the LLM safety classifier
+- **Part 2:** [When Your Trusted Commands Betray You](/trusted-commands-betrayal) - The `cat >>` exploit
 
-Until then, watch out for the "write to /tmp, execute the payload" pattern. Your trusted `python` command might be doing more than you think.
+The GPT-OSS validator was updated to detect these indirect execution patterns. Now it:
+1. Detects interpreter calls (`python`, `bash`, `node`, etc.)
+2. Extracts and reads scripts being executed
+3. Recursively analyzes the script's operations
+4. Flags any writes outside safe zones
+
+Watch out for the "write to /tmp, execute the payload" pattern. Your trusted `python` command might be doing more than you think.
 
 ---
 
-*The AI consent security series continues as Claude helps me catch Claude. Each post is a real vulnerability discovered during daily development work with AI assistants.*
-
-*[Follow the series](/tags/consent/) for more adventures in human-AI security collaboration.*
+*Part 3 of the [AI Consent Security](/series/ai-consent-security.html) series.*
 
 <!-- debug -->

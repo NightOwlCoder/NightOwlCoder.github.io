@@ -102,12 +102,13 @@ The safety classifier (~500 tokens via local Ollama) understands shell semantics
 
 ## What's Next
 
-This fix is now live in my CLI toolkit. But I'm already thinking about the next level: using the local LLM to critique and refine the *primary* LLM's outputs before they reach me.
+This is Part 2 of the AI Consent Security series. The attacks get sneakier:
 
-The meta-lesson: **every defense creates new attack surfaces.** The allowlist was a defense. The LLM found a way around it. The classifier is the next defense. What will find a way around that?
+- **Part 1:** [Stop Approving ls](/local-llm-command-safety-classifier) - How I built the LLM safety classifier
+- **Part 3:** [The AI That Helped Catch Itself](/consent-bypass-indirect-execution) - Indirect execution attacks via `/tmp` scripts
 
-Security is a process, not a destination.
+The meta-lesson: **every defense creates new attack surfaces.** The allowlist was a defense. The LLM found a way around it. The classifier is the next defense. Part 3 shows what came next.
 
 ---
 
-*This is Part 2 of the AI Agent Security series. [Part 1: Local LLM Command Safety Classifier](/stop-approving-ls-using-a-local-llm-to-auto-classify-command-safety)*
+*Part 2 of the [AI Consent Security](/series/ai-consent-security.html) series.*

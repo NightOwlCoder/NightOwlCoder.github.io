@@ -210,14 +210,19 @@ The AI coding assistant space is moving fast, but the UX around command approval
 
 An LLM *understands* these distinctions. And with local inference, there's no cost, no latency penalty, and no privacy concerns.
 
-## What's Next?
+## What's Next
 
-- **MLX backend** for 30% speedup on M-series Macs
-- **User overrides** for edge cases ("always trust this command")
-- **Pattern learning** from user approval history
+This is Part 1 of the AI Consent Security series. Coming up:
+
+- **Part 2:** [When Your Trusted Commands Betray You](/trusted-commands-betrayal) - Why allowlists fail when LLMs get creative with "safe" commands
+- **Part 3:** [The AI That Helped Catch Itself](/consent-bypass-indirect-execution) - Detecting indirect execution attacks and script payloads
+
+The attack vectors get more sophisticated with each part. Follow along to see how AI assistants can bypass even smart safety systems.
+
+---
+
+*Part 1 of the [AI Consent Security](/series/ai-consent-security.html) series.*
 
 ---
 
 **The code is open source:** [github.com/NightOwlCoder/quick-launch](https://github.com/NightOwlCoder/quick-launch)
-
-Found this useful? I write about AI-assisted development, local LLMs, and developer tooling. Follow along!
