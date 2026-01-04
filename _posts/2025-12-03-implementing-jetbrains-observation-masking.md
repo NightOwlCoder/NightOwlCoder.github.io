@@ -6,6 +6,9 @@ categories: ai-agents llm context-management
 excerpt: "AI coding agents hit context limits fast. JetBrains' research shows simple observation masking beats complex summarization—here's how to implement it."
 image: /assets/2025-12-03-observation-masking-preview.jpg
 hashtags: "#AIAgents #LLM #ContextWindow #JetBrains #Programming"
+series: "The QL Journey"
+series_part: 6
+series_total: 10
 ---
 
 # Implementing JetBrains' Observation Masking: 80% Context Reduction for AI Agents
@@ -168,3 +171,19 @@ The approach is straightforward to implement:
 
 - **JetBrains Blog:** [Cutting Through the Noise: Smarter Context Management for LLM-Powered Agents<sup style="font-size: 20px;">⇗</sup>](https://blog.jetbrains.com/research/2025/12/efficient-context-management/){:target="_blank"}
 - **Paper:** [arXiv:2508.21433<sup style="font-size: 20px;">⇗</sup>](https://arxiv.org/pdf/2508.21433){:target="_blank"}
+
+---
+
+## What's Next
+
+This is Part 6 of The QL Journey series (non-sequential - we skip ahead to the good stuff!):
+
+- **Part 1:** [From 25 Aliases to One Command](/from-25-aliases-to-one-command-building-a-smart-cli) - Where it all started
+- **Parts 2-5:** Coming soon - Backup systems, watchers, semantic search
+- **Part 7+:** More QL features as they're built
+
+The observation masking technique saved this project from context death. Without it, QL Chat would have been unusable at 700+ message conversations.
+
+---
+
+*Part 6 of the [QL Journey](/series/the-ql-journey.html) series.*

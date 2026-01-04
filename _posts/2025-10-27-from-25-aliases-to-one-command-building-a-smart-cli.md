@@ -6,6 +6,9 @@ categories: python automation cli
 excerpt: "How I replaced dozens of hardcoded shell aliases with a fuzzy-searching workspace launcher that actually works"
 image: /assets/2025-10-27-cli-workspace-launcher.png
 hashtags: "#Python #CLI #Automation #DevTools #Productivity"
+series: "The QL Journey"
+series_part: 1
+series_total: 10
 ---
 
 # From 25 Aliases to One Command: Building a Smart CLI Workspace Launcher
@@ -282,3 +285,19 @@ cd quick-launch
 ```
 
 Now when someone asks "how do you manage all those projects?", I can honestly say: "I don't. My launcher does."
+
+---
+
+## What's Next
+
+This is Part 1 of The QL Journey series, documenting the evolution from simple project launcher to AI-powered development environment:
+
+- **Part 2:** Never Lose an AI Conversation Again (coming soon) - The backup system
+- **Part 3:** The Always-On Watcher (coming soon) - Real-time conversation tracking
+- **Part 6:** [Implementing JetBrains' Observation Masking](/implementing-jetbrains-observation-masking) - 80% context reduction
+
+Follow along as we build increasingly sophisticated AI development tools.
+
+---
+
+*Part 1 of the [QL Journey](/series/the-ql-journey.html) series.*
