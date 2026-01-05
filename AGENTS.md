@@ -264,6 +264,38 @@ Before finalizing, verify:
 - [ ] Image paths use relative notation (`../assets/`)
 - [ ] All images exist in assets folder
 - [ ] External links are properly formatted
+- [ ] **ALL internal links validated** (see Link Validation below)
+
+### Step 7a: Link Validation (CRITICAL!)
+
+**BEFORE committing ANY blog post, run link validators:**
+
+```bash
+# Check source files for date-format links
+python3 scripts/validate-links.py
+
+# After pushing, validate deployed site
+python3 scripts/crawl-and-validate.py
+```
+
+**Common link mistakes:**
+- ❌ Date format: `](/2025/12/05/post-name/)` 
+- ✅ Correct: `](/post-name)` (use FILENAME slug, not title)
+- ❌ Links to unpublished posts (404s!)
+- ✅ Use `](#)` with `<!-- Coming soon! -->` comment for planned posts
+
+**CRITICAL RULE:** Internal links MUST use the filename slug (part after date):
+- Filename: `2025-12-05-local-llm-command-safety-classifier.md`
+- URL: `/local-llm-command-safety-classifier` ✅
+- NOT: `/stop-approving-ls-using-a-local-llm-to-auto-classify-command-safety` ❌
+
+**Link validation workflow:**
+1. Write post with internal links
+2. Run `validate-links.py` to catch date-format links
+3. Commit and push
+4. Wait 3-5 min for GitHub Pages deploy
+5. Run `crawl-and-validate.py` to verify site-wide
+6. Fix any 404s found
 
 ### Step 8: Inform User
 
