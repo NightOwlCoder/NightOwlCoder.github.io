@@ -170,8 +170,8 @@ If you're building AI agents and frustrated by the "goldfish memory" problem, fo
 
 ---
 
-*This is Part 1 of the [Building AI Memory Systems](/categories/ai) series.*
-*Next: [Dual-LLM Architecture: Analysis vs Synthesis](/dual-llm-architecture)*
+*This is Part 1 of the [Building AI Memory Systems](/series/building-ai-memory-systems.html) series.*
+*Next: [Dual-LLM Architecture: Analysis vs Synthesis](#) <!-- Coming soon! -->*
 
 ---
 
