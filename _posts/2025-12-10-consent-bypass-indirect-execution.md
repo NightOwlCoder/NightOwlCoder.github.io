@@ -10,7 +10,7 @@ series_part: 3
 series_total: 3
 ---
 
-*Part 3 of the AI Consent Security series. Previously: [Local LLM Command Safety](/stop-approving-ls-using-a-local-llm-to-auto-classify-command-safety) and [Trusted Commands Betrayal](/when-your-trusted-commands-betray-you-how-an-llm-exploited-my-safety-allowlist).*
+*Part 3 of the AI Consent Security series. Previously: [Local LLM Command Safety](/local-llm-command-safety-classifier) and [Trusted Commands Betrayal](/trusted-commands-betrayal).*
 
 
 ## The Trilogy So Far
