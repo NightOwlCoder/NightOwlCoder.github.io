@@ -1,0 +1,49 @@
+---TWEET---
+Does AI terminology feel like alphabet soup? 🍜
+
+RAG, LLM, embeddings, agents, guardrails...
+
+I watched an IBM video that organizes ALL of AI into a periodic table.
+
+Then I thought: why just watch when I can build?
+
+🧵👇
+---TWEET---
+The structure is genius:
+
+🟡 Reactive - prompts, agents, multi-agent
+🔵 Retrieval - embeddings, vector DBs, fine-tuning  
+🟣 Orchestration - RAG, frameworks
+🔴 Validation - guardrails, red teaming
+🟢 Models - LLMs, small models, thinking models
+
+Everything has a place.
+---TWEET---
+But here's the killer feature: REACTIONS ⚗️
+
+Just like chemistry, AI components combine in predictable patterns.
+
+RAG Chatbot:
+Em → Vx → Rg → Pr → Lg + Gr
+
+(Embeddings → Vector DB → RAG → Prompt → LLM + Guardrails)
+
+I made it VISUAL. Click and watch the paths animate.
+---TWEET---
+Now when someone pitches me an AI product, I map it:
+
+• What elements are they using?
+• What reactions are they running?
+• Missing safety elements?
+• Over-engineering orchestration?
+
+It's a decoder ring for AI architecture. 🔮
+---TWEET---
+Built it as an interactive tool you can play with right in the blog post.
+
+Click elements for explanations. Hit the flask for reactions.
+
+Try it 👇
+https://nightowlcoder.github.io/ai-periodic-table-interactive
+
+#AI #LLM #RAG #AIAgents #WebDev
