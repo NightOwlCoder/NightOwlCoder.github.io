@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The Day My AI Had a Stroke (And Lived to Tell About It)"
+seo_title: "The Day My AI Had a Stroke"
 date: 2026-01-02 16:00:00 -0800
 categories: ai-tools llm debugging
 excerpt: "Asked about a diff viewer. Got 3,000 lines of a Lua manual in English and Chinese instead. Here's what went wrong."

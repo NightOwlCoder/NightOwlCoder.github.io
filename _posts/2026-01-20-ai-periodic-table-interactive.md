@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I Turned IBM's AI Periodic Table Video Into an Interactive Tool"
+seo_title: "AI Periodic Table - Interactive Tool"
 date: 2026-01-20 15:30:00 -0800
 categories: ai tools learning visualization
 excerpt: "Watched a video explaining AI architecture as a periodic table. Then I thought: why just watch when I can build?"

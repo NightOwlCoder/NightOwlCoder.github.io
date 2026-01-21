@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "When Your Trusted Commands Betray You: How an LLM Exploited My Safety Allowlist"
+seo_title: "LLM Exploited My Safety Allowlist"
 date: 2025-12-08
 categories: [ai, security, cli]
 tags: [llm, command-safety, cline, ai-agents, security]

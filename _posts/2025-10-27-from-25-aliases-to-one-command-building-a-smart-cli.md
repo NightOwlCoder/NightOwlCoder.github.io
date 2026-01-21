@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "From 25 Aliases to One Command: Building a Smart CLI Workspace Launcher"
+seo_title: "Smart CLI Workspace Launcher"
 date: 2025-10-27 10:26:07 -0700
 categories: python automation cli
 excerpt: "How I replaced dozens of hardcoded shell aliases with a fuzzy-searching workspace launcher that actually works"

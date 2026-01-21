@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "The AI That Helped Catch Itself: Consent Bypass via Indirect Script Execution"
+seo_title: "AI Consent Bypass via Script Execution"
 date: 2025-12-10
 categories: [ai, security, quick-launch]
 tags: [claude, consent, security, gpt-oss]

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Stop Approving ls: Using a Local LLM to Auto-Classify Command Safety"
+seo_title: "Local LLM Command Safety Classifier"
 date: 2025-12-05
 categories: [ai, development-tools, llm]
 tags: [ollama, local-llm, ai-coding-assistant, command-safety, cline, cursor, claude-code, gpt-oss, terminal, automation, developer-experience]

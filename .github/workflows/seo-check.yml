@@ -1,0 +1,31 @@
+name: SEO Check
+on: [push, pull_request]
+
+jobs:
+  check-titles:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check title lengths
+        run: |
+          failed=0
+          for f in _posts/*.md; do
+            # Check seo_title first, fall back to title
+            seo_title=$(grep "^seo_title:" "$f" 2>/dev/null | sed 's/seo_title: *//' | tr -d '"'"'")
+            title=$(grep "^title:" "$f" | sed 's/title: *//' | tr -d '"'"'")
+
+            check_title="${seo_title:-$title}"
+            len=${#check_title}
+
+            if [ $len -gt 50 ]; then
+              echo "❌ $f: title too long ($len chars): $check_title"
+              echo "   Add seo_title: \"shorter version\" to front matter"
+              failed=1
+            fi
+          done
+
+          if [ $failed -eq 1 ]; then
+            exit 1
+          fi
+          echo "✅ All titles OK for SEO"
