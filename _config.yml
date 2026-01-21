@@ -103,6 +103,10 @@ defaults:
       path: "google77bb359365262952.html"
     values:
       sitemap: false
+  - scope:
+      path: "faceone.html"
+    values:
+      sitemap: false
 
 future: true
 
