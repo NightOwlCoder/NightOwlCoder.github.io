@@ -659,11 +659,11 @@ This works from local machine (home IP not blocked by Cloudflare).
 
 **Permalink format:** `/:title` (no date in URL)
 
-**Generated URLs:** `https://nightowlcoder.github.io/post-slug` (NO trailing slash!)
+**Generated URLs:** `https://nightowlcoder.github.io/post-slug/` (WITH trailing slash!)
 
 **Important:** 
-- ✅ `https://nightowlcoder.github.io/post-slug` 
-- ❌ `https://nightowlcoder.github.io/post-slug/` (404!)
+- ✅ `https://nightowlcoder.github.io/post-slug/` (canonical)
+- ✅ `https://nightowlcoder.github.io/post-slug` (also works, redirects)
 
 ### Required Fields for Auto-Tweet
 
