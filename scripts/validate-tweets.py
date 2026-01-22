@@ -83,7 +83,7 @@ def check_for_placeholders(tweet_text):
         issues.append("Contains [IMAGE] placeholder")
     
     # Check for broken URLs
-    if 'nightowlcoder.github.io' in tweet_text:
+    if 'nightowlcoder.kovadj.dev' in tweet_text:
         urls = re.findall(r'https://nightowlcoder\.github\.io/[^\s\)]+', tweet_text)
         for url in urls:
             if url.endswith('/'):

@@ -2,7 +2,7 @@
 """
 Site-wide link crawler and validator.
 
-Crawls https://nightowlcoder.github.io and checks:
+Crawls https://nightowlcoder.kovadj.dev and checks:
 - All internal links work (no 404s)
 - All external links respond (no dead links)
 - No broken anchors
@@ -23,7 +23,7 @@ from urllib.parse import urljoin, urlparse
 import requests
 from bs4 import BeautifulSoup
 
-BASE_URL = "https://nightowlcoder.github.io"
+BASE_URL = "https://nightowlcoder.kovadj.dev"
 VISITED = set()
 TO_VISIT = ["/"]
 BROKEN_LINKS = []
@@ -32,7 +32,7 @@ EXTERNAL_LINKS = defaultdict(list)  # {url: [pages that link to it]}
 def is_internal(url):
     """Check if URL is internal to the site."""
     parsed = urlparse(url)
-    return not parsed.netloc or parsed.netloc == "nightowlcoder.github.io"
+    return not parsed.netloc or parsed.netloc == "nightowlcoder.kovadj.dev"
 
 def normalize_url(url):
     """Normalize URL for comparison."""

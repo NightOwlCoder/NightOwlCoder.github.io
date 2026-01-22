@@ -555,12 +555,12 @@ Final tweet with link and #hashtags
 
 **View recent workflow runs:**
 ```bash
-gh run list --repo NightOwlCoder/nightowlcoder.github.io --limit 10
+gh run list --repo NightOwlCoder/nightowlcoder.kovadj.dev --limit 10
 ```
 
 **View logs for a specific run:**
 ```bash
-gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.github.io --log
+gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.kovadj.dev --log
 ```
 
 **Common workflow statuses:**
@@ -594,12 +594,12 @@ This means you've hit Twitter's rate limit. Solutions:
 
 **Step 1: Check workflow status**
 ```bash
-gh run list --repo NightOwlCoder/nightowlcoder.github.io --limit 5
+gh run list --repo NightOwlCoder/nightowlcoder.kovadj.dev --limit 5
 ```
 
 **Step 2: View error logs**
 ```bash
-gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.github.io --log | tail -50
+gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.kovadj.dev --log | tail -50
 ```
 
 **Common Errors:**
@@ -659,11 +659,11 @@ This works from local machine (home IP not blocked by Cloudflare).
 
 **Permalink format:** `/:title` (no date in URL)
 
-**Generated URLs:** `https://nightowlcoder.github.io/post-slug/` (WITH trailing slash!)
+**Generated URLs:** `https://nightowlcoder.kovadj.dev/post-slug/` (WITH trailing slash!)
 
 **Important:** 
-- ✅ `https://nightowlcoder.github.io/post-slug/` (canonical)
-- ✅ `https://nightowlcoder.github.io/post-slug` (also works, redirects)
+- ✅ `https://nightowlcoder.kovadj.dev/post-slug/` (canonical)
+- ✅ `https://nightowlcoder.kovadj.dev/post-slug` (also works, redirects)
 
 ### Required Fields for Auto-Tweet
 

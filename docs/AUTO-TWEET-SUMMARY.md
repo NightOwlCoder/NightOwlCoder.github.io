@@ -81,14 +81,14 @@ excerpt: "A short 1-2 sentence summary for the tweet"
 
 A short 1-2 sentence summary for the tweet
 
-https://nightowlcoder.github.io/your-awesome-post-title
+https://nightowlcoder.kovadj.dev/your-awesome-post-title
 ```
 
 **If you don't add an excerpt:**
 ```
 📝 New post: Your Awesome Post Title
 
-https://nightowlcoder.github.io/your-awesome-post-title
+https://nightowlcoder.kovadj.dev/your-awesome-post-title
 ```
 
 ---

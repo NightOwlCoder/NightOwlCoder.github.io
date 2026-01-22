@@ -31,6 +31,6 @@ Lessons learned:
 ✅ LLMs = pattern matching, not thinking
 ✅ When patterns break, chaos
 
-📖 Full story: https://nightowlcoder.github.io/the-day-my-ai-had-a-stroke
+📖 Full story: https://nightowlcoder.kovadj.dev/the-day-my-ai-had-a-stroke
 
 #AIAgents #LLM #Hallucination #Programming

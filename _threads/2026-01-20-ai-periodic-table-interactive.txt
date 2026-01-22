@@ -44,6 +44,6 @@ Built it as an interactive tool you can play with right in the blog post.
 Click elements for explanations. Hit the flask for reactions.
 
 Try it 👇
-https://nightowlcoder.github.io/ai-periodic-table-interactive
+https://nightowlcoder.kovadj.dev/ai-periodic-table-interactive
 
 #AI #LLM #RAG #AIAgents #WebDev

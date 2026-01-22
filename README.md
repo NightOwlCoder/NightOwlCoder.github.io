@@ -1,6 +1,6 @@
 # NightOwlCoder Blog
 
-My personal [blog](https://nightowlcoder.github.io) site lives here, kindly hosted by [GitHub Pages](https://pages.github.com/).
+My personal [blog](https://nightowlcoder.kovadj.dev) site lives here, kindly hosted by [GitHub Pages](https://pages.github.com/).
 
 Follow [@OwlCoder](https://twitter.com/OwlCoder) for new posts.
 

@@ -1,6 +1,6 @@
 # Instructions for Creating a NightOwlCoder Blog Post
 
-You are helping create a new blog post for the NightOwlCoder blog (nightowlcoder.github.io). Follow these instructions carefully.
+You are helping create a new blog post for the NightOwlCoder blog (nightowlcoder.kovadj.dev). Follow these instructions carefully.
 
 ## Context Files to Read First
 

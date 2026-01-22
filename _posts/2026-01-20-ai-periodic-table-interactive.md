@@ -19,7 +19,7 @@ Then I thought: *why just watch when I can build?*
 
 <div style="position: relative; width: 100%; height: 700px; border: 2px solid #333; border-radius: 8px; overflow: hidden; margin: 2rem 0;">
   <iframe 
-    src="https://nightowlcoder.github.io/ai-things/periodic-table/" 
+    src="https://nightowlcoder.kovadj.dev/ai-things/periodic-table/" 
     style="width: 100%; height: 100%; border: none;"
     title="AI Periodic Table Interactive Tool"
     loading="lazy">

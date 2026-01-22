@@ -35,8 +35,8 @@ You'll see your **API Key** and **API Key Secret** - SAVE THESE!
 4. Under **"App permissions"**, select **"Read and Write"**
 5. Fill in required fields:
    - **Type of App**: Web App
-   - **Callback URI**: `https://nightowlcoder.github.io/`
-   - **Website URL**: `https://nightowlcoder.github.io/`
+   - **Callback URI**: `https://nightowlcoder.kovadj.dev/`
+   - **Website URL**: `https://nightowlcoder.kovadj.dev/`
 6. Click **"Save"**
 
 ## Step 6: Generate Access Tokens

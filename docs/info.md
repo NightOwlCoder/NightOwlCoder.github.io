@@ -3,11 +3,11 @@ blog is based on hacker them got from
 https://github.com/tocttou/hacker-blog.git
 readme https://github.com/tocttou/hacker-blog
 
-I moved files from it into my nightowlcoder.github.io folder
+I moved files from it into my nightowlcoder.kovadj.dev folder
 
 title: NightOwl code real
   email: "nightowlcoder@outlook.com"
-  url: "https://nightowlcoder.github.io/"
+  url: "https://nightowlcoder.kovadj.dev/"
 
 theme: jekyll-theme-hacker
 
