@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I Tested 6 Local Coder LLMs on Real Apps. The Leaderboard Surprised Me."
+seo_title: "Local Coder LLM Leaderboard 2026"
 date: 2026-05-04 18:30:00 -0700
 categories: ai-tools llm benchmarks ollama
 excerpt: "Six models, five apps, one honest leaderboard. qwen3-coder isn't the king anymore."
