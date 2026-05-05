@@ -1,0 +1,29 @@
+---TWEET---
+I spent a week building an LLM benchmark.
+
+The first two runs gave completely different rankings. Neither was real.
+
+Here are 6 ways my tooling lied to me. 🧵👇
+---TWEET---
+Lie 1: Piping prompts to `ollama run` merges them into one turn.
+Lie 2: ANSI escape codes break code extraction silently.
+Lie 3: `keep_alive` means only the first benchmark gets a cold load.
+
+Fix: Ollama HTTP API + stop-per-benchmark.
+---TWEET---
+Lie 4: Disk fills silently mid-run (293 GB of models, zero free space, no error).
+Lie 5: caxi said "no canvas" on 10/10 pages. grep showed 9/10 had canvas. Stale Chrome session.
+Lie 6: Vision models rated every UI 3/5 regardless of quality.
+
+Fix: Playwright + pairwise Opus.
+---TWEET---
+After fixing all 6 lies, the leaderboard flipped:
+
+• gemma4 went from "probably mid" to #1 (visual polish carried it)
+• qwen3-coder went from "obvious winner" to #5 (games-only specialist)
+
+Your tools lie. Test the tests.
+
+Full story: https://nightowlcoder.kovadj.dev/my-llm-benchmark-was-lying/
+
+#LocalLLM #Benchmarks #Playwright #Debugging #AITools

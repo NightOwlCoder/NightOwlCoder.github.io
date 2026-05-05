@@ -1,0 +1,31 @@
+---TWEET---
+I benchmarked 6 local coder LLMs on real apps: todo, snake, Tetris, calculator, markdown editor.
+
+Not synthetic tests. Playwright drives each app. Opus judges visual polish.
+
+The results flipped my assumptions. 🧵👇
+---TWEET---
+The leaderboard:
+
+1. gemma4:26b-mlx-bf16 — 79/100
+2. qwen3-coder-next — 76/100
+3. laguna-xs.2 — 64/100
+4. qwen3.5:35b — 64/100
+5. qwen3-coder:30b — 63/100
+6. gpt-oss:20b — 58/100
+
+qwen3-coder, the model I ran daily for months, dropped to #5.
+---TWEET---
+Three surprises:
+
+• gemma4 won on visual polish (glassmorphism, gradients, animations)
+• qwen3-coder:30b scored 100 on games but 13/100 on markdown
+• gpt-oss has the cleanest code (88/100 review) but worst efficiency (28K tokens)
+---TWEET---
+Framework is open source. Add your models, run the bench:
+
+github.com/NightOwlCoder/local-llm-bench
+
+Full write-up + per-benchmark breakdown: https://nightowlcoder.kovadj.dev/local-coder-llm-leaderboard/
+
+#LocalLLM #Ollama #CodingBenchmark #AIAgents #OpenSource

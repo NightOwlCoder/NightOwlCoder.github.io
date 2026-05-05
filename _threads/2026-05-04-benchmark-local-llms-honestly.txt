@@ -1,0 +1,27 @@
+---TWEET---
+Seven rules for benchmarking local LLMs honestly.
+
+Learned the hard way — my bench lied twice before it told the truth.
+
+These rules are reusable beyond LLMs. 🧵👇
+---TWEET---
+1. Generate real artifacts, not multiple-choice
+2. Test behavior, not structure (Playwright > grep)
+3. Pairwise > absolute scoring (vision models clump at 3/5)
+4. Normalize to 0-100 (don't mix Elo, /50, /8, /30)
+---TWEET---
+5. Separate cold load from warm generation
+6. Don't hide efficiency — penalize token bloat
+7. Publish the artifacts (code IS evidence)
+
+Each rule has a failure story behind it.
+---TWEET---
+Framework implementing all 7 rules:
+
+github.com/NightOwlCoder/local-llm-bench
+
+Add models, run `./bench.sh`, get honest scores.
+
+Full methodology post: https://nightowlcoder.kovadj.dev/benchmark-local-llms-honestly/
+
+#LLM #Benchmarks #Methodology #Playwright #OpenSource
