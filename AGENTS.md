@@ -539,17 +539,42 @@ When a matching `_threads/` file exists, the script posts a **multi-tweet thread
 Location: _threads/YYYY-MM-DD-slug.txt
 
 ---TWEET---
-First tweet with hook 🧵👇
+Lead tweet: the hook. No link, no hashtags, no thread emoji.
 ---TWEET---
 Second tweet with context
 ---TWEET---
-Final tweet with link and #hashtags
+Final tweet: the link, and a question that invites a reply
 ```
 
 **Important:** 
 - Thread filename must match the post slug exactly
 - Each tweet separated by `---TWEET---`
 - Last tweet should include the URL to the full post
+
+**What X rewards now (verified Aug 2026, changed from the 2025 conventions):**
+
+| Do | Why |
+|---|---|
+| Attach an image to the lead tweet | Native media outranks text-only; dwell time is a ranking signal |
+| Skip hashtags entirely | The algorithm categorizes semantically; 3+ tags trip spam filters |
+| Keep the link OFF the lead tweet | An external link there costs roughly half the reach |
+| End on a question | A reply is worth ~27x a like, a back-and-forth ~150x |
+| 1-2 sentences per tweet | Short tweets read better and rank better than dense ones |
+| Stop at 5-7 tweets | Also keeps the API bill down — every tweet is a billed call |
+
+**Do not use `🧵👇` or `1/7` numbering.** Both read as engagement bait now and get throttled.
+The three May 2026 threads in `_threads/` still carry the emoji — they predate this and are
+not the pattern to copy.
+
+**Posting a thread by hand:**
+```bash
+.venv-tweet/bin/python scripts/tweet-thread-v2.py \
+  --thread _threads/YYYY-MM-DD-slug.txt \
+  --image assets/YYYY-MM-DD-card.png        # optional, lands on tweet 1
+```
+Add `--dry-run` first: it validates the 280-char limit per tweet and posts nothing.
+`scripts/tweet-local.py` is the older tweepy path and currently fails with 401 on write —
+see X API Auth below.
 
 ### Checking Tweet Status
 
@@ -607,14 +632,64 @@ gh run view <RUN_ID> --repo NightOwlCoder/nightowlcoder.kovadj.dev --log | tail 
 | Error | Cause | Fix |
 |-------|-------|-----|
 | `429 Too Many Requests` | Rate limit hit | Wait 15min-24h, reduce thread size |
-| `403 Forbidden` | API keys invalid OR Cloudflare blocking | Check secrets OR use local script |
-| `Cloudflare challenge` | GitHub Actions IP blocked | **Use local script** (see below) |
+| `403 Forbidden` | App sits in an unfunded project (`reason=client-not-enrolled`) | Move the app to the funded project — see X API Auth below |
+| `401 Unauthorized` on write | tweepy broken against this app; reads still work | Post with `scripts/tweet-thread-v2.py` |
 | `No thread file found` | Missing `_threads/` file | Create thread file or use single tweet |
 | `URL 404` | Post not deployed yet | Action waits 180s, but may need longer |
 
-### Local Tweet Script (Cloudflare Workaround)
+### X API Auth — read this before debugging a failed tweet
 
-**As of Jan 2026**, Twitter/X has Cloudflare protection that sometimes blocks GitHub Actions datacenter IPs. When this happens, use the local script instead.
+**The "Cloudflare blocks Actions IPs" theory below was wrong.** The same failure reproduces
+from a home IP, so it was never about where the request came from. Aug 2026: the real causes,
+in the order they bit us.
+
+**1. `403` with `"reason":"client-not-enrolled"`**
+
+The app is attached to a project, but not the project holding the credits. X ended the free
+tier on 2026-02-06; v2 now requires a funded project. The error text says "must use keys and
+tokens from a developer App that is attached to a Project" — that message is stale boilerplate
+and misleads. Read the `reason` field in the JSON body, not the `detail` string.
+
+Fix: developer portal → the app → move it into the funded project (ours is
+`Blogger (Pay Per Use)`, Production). Keys do NOT change; the app inherits the plan of
+whichever project it sits in. No new app, no regenerated tokens.
+
+Diagnose it in one call — this is a read, it costs nothing:
+```bash
+.venv-tweet/bin/python -c "
+import pathlib, requests
+from requests_oauthlib import OAuth1
+p = pathlib.Path.home() / '.config/secrets'
+r = lambda n: (p / n).read_text().strip()
+a = OAuth1(r('twitter_api_key'), r('twitter_api_secret'),
+           r('twitter_access_token'), r('twitter_access_token_secret'))
+print(requests.get('https://api.x.com/2/users/me', auth=a, timeout=20).text[:300])"
+```
+`v1.1 works but v2 does not` is the signature of this problem — v1.1 predates projects and
+keeps working, so a passing v1.1 check proves nothing about v2.
+
+**2. `401 Unauthorized` from tweepy on write, while reads succeed**
+
+Not a credentials problem. `tweepy.Client.create_tweet` fails against this app while a raw
+`POST https://api.x.com/2/tweets` succeeds with the identical OAuth1 signature. Confirmed by
+the `x-access-level: read-write-directmessages` header on the raw response.
+
+Fix: use `scripts/tweet-thread-v2.py`. Do not spend time regenerating tokens for this.
+
+**3. Media upload `400 Missing media_category`**
+
+`https://api.x.com/2/media/upload` requires `media_category=tweet_image` in the form body.
+The older `https://upload.twitter.com/1.1/media/upload.json` host does not. Both are wired
+in `scripts/x-upload-media.py`, v2 first.
+
+**Cost:** roughly 1.5¢ per tweet, ~20¢ for a tweet carrying a link. A 7-tweet thread plus
+deletes and one image ran about 11¢. Deletes and reads are cheap. Budget accordingly —
+reposting a thread costs the whole thread again.
+
+### Local Tweet Script (legacy tweepy path)
+
+`scripts/tweet-local.py` is the original tweepy script. It authenticates but **fails with 401
+on write** — see above. Kept for reference; use `tweet-thread-v2.py` instead.
 
 **Location:** `scripts/tweet-local.py`
 
@@ -653,7 +728,7 @@ When user asks to "post the thread" or "tweet this", run:
 cd ~/fileZ/projZ/blog && python3 scripts/tweet-local.py
 ```
 
-This works from local machine (home IP not blocked by Cloudflare).
+Superseded: the local script authenticates but 401s on write. Use `tweet-thread-v2.py`.
 
 ### URL Configuration
 

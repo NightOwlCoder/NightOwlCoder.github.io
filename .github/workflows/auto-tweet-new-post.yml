@@ -40,10 +40,14 @@ jobs:
       run: |
         python .github/scripts/tweet-new-post.py || {
           echo ""
-          echo "⚠️  Tweet failed - likely Cloudflare blocking GitHub Actions IPs"
-          echo "👉 Use local script instead: python3 scripts/tweet-local.py"
+          echo "Tweet failed. This is NOT a Cloudflare/IP issue — it reproduces locally."
+          echo "Check, in order:"
+          echo "  1. 403 with reason=client-not-enrolled -> the app is in an unfunded project."
+          echo "     Move it to the funded project in the X developer portal. Keys stay the same."
+          echo "  2. 401 on write while reads work -> tweepy is broken against this app."
+          echo "     Post with: .venv-tweet/bin/python scripts/tweet-thread-v2.py --thread <file>"
+          echo "  3. See AGENTS.md 'X API Auth' for the full triage."
           echo ""
-          echo "This is a known issue as of Jan 2026."
-          echo "The blog post was still published successfully!"
-          exit 0  # Don't fail the workflow - blog is deployed
+          echo "The blog post itself published fine — Pages deploys in a separate job."
+          exit 1
         }
