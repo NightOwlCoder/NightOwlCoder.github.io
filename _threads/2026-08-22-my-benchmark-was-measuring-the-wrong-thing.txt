@@ -1,19 +1,24 @@
----TWEET---
 I gave 7 local LLMs a terminal, a repo, and 20 hours of my Mac.
 
 One wrote its own tests.
 Two deleted mine.
 
-Only one passed all 9 legs 🧵👇
+Only one passed all 9 legs.
 
 ---TWEET---
-My May leaderboard said gemma4 won. It did — at writing one file from one prompt.
 
-That's not how I use a model. I hand it a repo and let it work.
+My old leaderboard said gemma4 won. It was scoring one-shot code: here's a prompt, emit a file, grade it.
 
-So I built a 459-line agent loop: 6 tools, real working dir, verdict from running the test suite. Never from the transcript.
+That is not how anyone uses these models. You give an agent a repo and it works.
 
 ---TWEET---
+
+So I built a 459-line agent loop. 6 tools, a real working directory, and the verdict comes from running the test suite.
+
+Never from the transcript.
+
+---TWEET---
+
 First smoke test, qwen3:1.7b, reported:
 
 "Operator precedence logic fixed to ensure correct evaluation order"
@@ -23,20 +28,25 @@ It had written zero files. Tests still red.
 If you grade transcripts, that's a pass.
 
 ---TWEET---
+
 The finding I'd have missed with one run per task.
 
 gpt-oss:20b on the same fixture, 3 attempts: 26, 4, 29.
 
 The median is 26 and the median is a lie. 3 of 7 models hide a collapse like that.
 
-Consistency separates local models more than peak score.
+Consistency separates local models more than peak score does.
 
 ---TWEET---
-Also: laguna's GGUF build took 189s and spat 110 code fences for one snake game. Same model in MLX: 17.8s, and it stops.
 
-Wrong build, not wrong model.
+One more: laguna's GGUF build took 189s and spat 110 code fences for one snake game. Same model in MLX: 17.8s, and it stops.
 
-Writeup + all 63 result files:
+Wrong build, not wrong model. Worth checking which one you pulled.
+
+---TWEET---
+
+Full writeup, the harness, and all 63 result files are public.
+
+Which local model are you actually running for agent work?
+
 https://nightowlcoder.kovadj.dev/my-benchmark-was-measuring-the-wrong-thing
-
-#LocalLLM #Ollama
