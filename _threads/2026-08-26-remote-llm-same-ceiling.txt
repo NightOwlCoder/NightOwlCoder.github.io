@@ -1,0 +1,45 @@
+A colleague read my local-LLM benchmark and asked the obvious thing: wouldn't a big remote model just ace these tasks?
+
+So I ran one. GLM-5.3-Flash, the model that showed up anonymously as "Ox Alpha" last week.
+
+It tied.
+---TWEET---
+Same three tasks: fix a planted parser bug, implement a kata scored out of 31, build Tetris from nothing and look at a screenshot of it.
+
+GLM-5.3-Flash: 6/6, 31/31, 8/8.
+Muse Glimmer 30B, running on my laptop: 6/6, 31/31, 8/8.
+
+Three attempts each.
+---TWEET---
+That tie IS the finding, and it's about my benchmark, not the models.
+
+31/31 is the maximum. When a 21GB local model and a frontier cloud model both hit the ceiling three times running, the task has stopped measuring anything.
+---TWEET---
+I also had a nice theory: same score, but remote burns way more tokens.
+
+Its Tetris run used 560,313 prompt tokens vs Glimmer's 54,831. Ten times. Airtight.
+
+Then I checked every model instead of the one that agreed with me.
+---TWEET---
+On the kata, remote used 49,780 tokens. Glimmer used 153,071.
+
+The remote model was 3x MORE efficient.
+
+And on Tetris, gpt-oss:20b — running locally — burned 381,060. Token appetite is a per-task property, not a remote-vs-local one.
+---TWEET---
+The part that stuck with me isn't in the scores.
+
+The Build task offers a screenshot tool. Since I can't verify a hosted model's vision, I gave it the weaker text-description path.
+
+It ignored that and wrote its own Chrome DevTools driver. 116 lines, zero dependencies.
+---TWEET---
+It spawned headless Chrome, opened a WebSocket, did request/response correlation against CDP, subscribed to Runtime.exceptionThrown so page errors got captured, screenshotted the game, pressed P, then screenshotted the pause overlay.
+
+Offered a worse tool, it built a better one.
+---TWEET---
+Remote doesn't do these tasks more easily. It does them exactly as well, because "as well" is capped and good local models already get there.
+
+Harness, results, and the cdp.js it wrote:
+https://nightowlcoder.kovadj.dev/remote-llm-same-ceiling
+
+What task do local models NOT ace?
