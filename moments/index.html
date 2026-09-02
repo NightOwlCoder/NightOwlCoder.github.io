@@ -75,9 +75,9 @@
 </div>
 <p class="tag">one moment a day · this is moment <span data-today>?</span> of 12 · <a href="all.html">see them all</a></p>
 <script>
-// Same card for everyone on the same UTC day; no server, no cookie.
+const d=Math.floor(Date.now()/864e5)-20699;
+const i=((d<0?0:d)%12+12)%12;
 const stages=[...document.querySelectorAll('.stage[data-day]')];
-const i=Math.floor(Date.now()/864e5)%stages.length;
 stages.forEach((s,k)=>s.hidden=k!==i);
 document.querySelectorAll('[data-today]').forEach(e=>e.textContent=String(i+1));
 </script>

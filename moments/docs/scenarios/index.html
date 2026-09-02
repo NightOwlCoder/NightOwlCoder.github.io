@@ -17,6 +17,11 @@
 <p class="lede">One file per moment. Each reads top-down the way it will be shipped: the
 teaser, the story, how it is sold, how it is built. The teaser format and the twelve-moment
 rotation are in <a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+<p class="lede">These files are the source of the public teaser page. <code>scripts/teaser-site.py</code>
+renders them: bare, into <code>site/</code> for the LAN preview; <code>--public</code> runs the leak gate
+and writes <code>site-public/</code>; <code>--deploy</code> mirrors that into the blog checkout at
+<code>moments/</code>, which GitHub Pages serves at <code>nightowlcoder.kovadj.dev/moments/</code>.
+The blog push is the operator's.</p>
 </div>
 
 <section>
