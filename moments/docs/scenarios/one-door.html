@@ -1,0 +1,337 @@
+<!-- Scenario 01 — one door.
+     Reads top-down the way it will be shipped: the teaser a visitor sees,
+     the story it tells, how it is sold, and only then how it is built.
+     Drawn against real data — the 12 seats in roster.json, the six-column
+     ask anatomy in asks.md, and the DeliveryReceipt/DeliveryState that
+     already exist in engine/events.rs. Nothing here is invented shape.
+     The teaser follows the format study in docs/ideas/teaser-moment-mock.html. -->
+<meta charset="utf-8">
+<title>scenario 01 — one door</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 01 · one door</p>
+
+<!-- ============ THE TEASER, as the visitor sees it ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Want your agent to tell you it's live</span>
+     instead of asking you to review a pull request?</p>
+  <p class="beat">You asked for a bug to be fixed. Fourteen minutes later: "it's fixed and live
+     in your copy." Not a diff. Not a checklist. The thing you asked for, working.</p>
+  <div class="sig"><span class="seat">🌶️ Pepper</span> · chief of staff · one door</div>
+  <div class="foot">
+    <span class="day">day 6</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot on"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">A stranger installs ilha and talks to Pepper. She reads the roster, hands the
+ask to the seat that owns the ground, and reports what came back — never a PR to review.</p>
+</div>
+
+<section>
+<h2>The first ten minutes</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">I'm Pepper. Tell me what you want done and I'll find who does it.
+
+You have 12 specialists here. You never have to know which one — that's my job.</div>
+      </div></div>
+
+      <div class="rule"></div>
+
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">for trade-lens, ask them to fix the bug I saw yesterday</div>
+      </div></div>
+
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Which bug — the chart went blank on refresh, or the login loop?</div>
+      </div></div>
+
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">the blank chart</div>
+      </div></div>
+
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Handed it over.</div>
+        <div class="card">
+          <div class="hd"><span class="seat">📈 trade-lens</span>
+            <span class="role">its engine, its interface</span></div>
+          <div class="what">the chart goes blank when the page refreshes</div>
+          <div class="state"><span class="pip"></span>working · 2m</div>
+        </div>
+        <div class="txt" style="margin-top:8px">I'll tell you when it's fixed. Go do something else.</div>
+      </div></div>
+    </div>
+    <p class="tag">the ask · one clarifying question · the handoff</p>
+  </div>
+
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">The blank chart is fixed. It's live — refresh and it holds.</div>
+        <div class="card done">
+          <div class="hd"><span class="seat">📈 trade-lens</span>
+            <span class="role">done · 14m</span></div>
+          <div class="what">the chart goes blank when the page refreshes</div>
+          <div class="state"><span class="pip g"></span>live in your copy
+            <span class="ask">· ask what changed</span></div>
+        </div>
+      </div></div>
+
+      <div class="rule"></div>
+
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">what changed?</div>
+      </div></div>
+
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">The chart was clearing its data before asking for new data. Now it
+keeps the old one until the new one arrives. Two files, and a test that
+fails if it ever clears early again.</div>
+      </div></div>
+    </div>
+    <p class="tag">the receipt — an outcome, and the detail only if asked</p>
+  </div>
+</div>
+
+<p class="note"><b>The receipt is the whole product.</b> <i>It's live — refresh and it holds</i>
+is a claim about the stranger's copy. <i>Review PR #1162</i> is a claim about a repository, and
+it hands the work back to the person who asked for it to be taken away.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. A moment is a question the visitor already has, answered by
+one thing ilha does — not a feature with a description under it. This scenario is one moment;
+the format it follows, and the other eleven, are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why in that order</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Want your agent to tell you it's live instead of asking you to review a pull request?</i></td>
+      <td>It must be one the visitor already asks themselves — that is what makes it a moment
+          rather than a claim.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>Fourteen minutes. <i>It's fixed and live in your copy.</i> The receipt from the story
+          above, in one breath.</td>
+      <td>The smallest concrete proof, in numbers if there are any. A beat is a thing that
+          happened, never a capability.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>🌶️ Pepper · chief of staff · one door</td>
+      <td>A person does this, not a platform.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible. A teaser that traps is an ad, and the visitor knows the difference.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Where it runs</h2>
+<p>A static page picks the day's moment with no server, no cookie, no storage:</p>
+<pre>const day = Math.floor(Date.now() / 864e5);      // days since epoch, UTC
+const today = moments[day % moments.length];     // this scenario is moment 6 of 12</pre>
+<p class="note">Same moment for every visitor that day, so two people who talk about it saw the
+same thing. UTC, so a "daily" teaser does not change while a group is looking at it. Twelve
+seats, so a 12-day cycle to start — the cycle lengthens as moments are added and no code
+changes. Growth is copy, not engineering.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>A teaser makes a promise about the box. This one is honest on the day the checklist in
+part three is green and a stranger can run the story above on a fresh install. Until then it
+may run ahead of the release the way a film teaser does — but every line in it must point at
+something scheduled, never at the machine on one desk. The copy here is placeholder shape;
+Cyrano writes the real thing, and it does not go public before his pass.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>origin/main</code>. The delegation half exists; the door is
+one field earlier in the flow and one variant at the end of it.</p>
+<p class="meta">drawn against: roster.json (12 seats) · asks.md (six-column ask anatomy) ·
+engine/events.rs DeliveryReceipt + DeliveryState</p>
+</div>
+
+<section>
+<h2>What a stranger meets today</h2>
+<p>The ledger's own header says it is the only place that states current state. Measured, the
+state column reads like this:</p>
+<pre>| PA-001 | Separate agent traffic from his own | Marco | <span class="bad">**engine half MERGED** — main 7c7548b7, #1044 closed</span>
+| PA-002 | FROTA says no ships while two are live | —     | <span class="bad">**closed** — PR #1051, main 0b21cd1c</span>
+| PA-004 | porto-dock: verify, gate, file, dispatch | Marco | <span class="bad">**CLOSED — MERGED ~03:0x, PR #1064**</span></pre>
+<p class="note">The <b>ask</b> column is already in the operator's words — that half works. The
+<b>state</b> column is crew bookkeeping: a commit hash, an issue number, a PR. A stranger
+cannot tell from any of these whether the thing they asked for works now.</p>
+</section>
+
+<section>
+<h2>What she may say, and what she may not</h2>
+<table>
+  <tr><th>State</th><th>She says</th><th>Never</th></tr>
+  <tr><td class="k">handed over</td>
+      <td>Handed it to trade-lens. I'll tell you when it's fixed.</td>
+      <td class="bad">Dispatched task 7 to sede 1787…</td></tr>
+  <tr><td class="k">working</td>
+      <td>Still on it — 12 minutes in.</td>
+      <td class="bad">coder ac/gh1204-3 streaming</td></tr>
+  <tr><td class="k">needs you</td>
+      <td>It wants to delete your old export folder — yes or no?</td>
+      <td class="bad">Consent gate: run_command, tier 3</td></tr>
+  <tr><td class="k">done</td>
+      <td>It's fixed and live in your copy.</td>
+      <td class="bad">Merged as 64b47eef, review PR #1162</td></tr>
+  <tr><td class="k">failed</td>
+      <td>Couldn't do it: the data source needs a password I don't have.</td>
+      <td class="bad">Task failed after 3 attempts, see logs</td></tr>
+</table>
+<p class="note">One rule generates the whole column: <b>name the thing the stranger asked for, in
+the words they used, and say whether it works.</b> Identifiers may follow an outcome as
+reference; they may never replace it.</p>
+</section>
+
+<section>
+<h2>The engine contract — one field earlier, one variant later</h2>
+<p>The delegation half already exists:</p>
+<pre>pub struct DeliveryReceipt {          <span class="good">// events.rs:48 — EXISTS</span>
+    pub id: String,
+    pub delivery_key: Option<String>, <span class="bad">// a per-send retry key — NOT the ask's identity</span>
+    pub target: SessionRef,           <span class="good">// who it went to, typed: { session, label }</span>
+    pub status: DeliveryState,
+    pub landed_at: DateTime<Utc>,
+}
+
+pub enum DeliveryState {              <span class="good">// events.rs:77 — EXISTS</span>
+    Queued, Landed, Seen, Dismissed, Answered,
+}                                     <span class="bad">// ends at ANSWERED</span></pre>
+<p><b>Answered is a postal fact</b> — the message reached a seat and the seat replied. It says
+nothing about whether the stranger's bug is fixed. Every state in that enum is about the
+<i>envelope</i>; the door needs a state about the <i>work</i>. And nothing on the wire says
+<i>which ask</i> a delivery serves: <code>SessionRef</code> names a session, not an ask.</p>
+<table>
+  <tr><th>Question</th><th>Answered by</th><th>Exists?</th></tr>
+  <tr><td>Who did she hand it to?</td><td class="k">DeliveryReceipt.target</td><td class="good">yes</td></tr>
+  <tr><td>Did it arrive?</td><td class="k">DeliveryState::Landed</td><td class="good">yes</td></tr>
+  <tr><td>Is the seat working on it?</td><td class="k">TurnPhase (in_flight_turns)</td><td class="good">yes</td></tr>
+  <tr><td><b>Which ask is this delivery for?</b></td><td class="k">—</td><td class="bad">NO</td></tr>
+  <tr><td><b>Is the thing I asked for done?</b></td><td class="k">—</td><td class="bad">NO</td></tr>
+  <tr><td><b>What changed?</b></td><td class="k">—</td><td class="bad">NO</td></tr>
+</table>
+
+<p>The delta, in two places on the existing family:</p>
+<pre><span class="good">// outbound — the delegation carries the ask's identity from the moment Pepper hands it over</span>
+ask_key: String             // PA-nnn — the ledger's durable key: assigned at open, never reused,
+                            // never renumbered. The engine carries a key that exists; it mints none.
+
+<span class="good">// settle — emitted by the seat that did the work</span>
+AskSettled {
+    ask_key: String,        // joins this outcome to the ask it settles
+    target: SessionRef,     // the typed ref DeliveryReceipt already carries
+    outcome: AskOutcome,    // Done { what_changed } | Failed { why } | NeedsYou { question }
+    settled_at: DateTime<Utc>,
+}                           // what_changed is in the SEAT's terms — it is the only party that knows</pre>
+
+<p class="note"><b>The receipt joins two facts held in two places.</b> <i>What was asked</i> is
+Pepper's — it is already column 3 of <code>asks.md</code>, in the operator's words. <i>What
+changed</i> is the seat's — it is the only party that knows. Neither session can compose the
+whole sentence, so neither is asked to: the seat emits its half in <code>AskSettled</code>, the
+door reads the ask column by <code>ask_key</code>, and renders the two side by side. Nothing is
+translated twice, and nothing states what it does not know.</p>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">Pepper picks the seat from a menu</td>
+      <td>A stranger cannot choose between 12 charters they have not read. Choosing IS her job —
+          a menu hands it back.</td></tr>
+  <tr><td class="k">Show the live crew feed</td>
+      <td>Measured on this machine: a single peer-opened turn carries 7–18 feed items. Ten
+          minutes of that is the wall the hood study exists to remove.</td></tr>
+  <tr><td class="k">Receipt links the PR</td>
+      <td>A link to review is the work coming back. The receipt may carry it as reference under
+          the outcome, never as the outcome.</td></tr>
+  <tr><td class="k">Pepper writes the outcome text</td>
+      <td>She would be inferring what changed from a transcript. The seat that did the work is
+          the only honest author.</td></tr>
+  <tr><td class="k">One session composes the whole receipt</td>
+      <td>Pepper holds the phrasing and not the outcome; the seat holds the outcome and not the
+          phrasing. Asking either for the sentence asks for a fact it does not have.</td></tr>
+  <tr><td class="k">Mint the ask's identity at settle time</td>
+      <td>Then the outcome cannot be joined to the ask. The key must travel outbound with the
+          delegation — and the ledger already assigns one, so nothing new is minted.</td></tr>
+  <tr><td class="k">No clarifying question — just route it</td>
+      <td><i>the bug I saw yesterday</i> has no referent for a fresh install with no history.
+          One question is cheaper than one wrong delegation.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>The ask's identity travels outbound.</b> The delegation carries <code>ask_key</code>;
+      a settle that names no open ask fails loud. <span class="ev">[evidence: test — a delegation
+      without an ask_key is refused; a settle with an unknown ask_key is refused]</span></li>
+  <li><b>AskSettled on the existing family.</b> One variant beside DeliveryReceipt, reusing
+      SessionRef. <span class="ev">[evidence: test — a settled ask round-trips through the wire
+      with its key and outcome]</span></li>
+  <li><b>The seat authors the outcome.</b> Emitted by whoever did the work, never composed
+      downstream. <span class="ev">[evidence: test — an ask settled with no text from the seat
+      renders "done, no detail given", never an inferred sentence]</span></li>
+  <li><b>The door joins by ask_key.</b> Ask column in the asker's words beside the outcome in the
+      seat's words; neither half rewritten. <span class="ev">[evidence: test — the rendered receipt
+      contains both source strings verbatim]</span></li>
+  <li><b>Handoff card, shared component.</b> Seat, ask in the operator's words, one state line.
+      Three clients render the same event. <span class="ev">[evidence: test + screenshot at phone
+      width]</span></li>
+  <li><b>Identifier ban in the receipt path.</b> A commit hash, PR or issue number may not be
+      the outcome sentence. <span class="ev">[evidence: test — a receipt whose outcome is only an
+      identifier fails]</span></li>
+  <li><b>The ledger gets a stranger view.</b> Same six columns, state rendered from AskSettled
+      rather than crew prose. <span class="ev">[evidence: screenshot — the same three PA rows,
+      readable by someone who has never seen the repo]</span></li>
+  <li><b>Failure has a face.</b> Failed and NeedsYou carry why, in the stranger's terms.
+      <span class="ev">[evidence: screenshot — the missing-password case]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does a project seat exist before the first ask, or does Pepper create it on demand?</td>
+      <td class="k">Kosh — seat design</td></tr>
+  <tr><td><i>live in your copy</i> means built and running for a stranger — who does the build?</td>
+      <td class="k">Marco — build authority</td></tr>
+  <tr><td>Does a stranger ever see a seat directly, or only ever through her?</td>
+      <td class="k">operator — product call</td></tr>
+</table>
+</section>

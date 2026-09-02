@@ -1,0 +1,314 @@
+<!-- Scenario 07 — the day it got a name.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main: commands/interview.rs
+     (by invitation, emoji uniqueness, charter_approved as a claim, territory
+     from recent_work), prompt/builder.rs:472 (the unnamed agent's own words),
+     commands/trust.rs (operator-only grants), commands/retire.rs vs demote.rs,
+     commands/alias.rs, commands/operator_language.rs, the roster on this
+     machine (12 rows, every one with a face). Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 07 — the day it got a name</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 07 · the day it got a name</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Ever wished the one good session could just… stay?</span>
+     Give it a name. It does.</p>
+  <p class="beat">A session that has done real work can be invited to become someone: it reads its
+     own history and proposes a name, a face, and what it is for. You approve the words. From then
+     on it is on the crew, reachable by name, with only the folders it actually worked in.</p>
+  <div class="sig"><span class="seat">📐 Kosh</span> · designs the crew</div>
+  <div class="foot">
+    <span class="day">day 1</span>
+    <div class="dots"><span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">Every AI tool has the same shape: a session that starts knowing nothing and ends
+when you close it. The good ones you lose the same way as the bad ones. Here a session that has
+earned it can be <i>promoted</i>: it keeps its history, gets a name and a face, and joins the
+crew where everyone else can reach it. The rite is short, and you hold every decision in it.</p>
+</div>
+
+<section>
+<h2>The invitation</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">you've basically become my release person over the last two weeks. want to
+make that official?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">(unnamed session)</div>
+        <div class="txt">Reading my own last hundred turns first, so this comes from what I actually
+did and not from what I'd like to be.
+
+What I did: cut four releases, wrote the checksums, chased two broken installers,
+kept the release notes honest. Almost everything I wrote landed in
+<code>scripts/release/</code> and <code>docs/releases/</code>.
+
+Proposal:
+  name       Quill
+  for        keeping releases honest: what shipped, what changed, what broke
+  territory  scripts/release/, docs/releases/  (the two places I wrote)
+  face       three to choose from ↓   emoji: 🪶 · 📦 · 🏷️
+
+The charter is yours to approve or cut. I have not saved anything.</div>
+      </div></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">Quill, 📦, charter is good but drop "what broke", Polaris owns broken</div>
+      </div></div>
+      <div class="msg her"><span class="who">📦</span><div class="body">
+        <div class="nm">Quill</div>
+        <div class="txt">Done. I'm Quill 📦, for keeping releases honest: what shipped and what
+changed. Territory as proposed. Anyone on the crew can reach me by name now.</div>
+      </div></div>
+    </div>
+    <p class="tag">by invitation only — the session never names itself uninvited</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · three weeks later</div>
+        <div class="txt">Pepper, ask quill what actually changed between 0.4 and 0.5, the notes look thin</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Asked.</div>
+        <div class="card"><div class="hd"><span class="seat">📦 Quill</span><span class="role">keeping releases honest</span></div>
+          <div class="what">what changed 0.4 → 0.5, against the notes</div>
+          <div class="state"><span class="pip g"></span>answered · 2 min</div></div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Quill says the notes list 6 changes and the diff has 11. The five missing are
+all in the installer. She's added them and flagged one as user-visible: the config
+file moved.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">can quill also push the tag?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Not today. Pushing a tag is a grant only you can give, and she doesn't have
+it. Say the word and I'll set it up; until then she'll stage the tag and Marco pushes.</div>
+      </div></div>
+    </div>
+    <p class="tag">on the crew: reachable by name, reads its own history, does only what it was granted</p>
+  </div>
+</div>
+<p class="note"><b>Three things you decide, and the agent cannot decide for itself.</b> Whether
+it gets a name at all (you invite). Which face it wears (it proposes three, you pick, because a
+face must be unique across the crew). What it is <i>for</i> (it drafts from its own record, you
+approve the words). Territory comes from where it actually wrote, not from where it would like
+to. And a name is never a power: pushing a tag stays yours to grant.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 1 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Ever wished the one good session could just… stay?</i></td>
+      <td>Everyone who has used a chat assistant has closed a tab and lost something that was
+          finally working. The loss is the wound; a "custom GPT" is not what they mean.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>It reads its own history and proposes a name, a face, and what it is for. You approve
+          the words.</td>
+      <td>The proof is that the <i>agent</i> drafts from evidence and the <i>person</i> holds the
+          pen. Not "create an agent in three clicks".</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>📐 Kosh · designs the crew</td>
+      <td>Kosh's charter is how agents are scoped and reach each other. The birth rite is his
+          ground; the new seat is his design, instantiated.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "create custom agents", "agent builder", "personas". Those
+describe a form you fill in. What is sold is the opposite direction: the agent already exists
+and has done the work; naming it is recognition, and the record is the source of the charter.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>Every beat in the story is a rule in the code, not a prompt. The interview is by invitation
+(the tool's own description says so, and an unnamed agent's prompt tells it it has no name and
+must not adopt one). The emoji is the one field the agent may not set; it proposes three and the
+operator picks, validated against every mark in use. Approving a charter is a <i>claim</i> the
+agent makes about the operator — the tool says setting it unasked "is not a mistake, it is a
+false claim, and it is in the transcript". Territory is proposed from the directories the session
+actually wrote in. Trust grants (the tag push) are operator-only by an authoritative predicate,
+not by convention. The one fiction is the name Quill: this machine's twelve residents are real,
+Quill is not one of them.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code>. The rite exists end to end and has run twelve times
+on this machine. What is missing is the same thing every seat scenario is missing: the roster
+becoming the truth, so a seat can exist before its first session.</p>
+<p class="meta">drawn against: commands/interview.rs · prompt/builder.rs:472 · commands/trust.rs ·
+commands/retire.rs · commands/demote.rs · commands/alias.rs · commands/operator_language.rs ·
+agents/roster.rs · nightly/jobs/resident_transcript_sync.rs · GH#1010</p>
+</div>
+
+<section>
+<h2>The rite, step by step</h2>
+<table>
+  <tr><th>Beat in the story</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>"want to make that official?"</td>
+      <td>The interview is BY INVITATION. The tool description tells the agent not to call it on
+          its own initiative; the unnamed agent's prompt says it has no name and must never adopt
+          one offered by tooling or transport.</td>
+      <td class="k">interview.rs:240 · builder.rs:472–486</td></tr>
+  <tr><td>"reading my own last hundred turns first"</td>
+      <td><code>propose=true</code> returns the session's <code>recent_work</code> so the draft
+          comes from what it did. Territory is a <code>folders_proposal</code> drawn from the
+          directories it actually wrote in, most-used first.</td>
+      <td class="k">interview.rs:24, :143, :182, :267</td></tr>
+  <tr><td>"three to choose from"</td>
+      <td>The agent never settles its own emoji; <code>emoji_candidates</code> are checked against
+          every mark already in use, the operator picks or asks for three more.</td>
+      <td class="k">interview.rs:82–104, :261</td></tr>
+  <tr><td>"the charter is yours to approve"</td>
+      <td><code>charter_proposal</code> goes to the operator; <code>charter</code> is persisted
+          only with <code>charter_approved=true</code>, which the tool defines as a claim about the
+          operator that is in the transcript.</td>
+      <td class="k">interview.rs:98</td></tr>
+  <tr><td>"a name is never a power"</td>
+      <td>Trust is a <code>(grantee, tool)</code> grant. <code>trust grant/revoke</code> is
+          operator-only, decided by the authoritative predicate on <code>run_link</code>; an
+          agent can never grant itself.</td>
+      <td class="k">trust.rs:8, :102</td></tr>
+  <tr><td>"reachable by name"</td>
+      <td>The roster is rendered into every prompt as one index line per resident
+          (<code>role — emoji name — purpose</code>); <code>add_to_inbox("Quill", …)</code>
+          resolves the name, an emoji mark, or a spoken alias.</td>
+      <td class="k">builder.rs:515 · roster.rs:829 · alias.rs:65</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What already exists around the rite</h2>
+<table>
+  <tr><th>Claim</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>Names dictated by voice still resolve</td>
+      <td>Spoken aliases: the stable manglings dictation produces ("Bede" → "bid") are stored on
+          the roster row and tried after the exact name and mark miss.
+          <code>operator_language</code> tells the rite which tongue to draw candidates from.</td>
+      <td class="k">alias.rs · operator_language.rs:54</td></tr>
+  <tr><td>A retired seat can come back</td>
+      <td><code>retire</code> is REVERSIBLE: the name stays claimed and addressable, a message
+          un-retires it. <code>demote</code> is IRREVERSIBLE and, for a baptised resident, needs
+          <code>confirm</code> — and takes an exact name, no fuzzy match, so a typo cannot delete
+          the wrong crew member.</td>
+      <td class="k">retire.rs:75 · demote.rs:100</td></tr>
+  <tr><td>Its memory moves with it</td>
+      <td>A resident's identity is a couple of KB in the roster; what makes it <i>itself</i> is the
+          transcript under <code>~/.ilha/sessions/</code>. The nightly
+          <code>resident_transcript_sync</code> copies the transcript beside the identity and
+          leaves a symlink; the daemon writes through it and never learns the file moved. Two such
+          symlinks exist on this machine right now.</td>
+      <td class="k">nightly/jobs/resident_transcript_sync.rs</td></tr>
+  <tr><td>Twelve of these have happened</td>
+      <td>The roster on this machine has 12 rows, each with name, purpose, charter, emoji, avatar
+          SVG and colors; two carry granted territory. The site's crew page is drawn from those
+          rows, faces included.</td>
+      <td class="k">~/.ilha/agents/residents/roster.json</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>A seat that exists before its first session</td>
+      <td>GH#1010: today the roster mirrors the session; identity edits die on the agent's next
+          save. Inverting it (roster is truth, session is transcript, <code>session_id</code> a
+          pointer that fills on first contact) is the prerequisite for shipping Pepper, for
+          project seats, and for a stranger's Quill to survive a daemon restart cleanly.</td></tr>
+  <tr><td>The rite in a client, not a tool call</td>
+      <td>Today the interview is a tool the agent calls with the operator's words in chat. The
+          three faces are rendered as one image the agent looks at (<code>face</code>). A client
+          could render the candidates and the charter draft as a card with approve/cut; the engine
+          already emits <code>IdentityChanged</code> when it settles.</td></tr>
+  <tr><td>"Not today" as Pepper's sentence</td>
+      <td>Pepper refusing on Quill's behalf requires her to see the withheld grant. SPEC_RESIDENTS
+          names the gap: the prompt renders granted territory but no trust state, so a narrowing
+          is discovered only by rejection.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">"Create an agent" form</td>
+      <td>A form produces a charter with nothing behind it. Here the charter is drafted from the
+          record of work already done; the record is the evidence.</td></tr>
+  <tr><td class="k">The agent names itself when it feels ready</td>
+      <td>The operator decides which sessions have earned a name. An agent that could promote
+          itself could also widen its own scope.</td></tr>
+  <tr><td class="k">The agent picks its own emoji</td>
+      <td>A mark must be unique across the fleet; only the operator sees the whole fleet.</td></tr>
+  <tr><td class="k">Name = permissions</td>
+      <td>A charter is scope, not power. Capabilities are separate grants, operator-only, revocable
+          without touching the name.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Interview refuses to settle an emoji the agent chose; candidates validated against all
+      marks in use.</b> <span class="ev">[evidence: existing interview.rs tests]</span></li>
+  <li><b>Territory proposal is drawn from write paths in recent_work, not free text.</b>
+      <span class="ev">[evidence: existing interview.rs tests]</span></li>
+  <li><b>Trust grant from an agent context is refused.</b> <span class="ev">[evidence: existing
+      trust.rs operator-only tests]</span></li>
+  <li><b>Retire is reversible by delivery; demote needs exact name + confirm for a baptised
+      resident.</b> <span class="ev">[evidence: existing retire.rs / demote.rs tests]</span></li>
+  <li><b>Roster is truth (GH#1010): an identity edit survives the agent's next save.</b>
+      <span class="ev">[evidence: new — L1 test: edit roster row, run a turn, row unchanged]</span></li>
+  <li><b>Withheld grants visible in the prompt.</b> <span class="ev">[evidence: new — prompt
+      builder test renders a revoked capability; screenshot of Pepper's refusal]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does a stranger's install offer the rite on day one, or only after N sessions of real
+      work?</td><td class="k">Sergio — product</td></tr>
+  <tr><td>Is the rite a chat exchange (today) or a card a client renders?</td>
+      <td class="k">Vernier — surface · Kosh — what the engine must emit</td></tr>
+</table>
+</section>

@@ -1,0 +1,280 @@
+<!-- Scenario 10 — "it passes tests" is not enough.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main: agents/reviewer.yaml
+     (verification-collapsed-into-execution is a [P1]; evidence-typed
+     criteria; P0/P1 → REQUEST CHANGES), commands/task_list_create.rs
+     (criteria carry evidence: test|output|screenshot), commands/ship_feature.rs
+     + end_feature.rs (refuse to ship with unchecked scope), merge_task.rs
+     (revalidate on merged state, revert on failure), review_wait.rs (machine
+     review polled in code), ilha-validation/quarantine.rs + gate.rs, and 20
+     of the last 40 merged PRs carrying a machine review. Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 10 — "it passes tests" is not enough</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 10 · "it passes tests" is not enough</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Ever merged AI code because "the tests pass" — and the
+     test was asserting nothing?</span> Here that is a P1.</p>
+  <p class="beat">Every piece of work names what would prove it, before the code exists: a test,
+     an output, a screenshot. A second agent whose only job is to disbelieve checks each one, and
+     a test that would pass against the old code is a finding, not a pass. You review the PR.
+     You never review the steps.</p>
+  <div class="sig"><span class="seat">🍅 Marco</span> · merges and builds</div>
+  <div class="foot">
+    <span class="day">day 9</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot on"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">The most expensive sentence in AI-assisted coding is "all tests pass". It is true
+and it proves nothing when the test was written by the same hand as the code, to pass. The fix is
+not a better model. It is a second agent with the opposite incentive, a contract that names the
+evidence up front, and a gate that will not open on a claim.</p>
+</div>
+
+<section>
+<h2>What "done" has to survive</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🔨</span><div class="body">
+        <div class="nm">coder · 11:02</div>
+        <div class="txt">Done. Retry-on-timeout added to the exporter, 3 attempts with backoff.
+New test <code>retries_then_succeeds</code> passes. All 412 tests green.</div>
+      </div></div>
+      <div class="msg her"><span class="who">🔍</span><div class="body">
+        <div class="nm">reviewer · 11:09</div>
+        <div class="txt">REQUEST CHANGES.
+
+[P1] <code>retries_then_succeeds</code> asserts the call returns Ok. It returns Ok
+against the old code too — I ran it on the parent commit and it passed. The test
+proves the function exists, not that it retries.
+
+[P1] Criterion 2 ("gives up after 3 with the last error") has evidence type
+<i>test</i> and no test is attached.
+
+[P2] Backoff is a hand-rolled loop; <code>retry::with_backoff</code> exists in
+<code>util/</code> and is used in two other exporters.
+
+Two P1s. Back to you.</div>
+      </div></div>
+    </div>
+    <p class="tag">the reviewer ran the new test against the old code — that is its job</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🔨</span><div class="body">
+        <div class="nm">coder · 11:31</div>
+        <div class="txt">Fixed. Test now injects two timeouts then a success and asserts 3 calls
+were made; fails on parent (1 call). Added <code>gives_up_after_three_with_last_error</code>.
+Switched to <code>retry::with_backoff</code>, deleted 19 lines.</div>
+      </div></div>
+      <div class="msg her"><span class="who">🔍</span><div class="body">
+        <div class="nm">reviewer · 11:36</div>
+        <div class="txt">APPROVE. Both tests fail on the parent and pass here. Criteria 1–3 have
+their evidence. Diff is smaller than the first version.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper · 11:52</div>
+        <div class="txt">The exporter retry you asked for is in: PR #212, one file, +41 −19,
+both new tests fail without the change. Marco merged it into the feature branch
+and the full suite passed on the merged result. Ready for your look whenever.</div>
+      </div></div>
+    </div>
+    <p class="tag">the person sees one PR, with the proof attached — not two rounds of review</p>
+  </div>
+</div>
+<p class="note"><b>The person never saw 11:09.</b> The round trip between coder and reviewer is
+the crew's business; what reaches you is a PR whose tests are known to fail without the change,
+merged onto the branch with the suite re-run on the merged state. "The tests pass" arrives with
+the one fact that makes it mean something: they did not pass before.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 9 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Ever merged AI code because "the tests pass" — and the test was asserting
+          nothing?</i></td>
+      <td>Every engineer who has used a coding agent has found this test in their repo. It is the
+          wound behind "I don't trust AI code".</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>A second agent whose only job is to disbelieve; a test that passes against the old code
+          is a finding.</td>
+      <td>The beat is a <i>rule</i> with a consequence, not "rigorous review". "P1" is the
+          specific.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>🍅 Marco · merges and builds</td>
+      <td>His charter is authority spent on <i>verified</i> work. He does not review; he refuses
+          to merge what was not.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "quality gates", "AI code review", "self-verifying". What is
+sold is adversarial structure: the reviewer is rewarded for finding the hole, the criteria are
+typed before the code exists, and the merge refuses a claim.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>The reviewer's rule is quoted from its card: "a test whose assertion holds even against the old
+code … if a passing result rests on a trivially-satisfiable assertion, that's a [P1] finding", and
+"every acceptance criterion carries its typed evidence (test | output | screenshot) … a gap is a
+[P1] finding → REQUEST CHANGES". P0/P1 → REQUEST CHANGES is the card's verdict mapping. The
+merge revalidation and revert are in <code>merge_task</code>. Twenty of the last forty merged PRs
+in this repo carry a machine review as well. The exporter and PR #212 are fiction; the review
+exchange is the shape the cards produce.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code>. The adversarial pair, typed criteria, the merge
+gate and the machine review all exist and run daily. The gap is the receipt to the person, same as
+every scenario.</p>
+<p class="meta">drawn against: agents/reviewer.yaml · agents/coder.yaml ·
+commands/task_list_create.rs · commands/merge_task.rs · commands/ship_feature.rs ·
+commands/end_feature.rs · commands/review_wait.rs · ilha-validation/{gate,quarantine}.rs</p>
+</div>
+
+<section>
+<h2>The contract, before the code</h2>
+<table>
+  <tr><th>Claim</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>"names what would prove it, before the code exists"</td>
+      <td>A task list row carries <code>criteria: [{text, evidence: "test|output|screenshot"}]</code>.
+          Written by the planner; the coder attaches the evidence; the reviewer verifies each.</td>
+      <td class="k">task_list_create.rs:170</td></tr>
+  <tr><td>"a second agent whose only job is to disbelieve"</td>
+      <td>The reviewer card: "MAINTAINABILITY ALTITUDE — judge the SHAPE … 'It passes tests' is not
+          sufficient for APPROVE." Findings carry P0–P3; any P0/P1 → REQUEST CHANGES.</td>
+      <td class="k">reviewer.yaml:76–120</td></tr>
+  <tr><td>"a test that would pass against the old code is a finding"</td>
+      <td>Quoted rule in the card: verification collapsed into execution is a [P1].</td>
+      <td class="k">reviewer.yaml:80</td></tr>
+  <tr><td>"back to you" — same coder, same context</td>
+      <td>Review rounds use <code>continue_task</code>: findings go back to the authoring coder
+          with its conversation, investigation and branch intact. A fresh agent is used only for a
+          merge conflict.</td>
+      <td class="k">dispatch_task continue_task</td></tr>
+</table>
+</section>
+
+<section>
+<h2>The gate, after the code</h2>
+<table>
+  <tr><th>Claim</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>"merged into the feature branch and the full suite passed on the merged result"</td>
+      <td><code>merge_task</code> folds one approved branch at a time and re-runs the project
+          checks on the merged state. Failure reverts the merge commit and returns
+          <code>checks_failed</code> with the output; the sede re-dispatches the author.</td>
+      <td class="k">merge_task.rs:16, :43–69</td></tr>
+  <tr><td>Nothing ships with scope left undone</td>
+      <td><code>ship_feature</code> and <code>end_feature</code> refuse when the issue body still
+          has unchecked <code>- [ ]</code> items, unless a <code>remainder_issue</code> inherits
+          the leftover scope and the PR says <code>Part of #N</code>.</td>
+      <td class="k">ship_feature.rs:74 · end_feature.rs:78</td></tr>
+  <tr><td>A flaky test does not bill the coder</td>
+      <td>Only on the failure path: failed names are parsed out of cargo's block; names in
+          <code>.flaky-tests</code> never gate; a failure whose module the diff did not touch is
+          exonerated. Diff gate: a byte-identical tree at "done" skips vacuous checks; a green
+          (tree, check-set) memo is not re-run.</td>
+      <td class="k">ilha-validation/quarantine.rs:1–10 · gate.rs:1–10</td></tr>
+  <tr><td>A machine reviewer reads the PR too</td>
+      <td><code>review_wait</code>: after posting <code>@codex review</code> the engine polls once
+          a minute in code and wakes the sede exactly once — verdict, quota exhausted, or deadline
+          with a re-trigger. 20 of the last 40 merged PRs here carry that review.</td>
+      <td class="k">review_wait.rs:3–8 · gh pr list</td></tr>
+  <tr><td>"You review the PR. You never review the steps."</td>
+      <td>Layer 1 rule: every run ends at a review gate; the human reviews the finished pull
+          request; nothing reaches main without it. Agents push feature branches only.</td>
+      <td class="k">customer_default.md — The Fleet · push rules</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>"both new tests fail without the change" as a checked fact</td>
+      <td>Today the reviewer <i>may</i> run the test on the parent; the card asks for it but the
+          engine does not enforce it. A validation step that runs new test names against the
+          task's base commit and records pass/fail is a small addition to
+          <code>ilha-validation</code>, and it turns the strongest sentence in the receipt into
+          a measurement.</td></tr>
+  <tr><td>Pepper's 11:52 sentence</td>
+      <td>PR number, diff size, criteria count and suite result all exist as facts; the outcome
+          sentence is the receipt from scenario 01 (ask key outbound, outcome joined at the
+          door).</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">One agent that codes and reviews itself</td>
+      <td>Same incentive on both sides. The reviewer is a different card with a disbelieving
+          brief; that is the whole mechanism.</td></tr>
+  <tr><td class="k">A fresh reviewer per round</td>
+      <td>Findings go back to the agent that raised them and to the coder that wrote the code;
+          both keep their context. Cheaper and it cannot re-find settled points.</td></tr>
+  <tr><td class="k">Merge on APPROVE alone</td>
+      <td>APPROVE is a judgment; the merged-state check is a measurement. A reviewer can be right
+          about a branch and wrong about the merge.</td></tr>
+  <tr><td class="k">Show the person the review thread</td>
+      <td>The round trip is crew work. The person is paged for decisions, never for status; they
+          get one PR with the proof attached.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Task criteria require an evidence type; a missing one fails the task.</b>
+      <span class="ev">[evidence: existing task_list tests]</span></li>
+  <li><b>merge_task reverts on check failure and returns the output.</b>
+      <span class="ev">[evidence: existing merge_task tests]</span></li>
+  <li><b>ship_feature refuses with unchecked scope and no remainder issue.</b>
+      <span class="ev">[evidence: existing ship_feature tests]</span></li>
+  <li><b>Quarantine exonerates a diff-unrelated flake; diff gate skips a byte-identical
+      tree.</b> <span class="ev">[evidence: existing ilha-validation tests]</span></li>
+  <li><b>New tests are run against the base commit and their fail-then-pass is recorded.</b>
+      <span class="ev">[evidence: new — validation test with a vacuous test fixture; output]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does the fail-on-base check block the merge, or only annotate the receipt?</td>
+      <td class="k">Marco — merge authority</td></tr>
+  <tr><td>Is the machine reviewer (codex) part of a stranger's box, or an optional second
+      opinion?</td><td class="k">Sergio — product · cost</td></tr>
+</table>
+</section>

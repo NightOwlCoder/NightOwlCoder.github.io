@@ -1,0 +1,264 @@
+<!-- The teaser: one moment a day. Drawn against the 12 charters in
+     roster.json — 9 of which carry an explicit "come to me when…"
+     invitation, which is the moment-shaped material the deck lacks. -->
+<meta charset="utf-8">
+<title>the teaser — one moment a day</title>
+<style>
+  :root{
+    --bg:#0b0f14; --panel:#131a22; --surface:#1a232d; --line:#243040;
+    --text:#e2e9f0; --dim:#8ea3b8; --dimmer:#5d7290;
+    --hot:#ff9a5c; --cool:#7dd3fc; --done:#5ddba0; --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font:14px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+       margin:0;padding:34px 30px 60px;max-width:1180px}
+  h1{font-size:23px;margin:0 0 4px;letter-spacing:-.2px}
+  .lede{color:var(--dim);margin:0 0 6px;max-width:80ch}
+  .meta{color:var(--dimmer);font-size:11.5px;font-family:var(--mono);margin:0 0 26px}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--dim);
+     margin:34px 0 12px;font-weight:600}
+  section{border-top:1px solid var(--line);padding-top:2px}
+  .tag{color:var(--dimmer);font-size:11px;margin:7px 0 0;font-family:var(--mono)}
+
+  /* ── the teaser card: the whole product of this study ── */
+  .stage{background:linear-gradient(180deg,#0e141b,#0b0f14);border:1px solid var(--line);
+         border-radius:12px;padding:46px 40px 30px;position:relative;overflow:hidden;
+         /* the two half-width faces sit side by side: a shorter beat must not
+            float its footer up, or the pair reads as two different designs. */
+         display:flex;flex-direction:column}
+  .stage::before{content:"";position:absolute;inset:0;
+        background:radial-gradient(680px 240px at 22% -10%,rgba(255,154,92,.09),transparent 70%);
+        pointer-events:none}
+  .moment{font-size:27px;line-height:1.34;letter-spacing:-.4px;max-width:26ch;margin:0;
+          font-weight:500}
+  .moment .q{color:var(--hot)}
+  .beat{color:var(--dim);margin:16px 0 0;max-width:46ch;font-size:14.5px}
+  .sig{display:flex;align-items:center;gap:9px;margin-top:26px;
+       font-family:var(--mono);font-size:12px;color:var(--dimmer)}
+  .sig .seat{color:var(--cool)}
+  .foot{display:flex;justify-content:space-between;align-items:flex-end;margin-top:auto;padding-top:30px;
+        padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px}
+  .foot a{color:var(--dim);text-decoration:none;border-bottom:1px dotted var(--dimmer)}
+  .day{color:var(--dimmer)}
+  .dots{display:flex;gap:5px;align-items:center}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--line)}
+  .dot.on{background:var(--hot)}
+
+  .panes{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+  @media (max-width:900px){.panes{grid-template-columns:1fr}}
+
+  /* ── the scroll-through: all of them ── */
+  .all{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .row{display:flex;gap:12px;padding:11px 14px;border-bottom:1px solid var(--line);align-items:baseline}
+  .row:last-child{border-bottom:0}
+  .row .n{font-family:var(--mono);font-size:11px;color:var(--dimmer);flex:0 0 26px}
+  .row .m{flex:1;min-width:0}
+  .row .q2{color:var(--text)}
+  .row .s{font-family:var(--mono);font-size:11px;color:var(--cool);flex:0 0 auto}
+  .row.today{background:var(--surface)}
+  .row.today .n{color:var(--hot)}
+
+  table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:4px}
+  th,td{text-align:left;padding:5px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.07em}
+  td.k{font-family:var(--mono);color:var(--dim);white-space:nowrap}
+  code{font-family:var(--mono);font-size:12px;background:#080c11;border:1px solid var(--line);
+       border-radius:4px;padding:1px 5px}
+  pre{background:#080c11;border:1px solid var(--line);border-radius:7px;padding:11px 13px;
+      overflow-x:auto;font-family:var(--mono);font-size:12px;line-height:1.6}
+  .bad{color:#e06c75}
+  .good{color:var(--done)}
+  .note{color:var(--dim);border-left:2px solid var(--line);padding-left:11px;margin:11px 0}
+  .ev{font-family:var(--mono);font-size:11px;color:var(--dimmer)}
+  ol{padding-left:19px} li{margin:5px 0} b{color:var(--text)}
+</style>
+
+<h1>The teaser</h1>
+<p class="lede">One moment a day. A moment is a question the visitor already has, answered by
+one thing ilha does — not a feature with a description under it.</p>
+<p class="meta">drawn against: 12 charters in roster.json — 9 carry an explicit "come to me
+when…" · copy is placeholder, Cyrano writes it</p>
+
+<!-- ============ 1. WHY THE DECK CANNOT BE THE TEASER ============ -->
+<section>
+<h2>Why the deck reads bland</h2>
+<p>Measured — the deck's own section headings:</p>
+<pre><span class="bad">residents on this machine · screens · commands · entry points
+skills · task cards · the nightly train · tools the model holds · the wire</span></pre>
+<p>Every one names <b>a part of the system</b>. None names a thing that happens to a person. The
+charters do the opposite, and 9 of 12 already have the shape:</p>
+<pre><span class="good">"Come to me when words ship as him…"                — 🎙️ Cyrano
+"Message Polaris to find out whether something is stuck…" — ⭐ Polaris
+"…before adding a sweep category."                     — 📬 Carteiro</span></pre>
+<p class="note"><b>A feature answers "what is it".  A moment answers "when would I want this".</b>
+The deck is an inventory and inventories cannot tease, because nothing in an inventory is
+addressed to the reader.</p>
+</section>
+
+<!-- ============ 2. THE SHAPE OF ONE ============ -->
+<section>
+<h2>One teaser</h2>
+<div class="stage">
+  <p class="moment"><span class="q">Want your agent to tell you it's live</span>
+     instead of asking you to review a pull request?</p>
+  <p class="beat">You asked for a bug to be fixed. Fourteen minutes later: "it's fixed and live
+     in your copy." Not a diff. Not a checklist. The thing you asked for, working.</p>
+  <div class="sig"><span class="seat">🌶️ Pepper</span> · chief of staff · one door</div>
+  <div class="foot">
+    <span class="day">day 6</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot on"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">question · one beat of proof · who does it · the way out</p>
+
+<p class="note"><b>Four parts, and the order is the argument.</b> The question must be one the
+visitor already asks themselves — that is what makes it a moment rather than a claim. The beat
+is the smallest concrete proof, in numbers if there are any. The signature says a person does
+this, not a platform. The way out is always visible, because a teaser that traps is an ad.</p>
+</section>
+
+<!-- ============ 3. TWO MORE FACES ============ -->
+<section>
+<h2>The same shape, two other days</h2>
+<div class="panes">
+  <div>
+    <div class="stage" style="padding:34px 28px 22px">
+      <p class="moment" style="font-size:21px;max-width:24ch"><span class="q">Ever sent a message
+         that read as written by a robot?</span></p>
+      <p class="beat" style="font-size:13.5px">A 13-year-old called one draft "too ChatGPT-ysh."
+         That became a test every sentence has to pass before it ships as you.</p>
+      <div class="sig"><span class="seat">🎙️ Cyrano</span> · your written voice</div>
+      <div class="foot"><span class="day">day 2</span><a href="#all">see all 12 →</a></div>
+    </div>
+    <p class="tag">a moment can be an embarrassment — those are the strongest</p>
+  <p class="tag" style="color:#e06c75">KNOWN: these two cards have unequal height (276px vs 226px), so their footers sit 50px apart. Four attempts (flex+auto, grid stretch, base-rule fold) did not align them — the real card is one per page, where it cannot occur. Left visible rather than hidden: whoever builds this should equalise at the container, not the card.</p>
+  </div>
+  <div>
+    <div class="stage" style="padding:34px 28px 22px">
+      <p class="moment" style="font-size:21px;max-width:24ch"><span class="q">Is it stuck, or is
+         it just slow?</span></p>
+      <p class="beat" style="font-size:13.5px">One agent sat eight hours waiting on a question
+         nobody could see. Now something measures that instead of guessing.</p>
+      <div class="sig"><span class="seat">⭐ Polaris</span> · fleet health</div>
+      <div class="foot"><span class="day">day 9</span><a href="#all">see all 12 →</a></div>
+    </div>
+    <p class="tag">the beat is a real incident, not a capability</p>
+  </div>
+</div>
+</section>
+
+<!-- ============ 4. THE ROTATION ============ -->
+<section>
+<h2>The rotation</h2>
+<p>One teaser per day, same for every visitor that day, chosen without a server:</p>
+<pre>const day = Math.floor(Date.now() / 864e5);      // days since epoch, UTC
+const today = moments[day % moments.length];     // 12 moments → a 12-day cycle</pre>
+<table>
+  <tr><th>Property</th><th>Why it matters</th></tr>
+  <tr><td class="k">same for everyone</td>
+      <td>Two people who talk about it saw the same thing. Random per-visit breaks that.</td></tr>
+  <tr><td class="k">no server, no storage</td>
+      <td>A static page can ship it. No cookie, no consent banner, nothing to be wrong about.</td></tr>
+  <tr><td class="k">UTC, not local</td>
+      <td>Local midnight means the "daily" teaser changes while a group is looking at it.</td></tr>
+  <tr><td class="k">deterministic</td>
+      <td>Day 6 is always moment 6 — so a link can name a day and be honest.</td></tr>
+</table>
+<p class="note"><b>A 12-day cycle is a consequence, not a choice.</b> Twelve seats, so twelve
+moments to start; the cycle lengthens as moments are added, and no code changes. Growth is
+copy, not engineering.</p>
+</section>
+
+<!-- ============ 5. SEE ALL ============ -->
+<section id="all">
+<h2>The way out — all of them</h2>
+<div class="all">
+  <div class="row"><span class="n">1</span><span class="m"><span class="q2">Ever lost a decision in
+    a wall of your own chat?</span></span><span class="s">🗿 Draal</span></div>
+  <div class="row"><span class="n">2</span><span class="m"><span class="q2">Ever sent a message that
+    read as written by a robot?</span></span><span class="s">🎙️ Cyrano</span></div>
+  <div class="row"><span class="n">3</span><span class="m"><span class="q2">Forgot what you did last
+    Tuesday, at review time?</span></span><span class="s">🪶 Bede</span></div>
+  <div class="row"><span class="n">4</span><span class="m"><span class="q2">Told an agent to be
+    careful and hoped for the best?</span></span><span class="s">🪛 Marina</span></div>
+  <div class="row"><span class="n">5</span><span class="m"><span class="q2">Missed the one email that
+    actually needed you?</span></span><span class="s">📬 Carteiro</span></div>
+  <div class="row today"><span class="n">6</span><span class="m"><span class="q2">Want your agent to
+    tell you it's live instead of asking you to review?</span></span><span class="s">🌶️ Pepper</span></div>
+  <div class="row"><span class="n">7</span><span class="m"><span class="q2">Two agents editing one
+    file — who wins?</span></span><span class="s">🍅 Marco</span></div>
+  <div class="row"><span class="n">8</span><span class="m"><span class="q2">Ever wanted a second
+    agent and not known what to tell it?</span></span><span class="s">📐 Kosh</span></div>
+  <div class="row"><span class="n">9</span><span class="m"><span class="q2">Is it stuck, or is it just
+    slow?</span></span><span class="s">⭐ Polaris</span></div>
+  <div class="row"><span class="n">10</span><span class="m"><span class="q2">Closed the laptop and
+    lost the thread?</span></span><span class="s">⚙️ Salgado</span></div>
+  <div class="row"><span class="n">11</span><span class="m"><span class="q2">Nine windows, and the one
+    you want is behind all of them?</span></span><span class="s">🛟 Gaspar</span></div>
+  <div class="row"><span class="n">12</span><span class="m"><span class="q2">Approved a screen that
+    was already lying to you?</span></span><span class="s">🔬 Vernier</span></div>
+</div>
+<p class="tag">today's row is marked · every row is a question, never a feature name</p>
+<p class="note">The list is the archive and the proof at once: twelve questions and not one
+product noun. If a row cannot be written as something the visitor has felt, that seat has no
+teaser yet — and that is information, not a gap to fill with a feature.</p>
+</section>
+
+<!-- ============ 6. REJECTED ============ -->
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">feature grid, 12 tiles</td>
+      <td>That is the deck, and the deck was read as bland. A grid asks the visitor to shop;
+          a moment asks them to recognise themselves.</td></tr>
+  <tr><td class="k">random per visit</td>
+      <td>Two people cannot discuss what they saw. Daily is shared; random is private.</td></tr>
+  <tr><td class="k">carousel that auto-advances</td>
+      <td>It removes the one thing a teaser has — a single thing to look at. And nobody has
+          ever finished one.</td></tr>
+  <tr><td class="k">screenshot of the product</td>
+      <td>A screenshot of a terminal is a picture of work. The moment is the relief, and
+          relief does not photograph.</td></tr>
+  <tr><td class="k">email capture before the archive</td>
+      <td>The way out must be free. A teaser that charges for the next one is an ad, and the
+          visitor knows the difference.</td></tr>
+</table>
+</section>
+
+<!-- ============ 7. CHECKLIST ============ -->
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>The moment as data, not markup.</b> One array: question, beat, seat, mark. The page
+      renders index <code>day % n</code>. <span class="ev">[evidence: test — a fixed clock renders
+      a fixed moment]</span></li>
+  <li><b>UTC day boundary.</b> <span class="ev">[evidence: test — 23:59 and 00:01 local inside one
+      UTC day render the same moment]</span></li>
+  <li><b>The archive is the same data.</b> No second copy of the copy. <span class="ev">[evidence:
+      test — adding a moment lengthens the cycle and the list, with no other edit]</span></li>
+  <li><b>Copy goes through Cyrano.</b> Every line here is placeholder shape. <span class="ev">
+      [evidence: his pass, before the page is public]</span></li>
+  <li><b>Phone first.</b> The question must hold at 390px without shrinking below 20px.
+      <span class="ev">[evidence: screenshot at phone width]</span></li>
+  <li><b>No moment without a real beat.</b> A seat with no incident behind it stays off the page.
+      <span class="ev">[evidence: review — each beat traceable to something that happened]</span></li>
+</ol>
+</section>
+
+<!-- ============ 8. OPEN ============ -->
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does the teaser page live in this repo, or with the landing page?</td>
+      <td class="k">operator</td></tr>
+  <tr><td>Do the twelve stay tied to seats, or become moments in their own right?</td>
+      <td class="k">operator — product call</td></tr>
+  <tr><td>Is a seat with no teachable moment a gap in the page, or in the seat?</td>
+      <td class="k">Kosh — seat design</td></tr>
+</table>
+</section>

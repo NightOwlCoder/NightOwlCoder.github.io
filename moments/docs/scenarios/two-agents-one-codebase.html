@@ -1,0 +1,268 @@
+<!-- Scenario 04 — two agents, one codebase.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main: feature.rs (worktree
+     root), engine/actor_driver.rs:651 (disjointness gate + atomic claim),
+     commands/merge_task.rs (serialized merge, post-merge revalidation,
+     conflict → fresh github agent), and this machine's live worktree count.
+     The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 04 — two agents, one codebase</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 04 · two agents, one codebase</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Two agents editing the same file,</span>
+     and the second one quietly undid the first?</p>
+  <p class="beat">Ours never share a working copy. Each gets its own, they may not touch the
+     same file at once, and nothing lands until the tests pass on the merged result — or the
+     merge is undone before you see it.</p>
+  <div class="sig"><span class="seat">🍅 Marco</span> · merges and builds</div>
+  <div class="foot">
+    <span class="day">day 5</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot on"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">The failure everyone who has run two assistants has seen: A adds a feature, B
+"fixes" it back, A's work is gone and nobody said anything. The cure is not politeness between
+agents. It is that they cannot reach each other's files.</p>
+</div>
+
+<section>
+<h2>Three fixes, one afternoon, one repo</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">three things: the date bug in the parser, the export button that does
+nothing, and the slow startup. go.</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Three seats, three copies.</div>
+        <div class="card">
+          <div class="hd"><span class="seat">🔨 coder A</span><span class="role">own copy · parser/</span></div>
+          <div class="what">the date bug in the parser</div>
+          <div class="state"><span class="pip"></span>working</div>
+        </div>
+        <div class="card">
+          <div class="hd"><span class="seat">🔨 coder B</span><span class="role">own copy · ui/export</span></div>
+          <div class="what">the export button that does nothing</div>
+          <div class="state"><span class="pip"></span>working</div>
+        </div>
+        <div class="card">
+          <div class="hd"><span class="seat">🔨 coder C</span><span class="role">own copy · startup</span></div>
+          <div class="what">the slow startup</div>
+          <div class="state"><span class="pip"></span>waiting — its files overlap A's</div>
+        </div>
+        <div class="txt" style="margin-top:8px">C starts the moment A lands. They'd both be in the
+parser's config, so they don't run at once.</div>
+      </div></div>
+    </div>
+    <p class="tag">three copies · the overlap was refused before C started, not discovered after</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper · 40m later</div>
+        <div class="txt">Two of three are in. One bounced.</div>
+        <div class="card done">
+          <div class="hd"><span class="seat">🔨 coder A</span><span class="role">landed · tests pass on the merged result</span></div>
+          <div class="what">the date bug in the parser</div>
+        </div>
+        <div class="card done">
+          <div class="hd"><span class="seat">🔨 coder C</span><span class="role">landed · started after A, tests pass</span></div>
+          <div class="what">the slow startup</div>
+        </div>
+        <div class="card warn">
+          <div class="hd"><span class="seat">🔨 coder B</span><span class="role">merge undone</span></div>
+          <div class="what">the export button that does nothing</div>
+          <div class="state"><span class="pip r"></span>its tests passed alone; two failed once it
+            sat next to A's change. Merge reverted, B is fixing it.</div>
+        </div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">so nothing I have is broken right now?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Nothing. B's change never reached your copy — the merge was undone
+the second the tests went red.</div>
+      </div></div>
+    </div>
+    <p class="tag">the beat: a merge that fails its tests is reverted, not shipped and apologized for</p>
+  </div>
+</div>
+<p class="note"><b>Three rules, all mechanical.</b> Every agent works in its own copy. Two
+agents may not hold the same file at the same time — the second is refused before it starts.
+Merges happen one at a time, and the tests run again on the <i>merged</i> state; red means the
+merge is undone. None of these is a request to the agents. They are things the agents cannot
+do otherwise.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 5 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Two agents editing the same file, and the second one quietly undid the first?</i></td>
+      <td>Specific enough that anyone who has done it winces. "Parallel agents" is a feature;
+          this is a wound.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>The bounced merge: tests passed alone, failed merged, reverted before it reached you.</td>
+      <td>A failure is a better proof than a success — it shows the fence is real. Two of three
+          landing is background; the third is the beat.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>🍅 Marco · merges and builds</td>
+      <td>Merge authority is one seat's, and it is not the coders'. That is why a coder cannot
+          undo another's work: it cannot merge at all.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "isolated sandboxes", "conflict-free", "safe parallelism". The
+first is mechanism, the second is false (conflicts happen; they go to a fresh agent), the third
+is a claim. The copy names what a visitor has seen go wrong and what happens here instead.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>All three rules exist and run on this machine daily (52 worktrees live at the time of
+writing). What the copy must not imply: that <i>conflicts</i> cannot happen. They do; a
+conflicting merge is handed to a fresh agent that reads both sides, not to the coder who wrote
+one of them. And "waiting" in the story is the real behaviour: the engine refuses the overlapping
+dispatch and it runs later, it does not run in parallel and get sorted out afterwards.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code>. Everything in the story exists. The open work is
+the same as scenario 01's: showing it in the person's words rather than the crew's.</p>
+<p class="meta">drawn against: feature.rs · engine/actor_driver.rs · commands/merge_task.rs ·
+auto/ (task lists) · docs/specs/SPEC_ACTOR_RUNTIME.md §15</p>
+</div>
+
+<section>
+<h2>The three fences</h2>
+<table>
+  <tr><th>Rule</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>Every agent works in its own copy</td>
+      <td>A run gets a git worktree of its own (<code>WORKTREES_SUBPATH</code> in <code>feature.rs</code>);
+          each coder task gets an <code>ac/</code> branch. Writes outside the worktree are
+          rejected before any model is consulted (scenario 03, territory check).</td>
+      <td class="k">feature.rs:15 WORKTREES_SUBPATH · engine/sandbox.rs is_inside</td></tr>
+  <tr><td>Two agents may not hold the same file</td>
+      <td>A task-list dispatch is refused <i>before the actor spawns</i> when its
+          <code>files_to_modify</code> overlaps an in-flight sibling's on a non-shared file, a
+          blocker is unmerged, or the dependency graph is cyclic. On pass the row is stamped
+          <code>dispatched</code> inside the gate's critical section, so a concurrent overlapping
+          dispatch sees the claim and refuses — no window between check and claim.</td>
+      <td class="k">engine/actor_driver.rs:651 gate_and_claim_task_list_dispatch</td></tr>
+  <tr><td>Merges are one at a time, and tests rerun on the merged state</td>
+      <td>Merges are serialized so interleaving cannot produce a half-merged tree. After a clean
+          merge, the coder card's success checks run again on the <i>merged</i> sede state; if
+          they fail, the merge commit is reverted and <code>checks_failed: true</code> comes back
+          with the output.</td>
+      <td class="k">commands/merge_task.rs — Post-merge Validator-2 (SPEC_ACTOR_RUNTIME §15 item 16c)</td></tr>
+  <tr><td>A conflict goes to a fresh agent</td>
+      <td>On conflict the conflicting files are returned and the sede dispatches the
+          <code>github</code> card to rebase — not the authoring coder, which carries the
+          costliest context in the run for what is usually a mechanical rebase.</td>
+      <td class="k">commands/merge_task.rs:6–10</td></tr>
+  <tr><td>Merge authority is not the coder's</td>
+      <td>Hard-block list: <code>gh pr merge</code> and other authority mutations never run
+          from a coder even if a classifier calls them safe.</td>
+      <td class="k">engine/sandbox.rs — decision 1</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What the story shows that the crew does not yet say</h2>
+<table>
+  <tr><th>Line in the story</th><th>Today</th><th>Gap</th></tr>
+  <tr><td><i>waiting — its files overlap A's</i></td>
+      <td>The dispatch is refused with an error naming the overlapping row.</td>
+      <td>The refusal is a tool error the sede reads. The story renders it as a state on the
+          handoff card. Same shape as scenario 01's <code>AskSettled</code>: a fact the engine
+          has, rendered in the person's words.</td></tr>
+  <tr><td><i>merge undone — two tests failed next to A's change</i></td>
+      <td><code>checks_failed: true</code> plus raw check output, returned to the sede.</td>
+      <td>The card needs the count and the cause, not the log. The seat that owns the merge
+          (Marco) is the honest author of that line.</td></tr>
+  <tr><td><i>Nothing I have is broken right now</i></td>
+      <td>True by construction (revert on red), but nothing states it.</td>
+      <td>A door-level answer derived from the feature state: no unreverted red merge on this
+          run. Engine fact, client render.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">Let the agents coordinate ("B, please don't touch parser/")</td>
+      <td>A request an agent can forget under context pressure is not a fence. The gate refuses
+          the dispatch; nobody has to remember anything.</td></tr>
+  <tr><td class="k">Run C in parallel and merge-sort the conflict later</td>
+      <td>That is the failure being sold against. Refusing the overlap up front costs one
+          serialization; resolving it afterwards costs a rebase and a re-review.</td></tr>
+  <tr><td class="k">Trust a green per-branch test run</td>
+      <td>B's tests passed alone. The bug was in the combination. Only the merged state can
+          answer whether the merge is good.</td></tr>
+  <tr><td class="k">Ship the merge and file a fix</td>
+      <td>The person's copy would be broken between the ship and the fix. Revert first is the
+          only order in which "nothing you have is broken" stays true.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Overlapping dispatch refused before spawn.</b> <span class="ev">[evidence: existing
+      gate tests in engine/actor_driver.rs; a concurrent-dispatch race test]</span></li>
+  <li><b>Red on merged state reverts the merge.</b> <span class="ev">[evidence: existing
+      merge_task tests — checks_failed path leaves HEAD at pre-merge]</span></li>
+  <li><b>Conflict dispatches github, not the coder.</b> <span class="ev">[evidence: existing
+      merge_task conflict tests]</span></li>
+  <li><b>Handoff card shows "waiting — overlaps X" and "merge undone — N tests".</b>
+      <span class="ev">[evidence: new — shared component renders both states from engine facts;
+      screenshot at phone width]</span></li>
+  <li><b>"Nothing is broken" is derivable.</b> <span class="ev">[evidence: new — an engine
+      query over the run's merge history answers it; L1 test]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does the door show per-coder cards at all, or one card per ask with the coders hidden?</td>
+      <td class="k">Vernier — surface · operator — product call</td></tr>
+  <tr><td>Who authors the "merge undone" line — Marco, or the engine from check output?</td>
+      <td class="k">Marco · Kosh</td></tr>
+</table>
+</section>

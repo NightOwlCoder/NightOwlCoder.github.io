@@ -1,0 +1,270 @@
+<!-- Scenario 02 — closed the laptop.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on this machine and on main:
+     the daemon's plist (RunAtLoad + KeepAlive) and the Windows service
+     (NSSM, install.ps1), the ws_mux disconnect path, SessionEvent::Catchup,
+     the sessions directory, the scratchpad cap, the network doc under docs/
+     (where the engine runs on this network), GH#1075 (what a dead stream does today).
+     The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 02 — closed the laptop</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 02 · closed the laptop</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Closed the laptop and lost the thread?</span>
+     Your agent was never in the laptop.</p>
+  <p class="beat">It is a process on the machine you keep on — the desk PC, the box in the
+     closet, a small server. Your laptop, your phone and your terminal are windows onto it.
+     Shut one, open another: same conversation, one turn further, with what happened while
+     you were gone.</p>
+  <div class="sig"><span class="seat">⚙️ Salgado</span> · the machinery that carries messages</div>
+  <div class="foot">
+    <span class="day">day 10</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">A chat tab dies with the tab. ilha's engine is a service on a machine, and every
+screen — terminal, browser, desktop app, phone — is a dumb terminal painting the same stream. A
+screen going away is not an event the work notices, <i>because the work was never on the
+screen</i>.</p>
+</div>
+
+<section>
+<h2>Four o'clock at the office, nine on the couch</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 16:02 · laptop</div>
+        <div class="txt">go through the twelve failing tests and tell me which ones are the same bug</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent · running on the box at home</div>
+        <div class="txt">On it. Twelve failures, reading the first stack trace now.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 16:03</div>
+        <div class="txt"><i>closes the lid, drives home</i></div>
+      </div></div>
+    </div>
+    <p class="tag">the ask · the lid closes mid-turn · the engine is not in the lid</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 21:14 · phone</div>
+        <div class="txt"><i>opens the page</i></div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent</div>
+        <div class="txt">While you were away: the twelve failures are three bugs. Nine share
+one — a date parser that assumes the local timezone. Two are a missing
+null check in the same file. One is genuinely separate, in the export path.
+
+I fixed nothing yet. Which one first?</div>
+      </div></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">the timezone one</div>
+      </div></div>
+    </div>
+    <p class="tag">five hours later, another device — the same conversation, one turn further</p>
+  </div>
+</div>
+<p class="note"><b>The laptop was a window.</b> Nothing was saved, restored, synced or resumed by
+the person. The conversation lives in the engine on the machine that stayed on; the phone just
+asked to see it. That is the whole architecture, sold as one evening.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 10 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Closed the laptop and lost the thread?</i></td>
+      <td>Everyone who has used a chat assistant has done this. A question they already have.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td><i>Your agent was never in the laptop.</i> A process on the machine you keep on; lid
+          shut at 16:03, phone at 21:14, one turn further.</td>
+      <td>The differentiator is <i>where the agent lives</i>, not "runs in the background". Two
+          clocks and a device change are the smallest proof that the work did not live in the
+          window.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>⚙️ Salgado · the machinery that carries messages</td>
+      <td>Queueing, delivery, resume and restart have an owner who is a person, not "the
+          cloud". <b>Signature is provisional</b> — see below.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "runs in the background", "the work ran on while the lid was
+shut". The first is what every product says. The second was this scenario's first draft and it
+is false for a person whose only machine is the laptop — see the next section. The copy now
+says where the agent lives and lets the reader draw the consequence.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p><b>Two install shapes, and the teaser is true for one of them.</b></p>
+<table>
+  <tr><th>Shape</th><th>Lid closes</th><th>What the copy may say</th></tr>
+  <tr><td class="k">engine on a machine that stays on<br><span class="meta">desk PC · mini PC ·
+      home server · a small cloud box</span><br>laptop and phone are screens</td>
+      <td>Nothing happens to the work. The screen is gone; the turn continues; the phone picks
+          it up.</td>
+      <td>Everything in the card. This is the shape on this network: the engine runs as a
+          Windows service on a desktop and as a launchd service on a Mac, both reached from a
+          phone over a private network tunnel.</td></tr>
+  <tr><td class="k">one laptop, engine installed on it</td>
+      <td>The engine sleeps with the lid. Nothing is lost — sessions are on disk and the
+          reconnect replays the transcript — but the work pauses, and a turn that was mid-stream
+          when the network went away ends when the connection does.</td>
+      <td><i>Nothing is lost; pick up where you left off.</i> Never <i>the work ran on</i>.</td></tr>
+</table>
+<p>So the site, or the installer, has to know which shape the person has before this card is
+shown to them as a promise — or the release offers the first shape as a thing you can buy
+(a small cloud box ilha provisions), which is a product question and not a copy fix. The
+"while you were away" paragraph is the resume briefing the engine already writes; its wording
+is the engine's and reads as the agent's summary.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on this machine and on <code>main</code>. The mechanism exists; the
+gaps are reach and the single-laptop truth.</p>
+<p class="meta">drawn against: scripts/mac/install-serve.sh · scripts/install.ps1 (NSSM) ·
+serve/ws_mux.rs · engine/events.rs Catchup + LifecycleContext · chat/storage.rs ·
+chat/session.rs · the network doc under docs/ · GH#1075</p>
+</div>
+
+<section>
+<h2>What exists</h2>
+<table>
+  <tr><th>Claim in the story</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>The agent is a process on a machine, not a tab</td>
+      <td>The turn runs in the daemon. A client disconnect logs
+          <code>client disconnect — N session(s) preserved</code> and cancels nothing.</td>
+      <td class="k">serve/ws_mux.rs:1503</td></tr>
+  <tr><td>The daemon is always there</td>
+      <td>macOS: launchd plist with <code>RunAtLoad</code> and <code>KeepAlive</code>. Windows:
+          an NSSM service registered by the installer, auto-start on boot. Both restart the
+          process if it dies; neither can run while the machine sleeps.</td>
+      <td class="k">scripts/mac/install-serve.sh:155–157 · docs/INSTALL.md:15–36</td></tr>
+  <tr><td>Open it anywhere, same conversation</td>
+      <td>Any client sends <code>subscribe</code>; the engine answers with
+          <code>SessionEvent::Catchup { messages, .. }</code> — the same event <code>/redraw</code>
+          re-emits. 4,544 session files on disk here, all reachable this way.</td>
+      <td class="k">engine/mod.rs:6325 · ws_mux.rs:2685 · chat/storage.rs:633</td></tr>
+  <tr><td>"While you were away…"</td>
+      <td>On resume the engine injects a <code>LifecycleContext</code> with a display text; the
+          brain adds a <code>&lt;brain-briefing&gt;</code> of related work since. Rendered by all
+          three clients.</td>
+      <td class="k">engine/events.rs LifecycleContext · brain/pulso.rs</td></tr>
+  <tr><td>"Which one first?" — it remembered where it was</td>
+      <td>Session scratchpad, engine-written at the end of every turn, survives compaction.
+          Capped at 8,192 bytes so it stays a cursor, not a database.</td>
+      <td class="k">chat/session.rs:273 SCRATCHPAD_BYTE_CAP</td></tr>
+  <tr><td>Phone reaches the engine at home</td>
+      <td>On this network: a private tunnel, two connectors per host, the phone resolves the
+          daemon by name. Configured by hand.</td>
+      <td class="k">the network doc under docs/, topology section</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>The single-laptop truth, stated by the product</td>
+      <td>Nothing today tells a one-laptop user that the engine sleeps with the lid. The
+          installer knows whether it is installing onto the only machine; the door can say
+          which shape it is running in. One flag, one sentence.</td></tr>
+  <tr><td>A mid-stream turn surviving a sleep</td>
+      <td>When the machine sleeps mid-turn the model stream dies with the network. Transient
+          errors retry (<code>ProviderRetry</code>); a non-retryable one ends the turn and, for
+          a named resident, today wakes nobody (GH#1075). On wake the person sees the partial
+          turn in the catch-up, with no marker saying "this ended because you slept". Needs
+          the terminal marker, then a resume from the last complete tool result.</td></tr>
+  <tr><td>A stranger's phone reaching their engine</td>
+      <td>A hand-configured tunnel here. A stranger needs a relay, a documented tunnel, or the
+          engine on a cloud box. The release-sequence installer question.</td></tr>
+  <tr><td>A Mac installer</td>
+      <td><code>install-serve.sh</code> presumes <code>/usr/local/bin/ilha</code> from a source
+          build. <code>install.ps1</code> does the whole job on Windows. Mirror it.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">"The work ran on while the lid was shut"</td>
+      <td>True on an always-on box, false on a lone laptop. A teaser must not depend on a fact
+          about the reader's hardware the reader has not told us.</td></tr>
+  <tr><td class="k">"Runs in the background"</td>
+      <td>Every product says it. The moment is the device change plus the authored catch-up.</td></tr>
+  <tr><td class="k">Show a sync spinner / "restoring session…"</td>
+      <td>There is nothing to restore. The engine never lost it. A spinner would be a lie
+          about the architecture.</td></tr>
+  <tr><td class="k">Promise cloud sync between machines</td>
+      <td>ilha is one engine per person; every device talks to it. Selling multi-engine sync
+          sells something that does not exist.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Disconnect preserves the turn.</b> <span class="ev">[evidence: L1 — a client that drops
+      mid-stream, then re-subscribes, receives the full turn in Catchup; exists today as the
+      ws_mux "client disconnecting tears its WS connection" tests]</span></li>
+  <li><b>Resume briefing renders on all three clients.</b> <span class="ev">[evidence: the
+      terminal_parity_events vitest, plus the terminal's chat_render arm]</span></li>
+  <li><b>The door states the install shape.</b> <span class="ev">[evidence: new — a one-laptop
+      install shows "your agent sleeps when this machine does"; screenshot]</span></li>
+  <li><b>Sleep mid-turn ends cleanly and is marked.</b> <span class="ev">[evidence: new — L1: the
+      provider stream is cut mid-turn; catch-up carries a terminal marker naming the cause]</span></li>
+  <li><b>A stranger's phone reaches their engine.</b> <span class="ev">[evidence: fresh install on
+      an always-on box, phone on cellular, opens the PWA and sees Catchup — the installer item]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Which shape the release sells: bring your own always-on box, a lone laptop with the
+          honest copy, or a small cloud box ilha provisions</td>
+      <td class="k">operator — product call</td></tr>
+  <tr><td>Whether Salgado ships. If he does, this moment is his; if not, it is Pepper's ("your
+          agent") and the signature changes</td>
+      <td class="k">operator</td></tr>
+  <tr><td>Should the "while you were away" briefing be an explicit turn or the existing injected
+          context?</td>
+      <td class="k">Vernier — surface contract</td></tr>
+</table>
+</section>

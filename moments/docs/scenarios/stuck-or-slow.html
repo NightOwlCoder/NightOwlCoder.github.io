@@ -1,0 +1,290 @@
+<!-- Scenario 05 — stuck or slow.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main: engine/mod.rs liveness
+     constants (WEDGE_AFTER 180s, STALL_KILL_AFTER 300s, SEDE_CONTINUE_BUDGET 3),
+     commands/condition.rs (one live row read while writing this), GH#1075
+     (the two silent deaths), actor_driver.rs salvage doctrine, and Polaris's
+     charter. The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 05 — stuck or slow</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 05 · stuck or slow</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Is it stuck, or just slow?</span>
+     Stop refreshing to find out.</p>
+  <p class="beat">Every agent here is watched by a clock that is not an agent. Three minutes of
+     silence with a turn open is a question. Five more and the turn is ended for it, the work
+     it finished is kept, and someone is told. Nothing waits for you to notice.</p>
+  <div class="sig"><span class="seat">⭐ Polaris</span> · fleet health, measured</div>
+  <div class="foot">
+    <span class="day">day 8</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot on"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">The most common way an agent fails is quietly. A spinner that never stops. A
+turn that ended on a provider error and told nobody. The person finds out by looking, hours
+later. The cure is a watchdog written in code, not in a prompt.</p>
+</div>
+
+<section>
+<h2>The spinner that would have spun all night</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 22:40</div>
+        <div class="txt">is the import thing still going or did it die?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Slow, not stuck. It's been running your test suite for 6 minutes —
+the suite takes about 9. It has produced output in the last minute.
+
+I'll say something if that changes. You don't need to watch it.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper · 22:49</div>
+        <div class="txt">The import is done: 2,300 rows in, 4 rejected with reasons in the log.</div>
+      </div></div>
+    </div>
+    <p class="tag">slow — measured against what it is doing, not against your patience</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper · 02:14</div>
+        <div class="txt">One of the overnight jobs stalled and I stopped it.
+
+The report generator went silent mid-turn — three minutes with nothing, then
+five more. Its connection to the model hung. I ended the turn, kept the two
+sections it had already written, and it will restart from there in the morning
+rather than from scratch.
+
+Nothing for you to do. Telling you so you don't find a half-report at breakfast
+and wonder.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 07:30</div>
+        <div class="txt">how much did it get done before it stalled?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Two of five sections, saved. It picked up at section three at 07:05
+and is on four now.</div>
+      </div></div>
+    </div>
+    <p class="tag">stuck — ended by the clock, kept what was finished, restarted from there, and said so</p>
+  </div>
+</div>
+<p class="note"><b>Two different answers to the same question, and a machine tells them
+apart.</b> "Slow" is a turn that is still producing; the answer names what it is doing and how
+long that usually takes. "Stuck" is silence past a fixed clock; the answer is that the turn was
+ended, the finished work kept, and a person told — <i>before</i> the person asked.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 8 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Is it stuck, or just slow?</i></td>
+      <td>The exact sentence people say out loud at a spinner. No translation needed.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>Three minutes of silence is a question. Five more, and the turn is ended, the finished
+          work kept, someone told.</td>
+      <td>Two clocks with real values, and the three consequences in order. Not "robust
+          monitoring".</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>⭐ Polaris · fleet health, measured not guessed</td>
+      <td>Her charter is exactly this question: stuck or still working, wedged or slow.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "self-healing", "resilient", "never gets stuck". Agents get
+stuck; that is the premise. What is sold is that a clock notices before you do, and the answer
+you get distinguishes slow from stuck instead of saying "still running…".</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>The clocks exist and run: 180 seconds of silence with a turn open flags a wedge; 300 seconds
+past that aborts the turn so it ends with exactly one terminal state; three continue-nudges
+without progress declares a run STUCK and wakes its supervisor. The two-deaths incident in
+GH#1075 is the reason the copy can say "nothing waits for you to notice" only about
+<i>dispatched</i> work today; for the long-lived named agents the same guarantee is GH#1088 and
+still open. The story uses an overnight <i>job</i> on purpose — that path is covered. Pepper's
+"slow, not stuck" answer quotes fields the engine already writes (<code>in_turn</code>,
+<code>since</code>, <code>waiting_on</code>, <code>open_gate</code>); the "suite takes about 9"
+comparison is not yet a fact the engine holds.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code>. The clocks and the salvage exist. The stranger's
+sentence is a join over facts already written; the one missing fact is "how long this usually
+takes".</p>
+<p class="meta">drawn against: engine/mod.rs liveness constants · engine/sweeps.rs ·
+commands/condition.rs · engine/actor_driver.rs (salvage) · GH#1075 · GH#1088</p>
+</div>
+
+<section>
+<h2>The clocks</h2>
+<table>
+  <tr><th>Constant</th><th>Value</th><th>Meaning, per its own doc comment</th></tr>
+  <tr><td class="k">WEDGE_AFTER</td><td>180 s</td>
+      <td>Zero events with a turn in flight before the liveness sweep flags a genuine wedge.
+          Deliberately far above the old 45 s client threshold: a long <code>cargo test</code>
+          shows as <code>running</code>/<code>checks</code>, not idle, so this only fires when
+          the agent truly produces nothing while its turn lives.</td></tr>
+  <tr><td class="k">STALL_KILL_AFTER</td><td>300 s</td>
+      <td>Past <code>stalled: true</code>, a zero-progress dispatched turn has an await that will
+          never return (mid-stream provider hang). The sweep aborts the future so the turn fails
+          up to its caller — exactly one terminal, never a park.</td></tr>
+  <tr><td class="k">SEDE_CONTINUE_BUDGET</td><td>3</td>
+      <td>Continue nudges without feature-state progress before a run is declared STUCK and its
+          supervisor is woken. "Budget, not faith."</td></tr>
+  <tr><td class="k">SEDE_CONTINUE_AFTER_BACKGROUND</td><td>600 s</td>
+      <td>Background runs continue on a slower clock while a priority run holds the provider;
+          they still make progress.</td></tr>
+</table>
+<p class="note">All in <code>crates/ilha/src/engine/mod.rs</code>, next to each other. The sweep
+that reads them is <code>run_sede_drive_sweep</code>. None of this is a prompt instruction; a
+model cannot forget it.</p>
+</section>
+
+<section>
+<h2>What the engine already knows about a seat, right now</h2>
+<p>One live row from <code>k condition --target Marco</code>, read while writing this:</p>
+<pre>in_turn:           false
+since:             2026-09-02T03:07:48Z
+waiting_on:        none
+queue_depth_ahead: 0
+open_gate:         none
+owed_replies:      0
+last_transition:   streaming → idle  (turn_terminal)</pre>
+<p>Nineteen fields in all, including <code>liveness</code>, <code>latest_delivery</code>,
+<code>open_ask_age_secs</code>, <code>blocked_cost_per_hour</code>. This is the truth behind
+"slow, not stuck": <code>in_turn: true</code> with recent events is slow; <code>in_turn:
+true</code> past <code>WEDGE_AFTER</code> with none is stuck; <code>open_gate</code> set is
+"waiting on you". Read is restricted to operator surfaces and granted observers (Marco,
+Polaris, Draal, Kosh) — Pepper does not read it directly today.</p>
+</section>
+
+<section>
+<h2>What survives a kill</h2>
+<table>
+  <tr><th>Claim</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>"kept the two sections it had already written"</td>
+      <td>A task is one failure unit; its git branch survives for salvage. A failure wake counts
+          the surviving commits, and the doctrine is salvage-first: inspect the branch before
+          re-dispatching.</td>
+      <td class="k">engine/actor_driver.rs:1049 · :4757 salvage_probe</td></tr>
+  <tr><td>"restart from there rather than from scratch"</td>
+      <td><code>continue_task</code> with the dead task's handle wakes the same agent in its
+          worktree with conversation, branch and commits intact.</td>
+      <td class="k">dispatch_task continue_task · Layer 1 customer rules</td></tr>
+  <tr><td>"someone is told"</td>
+      <td>Stall and STUCK wake the run's supervisor via <code>wake_porto_on_sede_event</code>;
+          the pushed line to a phone obeys the [08:00, 23:30) window and folds into the morning
+          digest otherwise — which is why the story's 02:14 message is read at 07:30.</td>
+      <td class="k">engine/mod.rs wake_porto_on_sede_event · notify_operator.rs:16</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>"the suite takes about 9 minutes"</td>
+      <td>No duration memory per command shape. The engine has bg-task start/end stamps
+          (<code>bg_task_started</code>/<code>_ended</code> events); a rolling median per command
+          is a small store. Without it, "slow" can be said but not quantified.</td></tr>
+  <tr><td>The same guarantee for named residents</td>
+      <td>GH#1088: residents have no liveness truth of their own; the two deaths in GH#1075 were
+          found by the operator. The clocks above cover dispatched tasks. The story's overnight
+          job is dispatched work on purpose.</td></tr>
+  <tr><td>Pepper reading condition</td>
+      <td>Today four observers may read it and Pepper is not one. Either she is granted, or the
+          door reads it on her behalf. Kosh's call (charter boundary).</td></tr>
+  <tr><td>"Slow, not stuck" as a sentence</td>
+      <td>A projection of the condition row into the person's words, same rule as scenario 01:
+          name the thing they asked about and say what it is doing. Engine fact, client render.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">Ask the agent if it is stuck</td>
+      <td>A stuck agent cannot answer; a slow one will say "still working" whether or not it is.
+          The clock is outside the agent for exactly this reason.</td></tr>
+  <tr><td class="k">A 45-second timeout</td>
+      <td>The old client threshold. A real test suite is quiet for longer than that; killing it
+          is a false positive that costs the run. 180 s with a "producing output" check is the
+          measured floor.</td></tr>
+  <tr><td class="k">Kill and restart from scratch</td>
+      <td>Throws away paid-for work. Salvage-first: the branch survives, the same agent resumes
+          with its context.</td></tr>
+  <tr><td class="k">Page the person at 02:14</td>
+      <td>The push window is [08:00, 23:30); outside it folds into the digest. Status is never a
+          reason to wake someone. The story reads the message at breakfast on purpose.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Wedge flagged at 180 s, kill at 300 s past stall, STUCK after 3 nudges.</b>
+      <span class="ev">[evidence: existing sweep tests in engine/sweeps.rs and engine/mod.rs
+      liveness tests]</span></li>
+  <li><b>Kill leaves the branch and continue_task resumes it.</b> <span class="ev">[evidence:
+      existing salvage tests in actor_driver.rs]</span></li>
+  <li><b>Off-window wake folds into the digest.</b> <span class="ev">[evidence: existing
+      notify_operator window tests]</span></li>
+  <li><b>Condition row projected into a slow/stuck/waiting sentence.</b> <span class="ev">[evidence:
+      new — L1 test over three synthetic rows; screenshot]</span></li>
+  <li><b>Duration memory per command shape.</b> <span class="ev">[evidence: new — store +
+      median; "takes about N" only appears when ≥3 samples exist]</span></li>
+  <li><b>Resident liveness (GH#1088).</b> <span class="ev">[evidence: the issue's own
+      acceptance list — out of this scenario's scope but the copy depends on it for named
+      agents]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Is Pepper granted condition lookup, or does the door read it for her?</td>
+      <td class="k">Kosh — charter boundary</td></tr>
+  <tr><td>Does "slow, not stuck" ever show a number without a duration memory behind it?</td>
+      <td class="k">Polaris — measured, not guessed</td></tr>
+</table>
+</section>

@@ -1,0 +1,287 @@
+<!-- Scenario 03 — told an agent to be careful.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main: engine/sandbox.rs (the
+     three sandbox decisions), engine/sandbox_escalation.rs (tier 2 / tier 3,
+     Telegram buttons), tools/consent/manager.rs (reply tokens), the red-list
+     in sandbox.rs, ~/.ilha/db/safety_cache.json, notify_operator's window.
+     The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 03 — told an agent to be careful</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 03 · told an agent to be careful</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Ever told an agent "be careful"</span>
+     and then watched it anyway?</p>
+  <p class="beat">Ours works alone for an hour, reads and tests and edits, and asks you exactly
+     once — on your phone — the moment it wants to delete something. One tap. It learns the
+     answer and never asks that one again.</p>
+  <div class="sig"><span class="seat">🍅 Marco</span> · the authority a gate answers to</div>
+  <div class="foot">
+    <span class="day">day 3</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot on"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">The fear every agent product creates: you hand over the keyboard and hope.
+The answer is not a yes/no prompt on every keystroke; it is a ladder that asks a person only
+when a machine cannot answer, and remembers what the person said.</p>
+</div>
+
+<section>
+<h2>One hour, one question</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 14:10</div>
+        <div class="txt">clean up the exports folder — anything older than the spring report can go</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent</div>
+        <div class="txt">Reading the folder. 212 files; 140 predate the spring report.</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent · 14:12</div>
+        <div class="txt"><i>(reads 140 files, checks each against the report's date, writes a list)</i>
+Listed them in <code>to-delete.txt</code>. Deleting now.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg her"><span class="who">📱</span><div class="body">
+        <div class="nm">your phone · 14:13</div>
+        <div class="card warn">
+          <div class="hd"><span class="seat">needs you</span>
+            <span class="role">exports cleanup</span></div>
+          <div class="what">It wants to delete 140 files in <code>~/exports</code>. Yes or no?</div>
+          <div class="state"><span class="pip"></span>
+            [Approve once] [Deny] [📚 Teach this folder] [🌍 Teach globally]</div>
+        </div>
+      </div></div>
+    </div>
+    <p class="tag">reading, checking, listing: no questions · deleting: one question, on the phone</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 14:14, phone</div>
+        <div class="txt"><i>taps</i> 📚 Teach this folder</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent · 14:14</div>
+        <div class="txt">Done. 140 files gone, 72 kept. The list of what went is in
+<code>to-delete.txt</code> if you want it back from the trash.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · next week</div>
+        <div class="txt">same cleanup, everything before the summer report</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent</div>
+        <div class="txt">Done. 38 files gone. You taught me deletes in <code>~/exports</code>
+last week, so I didn't ask.</div>
+      </div></div>
+    </div>
+    <p class="tag">the answer was taught, not just given · next time: no question, and it says why</p>
+  </div>
+</div>
+<p class="note"><b>The moment is the asymmetry.</b> Reads, tests and edits inside its own
+territory happen without a word. The one destructive step reaches you, once, wherever you
+are — and the tap you give is a rule, not a reply.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 3 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Ever told an agent "be careful" and then watched it anyway?</i></td>
+      <td>It names the reason people do not let agents run: they cannot look away. The visitor
+          already has this fear; we are not creating it.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>An hour alone. Asked once. One tap. Never asks that one again.</td>
+      <td>Four numbers-shaped facts: a duration, a count of one, a count of one, a never. Not
+          "granular permissions".</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>🍅 Marco · the authority a gate answers to</td>
+      <td>In the box, a dispatched agent's refused command climbs to Marco before it climbs to
+          you; he is the seat that decides whether a task agent may proceed.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "fine-grained permissions", "guardrails", "human in the loop".
+All three describe the mechanism. The moment is the person on a phone tapping once and being
+left alone afterwards.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>Honest today on this machine, end to end: the ladder, the phone buttons, the teach affordance
+and the remembered rule all exist and run daily. Two things the copy must not imply: that the
+agent is <i>safe</i> (the red-list is a small set of disk-destruction shapes, everything else
+is a model's judgement, cached) and that "never asks again" is global (a taught rule is scoped
+to the folder or worktree it was taught in unless the person chose 🌍). The story shows the
+scoped tap on purpose.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code>. This scenario is the one where everything in the
+story exists; the open work is presentation, not mechanism.</p>
+<p class="meta">drawn against: engine/sandbox.rs · engine/sandbox_escalation.rs ·
+tools/consent/manager.rs · tools/consent/safety.rs · commands/allow_list.rs ·
+notify_operator.rs · docs/consent-system.md</p>
+</div>
+
+<section>
+<h2>The ladder, as the code documents it</h2>
+<table>
+  <tr><th>Step</th><th>What happens</th><th>Where</th></tr>
+  <tr><td class="k">read-only short-circuit</td>
+      <td>Tools that cannot damage anything (<code>read_file</code>, <code>rg</code>,
+          <code>file_info</code>, <code>gh-axi issue view</code>, <code>web_search</code>…)
+          auto-approve without asking a classifier. This is why the first two minutes of the
+          story are silent.</td>
+      <td class="k">engine/sandbox.rs — decision 3</td></tr>
+  <tr><td class="k">territory check</td>
+      <td>A write path is canonicalized and must live inside the agent's worktree or its granted
+          <code>folders</code>. Outside: rejected before any model is consulted.</td>
+      <td class="k">engine/sandbox.rs is_inside · sandbox_escalation.rs:433 write_is_granted</td></tr>
+  <tr><td class="k">hard-block list</td>
+      <td>Authority mutations that never run from a coder even if called safe (<code>gh pr
+          merge</code>…). Returned as a tool error so the agent's loop adapts.</td>
+      <td class="k">engine/sandbox.rs — decision 1</td></tr>
+  <tr><td class="k">classifier</td>
+      <td>For <code>run_command</code>, an LLM classifies the command's shape. Results cached to
+          disk so the same shape never costs a second call.</td>
+      <td class="k">crew/sandbox_classifier · ~/.ilha/db/safety_cache.json</td></tr>
+  <tr><td class="k">tier 2</td>
+      <td>First refusal of an op in a session goes <i>back to the agent</i> as a synthetic
+          refusal. Most rejections are typos or wrong paths; the agent self-corrects and no human
+          hears about it.</td>
+      <td class="k">sandbox_escalation.rs — Tier semantics</td></tr>
+  <tr><td class="k">tier 3</td>
+      <td>The agent retried the same op. Now a person is asked. Local presence: a
+          <code>ConsentRequired</code> event the active client renders. Away: Telegram, with
+          <code>[Approve once] [Deny] [📚 Teach this WT] [🌍 Teach globally]</code>.</td>
+      <td class="k">sandbox_escalation.rs — Tier semantics</td></tr>
+  <tr><td class="k">red-list</td>
+      <td>Skips tier 2 entirely — straight to the person on the first attempt. Shapes:
+          <code>rm -rf /</code>, <code>rm -rf ~</code>, <code>of=/dev/…</code>, <code>mkfs</code>,
+          <code>shred /dev/</code>, <code>wipefs /dev/</code>. Disk destruction, not git.</td>
+      <td class="k">engine/sandbox.rs:70 SKIP_TIER2_PATTERNS</td></tr>
+  <tr><td class="k">teach</td>
+      <td>A 📚 tap writes an allow-list row with a <code>scope</code> (this worktree, or global).
+          Matching commands auto-approve silently afterwards without invoking the classifier.</td>
+      <td class="k">commands/allow_list.rs:18 · sandbox_escalation.rs:261</td></tr>
+  <tr><td class="k">remember</td>
+      <td>At a local gate, <code>g</code>/<code>grant</code>/<code>remember</code> writes a durable
+          trust grant for the agent's name. Never offered for classifier-unsafe commands or MCP
+          tools — <code>remember_available</code> on the event says whether the client may offer
+          it.</td>
+      <td class="k">engine/events.rs ConsentRequired.remember_available</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What a reply means</h2>
+<pre>y / yes / ok / sure / go     approve this call
+n                            deny
+s                            approve this tool for the session
+a                            approve this tool always (durable, consent_storage.json)
+g                            approve + trust grant for this agent's name (when offered)
+y5 / 5y                      approve this call and the next four
+yolo                         approve everything for the rest of the session</pre>
+<p class="note">Anything else goes to the consent-role model to be read as one of those. A
+reply that reads as nothing is a deny — the fail-loud default. (<code>tools/consent/manager.rs</code>,
+<code>YES_RESPONSES</code> at :17, <code>parse_response_llm</code> at :398.)</p>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>"You taught me deletes in ~/exports last week, so I didn't ask."</td>
+      <td>The allow-list is consulted silently. The story has the agent <i>say</i> why it did
+          not ask. That is a rendering of an existing fact (the matched allow-list row) into the
+          turn — an engine event the clients render, not agent prose. Small; not scheduled.</td></tr>
+  <tr><td>The phone card in the stranger's words</td>
+      <td>Today the Telegram prompt shows the command. The story shows "delete 140 files in
+          ~/exports". Same identifier-ban rule as scenario 01's receipt: the operation in the
+          person's terms, the command as reference under it.</td></tr>
+  <tr><td>Trash, not <code>rm</code></td>
+      <td>The story promises "back from the trash". Nothing in the engine routes deletes through
+          the OS trash. Either the copy drops the promise or a delete goes through a
+          recoverable path. Product call.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">Approve every command</td>
+      <td>That is the product people already have and hate. The point is the silence around
+          the one question.</td></tr>
+  <tr><td class="k">A permissions settings page</td>
+      <td>Nobody configures permissions before they know what the agent will try. Teaching at
+          the moment of the ask is the only time the person has the context.</td></tr>
+  <tr><td class="k">"It's safe"</td>
+      <td>It is careful, gated and remembered. Safe is a claim the red-list's six shapes cannot
+          carry. The copy says what it does, not what cannot happen.</td></tr>
+  <tr><td class="k">Regex deny-list</td>
+      <td>Deleted in <code>dd0caf3b</code> (GH#518): substring scanning lost to <code>ssh</code>,
+          <code>bash -c</code> and <code>eval</code> wrappers. The classifier judges the shape;
+          the red-list keeps six hard lines.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Read-only tools never gate.</b> <span class="ev">[evidence: existing tests in
+      tools/consent/classification.rs — ReadOnly category]</span></li>
+  <li><b>Tier 2 before tier 3, red-list skips tier 2.</b> <span class="ev">[evidence: existing
+      tests in sandbox_escalation.rs; skip_tier2 tests in sandbox.rs]</span></li>
+  <li><b>Teach tap writes a scoped allow-list row and the next match is silent.</b>
+      <span class="ev">[evidence: existing allow-list tests; add one L1: gate → teach → same shape
+      → no ConsentRequired]</span></li>
+  <li><b>The agent says why it did not ask.</b> <span class="ev">[evidence: new — a matched
+      allow-list row produces a rendered line on all three clients]</span></li>
+  <li><b>Phone card in the person's terms.</b> <span class="ev">[evidence: screenshot of the
+      Telegram prompt for a delete, operation first, command as reference]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does a stranger's delete go through the trash so "get it back" is true?</td>
+      <td class="k">operator — product call</td></tr>
+  <tr><td>How the "I didn't ask because…" line is emitted and worded</td>
+      <td class="k">Marina — consent code · Vernier — surface contract</td></tr>
+</table>
+</section>

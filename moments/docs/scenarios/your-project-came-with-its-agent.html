@@ -1,0 +1,310 @@
+<!-- Scenario 12 — your project came with its agent.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. This is the one scenario whose part three
+     is mostly design: the mechanism is settled in SPEC_RESIDENTS §9 (three
+     seat kinds, one roster; definition travels with the repo, binding stays
+     local; source key + purpose route; additive merge; orphaned binding),
+     verified against agents/registry.rs:109–113, engine/sandbox_escalation.rs:433,
+     prompt/builder.rs:515, agent.rs:60, and depends on GH#1010. Copy is
+     placeholder. -->
+<meta charset="utf-8">
+<title>scenario 12 — your project came with its agent</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 12 · your project came with its agent</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">What if cloning a repo also cloned the person who knows
+     it?</span> A project can carry its own agent.</p>
+  <p class="beat">A seat lives in the repo next to the code: what it is for, where it may write,
+     nothing else. Clone the project and the seat is on your crew, reachable through your chief
+     of staff by the project's name. Birth a better one, send a pull request, and everyone who
+     clones after you gets it too.</p>
+  <div class="sig"><span class="seat">📐 Kosh</span> · designs the crew</div>
+  <div class="foot">
+    <span class="day">day 12</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot on"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it · <b>designed, not built</b></p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">Every coding assistant reads a project's README to learn it, and every one of
+them learns it again tomorrow. A project's knowledge should travel <i>with the project</i>: not as
+a document an assistant skims, but as a seat on the crew with a charter, a face, and a name,
+versioned in git beside the code it knows. Open source the project and the seat goes with it.
+Someone downstream births a better one and sends it back.</p>
+</div>
+
+<section>
+<h2>Clone, and it's on the crew</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">pepper, I just cloned trade-lens into ~/code. anything I should know?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">It came with a seat. The repo carries one agent:</div>
+        <div class="card"><div class="hd"><span class="seat">📈 Ledger</span><span class="role">trade-lens · the engine and the chart</span></div>
+          <div class="what">knows why the engine rejects an order and why a chart goes blank; writes
+only inside <code>src/engine</code> and <code>src/chart</code> of your clone</div>
+          <div class="state"><span class="pip g"></span>loaded from ~/code/trade-lens/.ilha/residents/ · territory anchored to the clone</div></div>
+        <div class="txt">She has no grants beyond that territory. If you want her to run the test
+suite or push a branch, that's yours to give.</div>
+      </div></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">for trade-lens, ask her why orders under $5 get rejected</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Asked.</div>
+        <div class="card done"><div class="hd"><span class="seat">📈 Ledger</span><span class="role">trade-lens</span></div>
+          <div class="what">why orders under $5 are rejected</div>
+          <div class="state"><span class="pip g"></span>answered · 40 s</div></div>
+        <div class="txt">Ledger: a minimum-notional guard in <code>engine/risk.rs</code>, set to
+$5 by the original author because the broker's fee made smaller orders lose money.
+It's a constant, not a setting. She can make it configurable if you want.</div>
+      </div></div>
+    </div>
+    <p class="tag">the seat came with the clone; Pepper routes on the project's name</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · weeks later</div>
+        <div class="txt">the seat that came with trade-lens knows the engine but nothing about the
+data feeds, and that's where I keep getting stuck. can I birth one for that?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Yes. The session that has been working the feed code for two weeks can be
+invited — same rite as any seat: it reads its own history, proposes a name, a
+face and a charter, you approve. It becomes <i>trade-lens/Tape</i>, alongside
+<i>trade-lens/Ledger</i>. Two seats, two grounds, one project.
+
+If you want Tape to travel with the repo, her definition is one file in
+<code>.ilha/residents/</code>. Send it as a pull request and everyone who clones
+after it merges gets her too. Her memory stays on your machine; her charter
+goes.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">and if I delete the clone?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Both seats show as <i>orphaned</i> on the crew: still named, no ground to
+stand on, not deleted. Clone it again and they come back with their memory.</div>
+      </div></div>
+    </div>
+    <p class="tag">birth one, PR it back; the definition travels, the memory stays; deletion is a state, not a loss</p>
+  </div>
+</div>
+<p class="note"><b>Three seat kinds, one crew.</b> Seats the product ships (Pepper, Marco).
+Seats you birth for yourself (a voice, a working record). Seats a project carries in its repo.
+All three sit on the same roster, all three are reachable by anyone on it, and the chief of staff
+routes on two fields: which project, and what the seat is for. Nothing else in the system knows
+the difference.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 12 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>What if cloning a repo also cloned the person who knows it?</i></td>
+      <td>Everyone who has onboarded to a codebase knows the gap between the README and the one
+          person who actually knows why. The question names that person.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>A seat lives in the repo next to the code. Clone, and it's on your crew. Birth a better
+          one, PR it back.</td>
+      <td>The beat is the <i>location</i> (in git, beside the code) and the <i>loop</i> (PR it
+          back). Both are concrete; neither is "AI-powered".</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>📐 Kosh · designs the crew</td>
+      <td>Kosh settled this design: three seat kinds, additive merge, source key, orphan state.
+          It is his architecture; the project seat is his shape instantiated.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "AI that understands your codebase", "repo-aware assistant",
+"context engine". Those describe reading. What is sold is a <i>seat</i>: a named agent with a
+scope, versioned with the code, that a community can improve by pull request.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>This is the one scenario whose mechanism is designed and not built, and the card says so
+("designed, not built") rather than hiding it. What <i>is</i> measured: the three seat kinds and
+the routing rule are written in SPEC_RESIDENTS §9 and verified by the resident who owns agent
+architecture; two residents on this machine already carry granted territory the way Ledger
+would; the roster is rendered into every prompt regardless of project; territory containment is
+enforced on canonical paths. The dependency is named: nothing here ships before GH#1010. Ledger
+and Tape are fiction; trade-lens is a real project on this machine with no seat yet.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Settled design (SPEC_RESIDENTS §9), verified anchors, one prerequisite. The
+build is two issues, in order.</p>
+<p class="meta">drawn against: docs/specs/SPEC_RESIDENTS.md §9 · agents/registry.rs:109–113 ·
+agents/roster.rs · engine/sandbox_escalation.rs:433–453 · prompt/builder.rs:515 ·
+commands/agent.rs:60 · GH#1010 · GH#1190</p>
+</div>
+
+<section>
+<h2>What exists that the design stands on</h2>
+<table>
+  <tr><th>Claim</th><th>Mechanism today</th><th>Where</th></tr>
+  <tr><td>"writes only inside src/engine and src/chart of your clone"</td>
+      <td>Territory is enforced: a resident's write is checked by path containment against its
+          granted <code>folders</code>, on canonical paths; unresolvable answers no. Two residents
+          on this machine carry territory (Cyrano, Gaspar).</td>
+      <td class="k">sandbox_escalation.rs:433–453</td></tr>
+  <tr><td>"reachable through your chief of staff"</td>
+      <td>The roster is rendered into every prompt — one index line per resident — regardless of
+          which project the session is in. Reach is fleet-wide; territory is where it writes.</td>
+      <td class="k">builder.rs:515 · roster.rs:829</td></tr>
+  <tr><td>"routes on the project's name"</td>
+      <td>The index line is <code>role — emoji name — purpose</code>. Routing reads purpose; the
+          charter is fetched on demand since GH#1133 and never broadcast.</td>
+      <td class="k">roster.rs:834 · GH#1133</td></tr>
+  <tr><td>A user overlay for definitions already exists — for cards</td>
+      <td><code>~/.ilha/agents/</code> overlays the baked-in task cards. The precedence there is
+          folder-authoritative-when-present, which is the trap the roster merge must not copy.</td>
+      <td class="k">registry.rs:109–113</td></tr>
+</table>
+</section>
+
+<section>
+<h2>The design, in one table</h2>
+<table>
+  <tr><th></th><th>definition (identity)</th><th>binding (this machine)</th></tr>
+  <tr><td class="k">what</td>
+      <td>name, emoji, purpose, charter, folders, avatar seed</td>
+      <td><code>session_id</code>, <code>updated_at</code>, lifecycle</td></tr>
+  <tr><td class="k">shipped seat</td><td>the ilha release</td><td rowspan="3"><code>~/.ilha/agents/residents/</code></td></tr>
+  <tr><td class="k">user seat</td><td><code>~/.ilha/agents/residents/</code></td></tr>
+  <tr><td class="k">project seat</td><td><code>&lt;repo&gt;/.ilha/residents/&lt;name&gt;.json</code>,
+      folders <i>relative</i>, joined to the clone root at load</td></tr>
+</table>
+<table>
+  <tr><th>Rule</th><th>Why</th></tr>
+  <tr><td>The merge is <b>additive by construction</b></td>
+      <td>Copying the card loader's precedence would hide Pepper the day the first project ships a
+          seat.</td></tr>
+  <tr><td>Names are scoped <b>per source</b>: <code>trade-lens/Ledger</code></td>
+      <td>Two projects will both want a <i>Reviewer</i>. Bare name resolves when unique, refuses
+          with the qualified forms when not — same grammar as GH#1190's
+          <code>persona/name</code>.</td></tr>
+  <tr><td>A <b>source key</b> joins the index line</td>
+      <td>"Pepper, for trade-lens, …" resolves on source + purpose without reading a charter. The
+          key must sit where it cannot be mistaken for the address.</td></tr>
+  <tr><td>A project binding has a <b>lifetime</b></td>
+      <td>Delete the clone and the grant check returns false, which reads as "no grant" when the
+          truth is "no seat". <code>orphaned</code> is a state the loader sets, not a deletion;
+          re-clone restores it with its transcript.</td></tr>
+  <tr><td>The directory is <code>.ilha/residents/</code>, not a neutral name</td>
+      <td>A neutral directory invites definitions with no birth rite behind them into a roster
+          whose territory is operator-approved per seat.</td></tr>
+  <tr><td>No project-level charter floor</td>
+      <td>A charter is what a seat is for; a floor would be the project asserting scope over an
+          agent the operator birthed. Territory stays operator-approved.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>A seat that exists before its first session</td>
+      <td>GH#1010: roster is truth, session is transcript, <code>session_id</code> a pointer that
+          fills on first contact. Carries additive merge by construction. <b>Prerequisite for
+          everything below and for shipping Pepper.</b></td></tr>
+  <tr><td>The project loader</td>
+      <td>Second issue, depends on the first: read <code>&lt;repo&gt;/.ilha/residents/</code> for
+          every registered project, join relative folders to the clone root, add the source key to
+          the index line, set <code>orphaned</code> when the source stops loading, scope names per
+          source. Needs a two-same-names fixture: all 12 names on this machine are distinct, so
+          the refusal cannot be tested against live data.</td></tr>
+  <tr><td>"Send it as a pull request"</td>
+      <td>Nothing to build: a definition is one JSON file in the repo. The rite already writes the
+          roster row; writing it to the repo path instead is a target choice at settle time.</td></tr>
+  <tr><td>Pepper's "it came with a seat"</td>
+      <td>A roster diff on project registration: seats present now that were not before. The
+          engine already emits <code>IdentityChanged</code> when a row settles.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">The seat's memory travels in the repo</td>
+      <td>Memory is a transcript of one person's work, often private. The definition (a couple of
+          KB) travels; the transcript stays under <code>~/.ilha</code>.</td></tr>
+  <tr><td class="k">Absolute folders in a project definition</td>
+      <td>A PR'd seat cannot know where the next person clones. Relative, joined at load; the
+          containment check runs unchanged on the result.</td></tr>
+  <tr><td class="k">Delete the binding when the clone goes</td>
+      <td>Loses the transcript's link for a directory that may come back tomorrow. Orphaned is
+          visible and reversible.</td></tr>
+  <tr><td class="k">Project seats reachable only from inside the project</td>
+      <td>Reach is fleet-wide by design; a seat Pepper cannot reach is a card, not a
+          resident.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>GH#1010: an identity edit to the roster survives the agent's next save; a row may exist
+      with no session.</b> <span class="ev">[evidence: new — L1 tests]</span></li>
+  <li><b>Loader merges shipped + user + project seats additively; a project dir never hides a
+      shipped seat.</b> <span class="ev">[evidence: new — fixture with all three sources]</span></li>
+  <li><b>Relative folders join to the clone root; containment check passes inside, refuses
+      outside.</b> <span class="ev">[evidence: new — sandbox_escalation test]</span></li>
+  <li><b>Two same-named seats from different sources: bare name refuses listing both qualified
+      forms.</b> <span class="ev">[evidence: new — fixture; agrees with GH#1190 grammar]</span></li>
+  <li><b>Deleting the clone sets orphaned; re-cloning clears it with the transcript intact.</b>
+      <span class="ev">[evidence: new — loader test]</span></li>
+  <li><b>Index line carries the source key in a position that cannot be read as the address.</b>
+      <span class="ev">[evidence: new — render test; screenshot of the crew page]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does a project seat's charter default to fetched-on-demand like the rest, or is a
+      project allowed to ask for its charter to be broadcast?</td>
+      <td class="k">Kosh — prompt cost (GH#1133)</td></tr>
+  <tr><td>Which is the first real project seat: trade-lens, or ilha itself carrying one for
+      contributors?</td><td class="k">Sergio — product</td></tr>
+</table>
+</section>

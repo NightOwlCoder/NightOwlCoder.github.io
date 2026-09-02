@@ -1,0 +1,292 @@
+<!-- Scenario 11 — the question that never reached you.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main: SPEC_PORTO §4 (asks flow
+     up, each level absorbs maximally), commands/ask_caller.rs (pauses the
+     task), engine/mod.rs:1682–1767 (STUCK budget, porto woken once),
+     commands/escalate_to_human.rs (end_feature blocked while an escalation is
+     pending), notify_operator.rs (fire alarm vs status), AGENTS.md fleet
+     hierarchy, Pepper's ledger on this machine (14 asks, 7 closed).
+     Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 11 — the question that never reached you</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 11 · the question that never reached you</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">How many questions did your agents ask each other today,
+     so they wouldn't have to ask you?</span> Here you can look it up.</p>
+  <p class="beat">A question climbs one level at a time. The agent doing the work asks its lead;
+     the lead asks the one who runs the project; that one asks the chief of staff. You are the top
+     of a pyramid that absorbs everything it can, and you only hear the questions that are
+     actually yours.</p>
+  <div class="sig"><span class="seat">🌶️ Pepper</span> · chief of staff</div>
+  <div class="foot">
+    <span class="day">day 11</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot on"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">One agent asks you everything. Two agents ask you twice as much. The reason
+"more agents" has meant "more interruptions" is that every one of them was wired straight to you.
+Here they are wired to each other, in a fixed order, and the order is the product: a question is
+answered at the lowest level that can answer it, and the level above hears about it only if it
+could not.</p>
+</div>
+
+<section>
+<h2>One question, three levels, zero pings</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🔨</span><div class="body">
+        <div class="nm">coder → its lead · 09:14</div>
+        <div class="txt">The brief says "store the token", the code stores tokens in the keychain
+everywhere else. Keychain or the config file?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🧭</span><div class="body">
+        <div class="nm">lead (this run) · 09:15</div>
+        <div class="txt">Keychain. The plan said config because I wrote it before I saw the other
+storers. Go.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg her"><span class="who">🔨</span><div class="body">
+        <div class="nm">coder → its lead · 09:41</div>
+        <div class="txt">Keychain access needs the app to be signed. It isn't in this repo. Do I
+sign it or leave it unsigned?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🧭</span><div class="body">
+        <div class="nm">lead → Marco · 09:42</div>
+        <div class="txt">Signing certificate question on trade-lens; not mine to decide. Do we have
+one, and may this run use it?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🍅</span><div class="body">
+        <div class="nm">Marco → lead · 09:44</div>
+        <div class="txt">There is a dev certificate on this machine, granted for exactly this. Use
+it. Release signing is a different key and is not yours.</div>
+      </div></div>
+    </div>
+    <p class="tag">two questions, two levels, answered in minutes — you were in a meeting</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🍅</span><div class="body">
+        <div class="nm">Marco → Pepper · 14:02</div>
+        <div class="txt">The trade-lens run wants to add a third-party crash reporter. The plan
+didn't include it and it phones home. Not a merge call — a product one.</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper → you · 14:03 · phone</div>
+        <div class="txt">One question from trade-lens, yours to make: the crash fix wants to add
+a crash reporter that sends reports to a third party. Include it, or keep crashes
+local?
+
+[ Include ]  [ Keep local ]  [ Ask me tonight ]</div>
+      </div></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 14:07 · tap</div>
+        <div class="txt">Keep local</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · 18:30</div>
+        <div class="txt">how many questions came up on trade-lens today?</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Seven. Four answered by the run's lead, two by Marco, one by you (the
+crash reporter — you kept it local). None waited more than 4 minutes.</div>
+      </div></div>
+    </div>
+    <p class="tag">the one question that was yours reached you as a choice, with a way to defer</p>
+  </div>
+</div>
+<p class="note"><b>Seven questions, one reached you, and you can see the other six.</b> The
+storage question was a plan detail: the lead's. The certificate was a grant: Marco's. The crash
+reporter was product: yours. Each level knows what it may decide and what it may not, and the
+climb stops at the first one that may. What you get is the residue, with the climb visible if you
+ask for it.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 11 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>How many questions did your agents ask each other today, so they wouldn't have to
+          ask you?</i></td>
+      <td>It reframes the fear ("more agents, more noise") as a count the reader can check. The
+          number is the product.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>A question climbs one level at a time and stops at the first level that may answer
+          it.</td>
+      <td>A structural rule, not a promise of quiet. The reader can imagine the pyramid; that is
+          the point.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>🌶️ Pepper · chief of staff</td>
+      <td>She is the top of the pyramid below you. Her charter: receives asks, delegates to the
+          owner, keeps the ledger, follows up. The residue reaches you through her.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "multi-agent orchestration", "hierarchical agents", "reduces
+interruptions by 80%". The percentage is unmeasurable in general and would be a claim. What is
+sold is the order, and that the order is looked up, not trusted.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>The pyramid is doctrine written into code and specs: SPEC_PORTO §4, "asks flow UP; each level
+absorbs maximally and escalates only what it cannot answer". The mechanisms per rung are real:
+<code>ask_caller</code> pauses the asking agent's task until its dispatcher answers; a run's
+supervisor is woken by engine events, never by a person; the operator is reached only through
+<code>ask_human</code> (a fire alarm, never a status feed) or through Pepper. Pepper's ledger on
+this machine has 14 asks, 7 closed, each with the ask in the operator's words and the owner it
+went to. The "seven questions, none over 4 minutes" line is the shape of an answer the ledger
+could give; the count is not composed today.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code>. Every rung exists with its own channel and its own
+guarantee. The gap is the count: the climb is recorded in pieces, not as one ledger the person can
+read.</p>
+<p class="meta">drawn against: SPEC_PORTO §4–§6 · commands/ask_caller.rs · commands/answer_task.rs ·
+engine/mod.rs:1682–1767 · commands/escalate_to_human.rs · commands/ask_human.rs ·
+notify_operator.rs · Pepper's charter and asks.md</p>
+</div>
+
+<section>
+<h2>The rungs</h2>
+<table>
+  <tr><th>Rung</th><th>Absorbs</th><th>Escalates via</th><th>Guarantee</th></tr>
+  <tr><td class="k">worker (marujo)</td>
+      <td>Everything its brief and worktree answer.</td>
+      <td><code>ask_caller</code> — one tight question; pauses its task until the answer
+          arrives as the tool result.</td>
+      <td>It cannot proceed on a guess: the task is Blocked until <code>answer_task</code>.</td></tr>
+  <tr><td class="k">run lead (sede)</td>
+      <td>Plan and feature questions, worker disagreements, salvage calls.</td>
+      <td>Engine wake to its supervisor on finished/failed/blocked/stall/STUCK.</td>
+      <td>Continue-loop: three nudges without progress → STUCK → supervisor woken <i>once</i>
+          for the episode. "Budget, not faith."</td></tr>
+  <tr><td class="k">supervisor (porto / Marco)</td>
+      <td>Cross-run judgment, grants, steer-or-kill.</td>
+      <td><code>ask_human</code> for product, credentials, taste — or an ask to Pepper.</td>
+      <td>While a worker's escalation to the human is pending, the run <i>cannot</i> be
+          abandoned: <code>end_feature</code> is blocked until the operator answers.</td></tr>
+  <tr><td class="k">chief of staff (Pepper)</td>
+      <td>Delegation to the owning seat, follow-up, the ledger.</td>
+      <td>The phone, inside the push window; a gate, at any hour.</td>
+      <td>Every ask has a durable key and the operator's own words; the state column is the
+          crew's, the ask column is yours.</td></tr>
+  <tr><td class="k">you</td>
+      <td>Product calls, credentials, permissions, taste.</td>
+      <td>—</td>
+      <td>Paged by fire alarm, never by status feed.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What is recorded at each rung today</h2>
+<table>
+  <tr><th>Rung</th><th>Record</th><th>Where</th></tr>
+  <tr><td class="k">worker ask</td><td>Task state Blocked, the question text, the answer; the
+      task's transcript.</td><td class="k">auto/tasks.db · session file</td></tr>
+  <tr><td class="k">run wake</td><td>Every wake is a message in the supervisor's session; STUCK
+      episodes carry a fired-at stamp.</td><td class="k">engine/mod.rs:1767</td></tr>
+  <tr><td class="k">human ask</td><td>One row per ask with created/replied/deadline, reply text,
+      ladder state, origin.</td><td class="k">ask_human_requests</td></tr>
+  <tr><td class="k">Pepper's asks</td><td>key · ask (your words) · owner · state · issue · opened ·
+      closed.</td><td class="k">asks.md — 14 rows on this machine</td></tr>
+  <tr><td class="k">peer traffic</td><td>The under-the-hood projection: who wrote to whom, with
+      quote and provenance, engine-ordered.</td><td class="k">k hood</td></tr>
+</table>
+<p class="note">Five records, five stores. Everything in "seven questions, four by the lead, two
+by Marco, one by you" is present somewhere; nothing joins it. That join is the whole gap.</p>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>The count, per project per day</td>
+      <td>A projection over the five stores keyed by run and day: asks raised, at which rung
+          answered, longest wait. The ask key from scenario 01 travelling outbound gives every
+          question a project to belong to.</td></tr>
+  <tr><td>"[ Ask me tonight ]"</td>
+      <td>A deferral button that re-raises the gate inside the next push window. The gate
+          already has a deadline; a "later" resolution that re-queues is small.</td></tr>
+  <tr><td>A product question reaching Pepper from a run</td>
+      <td>Today a run's supervisor calls <code>ask_human</code> directly. Routing product
+          questions through Pepper (so they land in her ledger with the ask in your words) is the
+          designed shape and not the wired one.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">Every agent may ask the human</td>
+      <td>Two agents would ask twice as much. Only the top of the pyramid pages; everyone else
+          asks up one level.</td></tr>
+  <tr><td class="k">Skip levels when it's urgent</td>
+      <td>Urgency is what a fire alarm is for, and a gate reaches the phone at any hour. Questions
+          are not urgent; they are owned.</td></tr>
+  <tr><td class="k">Answer on the agent's behalf when the human is slow</td>
+      <td>A pending human escalation blocks abandonment by design. Slow is allowed; guessing is
+          not.</td></tr>
+  <tr><td class="k">A daily "questions asked" email</td>
+      <td>Status never pages. The count is looked up when you want it, in chat.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>ask_caller blocks the task until answer_task; no progress on a guess.</b>
+      <span class="ev">[evidence: existing actor tests]</span></li>
+  <li><b>STUCK after 3 nudges wakes the supervisor exactly once per episode.</b>
+      <span class="ev">[evidence: existing sweep tests]</span></li>
+  <li><b>end_feature refused while a human escalation is pending.</b>
+      <span class="ev">[evidence: existing escalate_to_human tests]</span></li>
+  <li><b>Per-project daily count of asks by rung, with longest wait.</b>
+      <span class="ev">[evidence: new — L1 test over seeded rows in the five stores; one
+      sentence]</span></li>
+  <li><b>Deferral resolution on a gate re-raises inside the next window.</b>
+      <span class="ev">[evidence: new — gate test with a "later" reply; window test]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Do run supervisors page the human directly, or always through Pepper?</td>
+      <td class="k">Kosh — who owns the top rung below the operator</td></tr>
+  <tr><td>Is the daily count a sentence in chat only, or also a line in the morning digest?</td>
+      <td class="k">Sergio — what he wants to see without asking</td></tr>
+</table>
+</section>

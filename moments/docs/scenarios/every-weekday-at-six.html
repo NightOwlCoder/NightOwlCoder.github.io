@@ -1,0 +1,279 @@
+<!-- Scenario 08 — every weekday at six.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on main and on this machine:
+     commands/cron_create.rs (target_name resolved via lineage at fire time,
+     durable across restarts, end_after), cron_list (expired reasons incl. a
+     missed one-shot), the live job table (job 15: Bede 06:00 weekdays), the
+     nightly train (k nightly status: 9 jobs), nightly/jobs/ci_self_heal.rs
+     (candidate, never culprit), notify_operator.rs (window + digest).
+     Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 08 — every weekday at six</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 08 · every weekday at six</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Ever set up a "daily" AI task and watched it die by Thursday?</span>
+     Here the schedule is a message, and the agent is a person.</p>
+  <p class="beat">Tell an agent by name to do something every weekday at six. The clock is the
+     engine's, not a browser tab's: it survives restarts, follows the agent if it moves, and
+     when it can't fire it says why instead of going quiet.</p>
+  <div class="sig"><span class="seat">⚙️ Salgado</span> · delivery and resume</div>
+  <div class="foot">
+    <span class="day">day 2</span>
+    <div class="dots"><span class="dot"></span><span class="dot on"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">"Recurring" is where assistants go to die. A scheduled prompt in a chat product
+lives in a tab; close the tab, change the model, restart the machine, and it is gone without a
+word. Here a schedule is a message delivered to a named agent by a clock the engine owns. The
+agent reads its own standing notes, does the job, and the result lands where results land.</p>
+</div>
+
+<section>
+<h2>Setting it up, and the morning it runs</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">pepper, every weekday at 6 i want bede to open my day: yesterday's notes,
+today's calendar, anything that needs me before 9</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">Set. Bede, weekdays 06:00, "your morning open". It's addressed to her by
+name, so if she ever moves sessions the job follows her. First fire is tomorrow.
+
+One thing: 06:00 is inside your quiet hours, so the summary itself goes to your
+phone at 08:00, not at six. Want it at six anyway?</div>
+      </div></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">no, 8 is right</div>
+      </div></div>
+    </div>
+    <p class="tag">a schedule is a message to a named agent; the clock belongs to the engine</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg her"><span class="who">🪶</span><div class="body">
+        <div class="nm">Bede · 08:00, your phone</div>
+        <div class="txt">Morning open, Tue.
+
+Yesterday: the installer fix merged; you told Marco to hold the release until the
+Windows path is tested.
+Today: 10:00 1:1 with Ana, 14:00 dentist (you moved it twice).
+Needs you before 9: Quill is waiting on your OK for the 0.5 release notes — 1 line.</div>
+      </div></div>
+      <div class="rule"></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · Thursday</div>
+        <div class="txt">did the morning thing run today? didn't get it</div>
+      </div></div>
+      <div class="msg her"><span class="who">🌶️</span><div class="body">
+        <div class="nm">Pepper</div>
+        <div class="txt">It fired at 06:00 and Bede ran it. It reached your phone at 08:00 but the
+digest had four items and hers was third; you may have scrolled past it. Here it is
+again.
+
+For the record: every fire is logged, and a job that <i>can't</i> fire tells us why —
+last week a one-off you'd set for the 25th expired because the machine was asleep
+at 09:00 and it says exactly that.</div>
+      </div></div>
+    </div>
+    <p class="tag">it ran; the answer names the fire, the delivery, and where it went — not "should have"</p>
+  </div>
+</div>
+<p class="note"><b>Three things are different from a scheduled prompt.</b> The target is a
+<i>person</i> on the crew, addressed by name, so the job follows her across sessions. The clock is
+the engine's: it is written to disk and comes back after a restart. And silence is not an
+outcome: a job that could not fire records the reason, and "did it run?" gets a fact, not a
+guess.</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 2 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Ever set up a "daily" AI task and watched it die by Thursday?</i></td>
+      <td>Anyone who tried scheduled tasks in a chat product has this exact memory. "By Thursday"
+          is the specific, not "unreliable".</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>The clock survives restarts, follows the agent if it moves, and when it can't fire it
+          says why.</td>
+      <td>Three properties a browser-tab schedule lacks, each one a fact in the code.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>⚙️ Salgado · delivery and resume</td>
+      <td>His charter is the machinery that carries messages: cron fires, queues, restart and
+          resume. A schedule is a message on a clock; that is his ground exactly.</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "automations", "workflows", "set it and forget it". The last
+one is the lie the wound came from. What is sold is that you can <i>ask</i> whether it ran and
+get an answer with a timestamp.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>Every claim is read from this machine. Job 15 in the live cron table is exactly the story's
+job: <code>0 6 * * 1-5</code>, delivered to Bede, prompt "Your 06:00 morning open. Read
+career/2026/evergreen/scheduled-runs.md and follow the 06:00 section." — her standing notes, not
+a prompt written into the job. Job 28 is the story's expired one-off: <code>expired: one-shot
+missed its scheduled fire at 2026-08-25T09:00</code>, recorded, not silent. The 08:00 digest is
+the push window in <code>notify_operator.rs</code>: [08:00, 23:30), outside folds into one
+morning digest. Bede does not ship, so the story's Bede is a stand-in for whichever seat a
+stranger gives a morning routine to; the mechanism is identical for any name.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code> and on this machine's live job table. The clock, the
+name targeting, the durability and the failure reasons all exist. The gaps are in the
+<i>conversation</i> around them: Pepper setting a job up, and the "did it run?" answer as a
+sentence.</p>
+<p class="meta">drawn against: commands/cron_create.rs · commands/cron_list.rs ·
+k cron_list (live) · k nightly --action status (live) · nightly/jobs/ci_self_heal.rs ·
+notify_operator.rs</p>
+</div>
+
+<section>
+<h2>The clock</h2>
+<table>
+  <tr><th>Claim</th><th>Mechanism</th><th>Where</th></tr>
+  <tr><td>"addressed to her by name, so the job follows her"</td>
+      <td><code>target_name</code>: the resident name is resolved to the live session at
+          <i>each fire</i> via lineage, so a resident that continued into a new session
+          (<code>/snt</code>) still receives it. The alternative, <code>target_session</code>,
+          pins a numeric id and goes stale.</td>
+      <td class="k">cron_create.rs:35</td></tr>
+  <tr><td>"survives restarts"</td>
+      <td>Jobs are durable across daemon restarts; the table on this machine has ids 1–30 spanning
+          weeks and several daemon rebuilds.</td>
+      <td class="k">cron_create.rs (tool description) · live table</td></tr>
+  <tr><td>"when it can't fire it says why"</td>
+      <td>Expired jobs keep an <code>expired_reason</code>: one-shot done, count or deadline
+          reached, dead target, or a missed fire. Job 28 on this machine reads <code>expired:
+          one-shot missed its scheduled fire at 2026-08-25T09:00:00</code>.</td>
+      <td class="k">cron_list.rs:88 · live table</td></tr>
+  <tr><td>"first fire is tomorrow"</td>
+      <td><code>next_fire</code> is computed and shown per active job; <code>end_after</code>
+          takes a fire count or a datetime; <code>once</code> for one-shots.</td>
+      <td class="k">cron_list.rs:37 · cron_create.rs</td></tr>
+  <tr><td>"the summary goes to your phone at 08:00"</td>
+      <td>Push window [08:00, 23:30) half-open; outside-window items fold into one morning digest.
+          One batched buzz per sweep, items deduped by caller-stable key, calendar-aware hold to
+          meeting end (cap 2h).</td>
+      <td class="k">notify_operator.rs:14–34</td></tr>
+</table>
+</section>
+
+<section>
+<h2>The other clock: the nightly train</h2>
+<p>Recurring work the <i>system</i> does for itself rides a second scheduler, one platform job at
+03:00 (<code>dev.ilha.nightly</code> on macOS) that runs every enabled job. Read live while
+writing this:</p>
+<pre>[ON ] checkpoint_prune          remove orphan + stale checkpoints
+[ON ] checkpoint_turncap        cap each shadow repo at its last 5 commits
+[ON ] empty_session_prune       delete empty session files older than 7 days
+[ON ] memory_consolidate        Layer-1 memory: scan recent sessions, apply updates
+[ON ] safety_consolidate        triage classifier disagreements, self-heal ~/.ilha/safety
+[ON ] merged_feature_cleanup    sweep shipped features once their PR merges
+[ON ] resident_transcript_sync  version baptised residents' transcripts with their identity
+[OFF] worktree_gc               reap dead worktrees — dry-run unless confirmed
+[ON ] ci_self_heal              run the suite on main, route each failure to a candidate</pre>
+<p class="note">The last one is the shape the whole product has: the nightly runs the test suite
+and delivers each failure <b>to the agent whose commit is a candidate</b>, never to a person, and
+its own doc says "attribution names a candidate, never a culprit"; a run whose failures cannot be
+recovered is reported and never routed. Recurring work that wakes the right agent instead of
+paging you is the same idea as Bede's morning open, pointed inward.</p>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>Pepper creating the job from a sentence</td>
+      <td><code>cron_create</code> is a tool any session can call; Pepper's charter says she runs
+          no commands, so today the operator or the target creates it. Either the tool is granted
+          to her for this one purpose, or she asks Bede to schedule herself. Kosh's call.</td></tr>
+  <tr><td>"It fired at 06:00 and reached your phone at 08:00"</td>
+      <td>Both facts exist (cron history row; notify audit row with <code>session_id</code> at send
+          time) but in two stores. The sentence is a join, rendered on the client, same rule as
+          scenario 01.</td></tr>
+  <tr><td>"the digest had four items and hers was third"</td>
+      <td>The digest is composed; its item order is not surfaced back as a fact today. Small: the
+          audit row could carry its position.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">Target a session id</td>
+      <td>Ids go stale when a resident continues into a new session. The name walks to the live
+          tip; that is what makes "follows her" true.</td></tr>
+  <tr><td class="k">Fire at 06:00 and push at 06:00</td>
+      <td>Status never wakes anyone. The job runs at six; the person hears at eight. The story
+          asks and the answer keeps the window.</td></tr>
+  <tr><td class="k">Silently skip a missed fire</td>
+      <td>A missed one-shot is recorded with its reason. The Thursday question gets an answer
+          because nothing was skipped quietly.</td></tr>
+  <tr><td class="k">Put the routine in the prompt</td>
+      <td>The job says "read your standing notes and follow the 06:00 section". The routine lives
+          in a file the agent owns and can change; the schedule is just the knock.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>A job targeted by name fires into the continued session after /snt.</b>
+      <span class="ev">[evidence: existing cron lineage tests]</span></li>
+  <li><b>Jobs survive a daemon restart; a missed one-shot expires with a reason.</b>
+      <span class="ev">[evidence: existing cron durability tests; live job 28]</span></li>
+  <li><b>Off-window fire result folds into the 08:00 digest.</b> <span class="ev">[evidence:
+      existing notify_operator window tests]</span></li>
+  <li><b>"Did it run?" answered from cron history + notify audit as one sentence.</b>
+      <span class="ev">[evidence: new — L1 test over a seeded fire and send; screenshot]</span></li>
+  <li><b>Pepper can set a schedule from a sentence (or delegates the scheduling).</b>
+      <span class="ev">[evidence: new — depends on the grant decision; L3 smoke]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Is <code>cron_create</code> granted to Pepper, or does the target seat schedule itself
+      on her ask?</td><td class="k">Kosh — charter boundary</td></tr>
+  <tr><td>Does a stranger's box ship with any recurring job on, or all off until asked?</td>
+      <td class="k">Sergio — product</td></tr>
+</table>
+</section>

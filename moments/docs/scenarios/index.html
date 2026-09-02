@@ -1,0 +1,116 @@
+<!-- docs/scenarios — the front door for the scenario files.
+     A scenario is one moment ilha can sell, written in the order it ships:
+     the teaser a visitor sees, the story it tells, how it is sold, then how it
+     is built. Every part three is measured against main, not remembered.
+     The teaser format is docs/ideas/teaser-moment-mock.html; the shared
+     stylesheet is scenario.css. Copy in every teaser is placeholder shape until
+     Cyrano writes it. -->
+<meta charset="utf-8">
+<title>scenarios — the moments</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">docs/scenarios</p>
+
+<div class="part">
+<p class="label">index</p>
+<h1>Scenarios</h1>
+<p class="lede">One file per moment. Each reads top-down the way it will be shipped: the
+teaser, the story, how it is sold, how it is built. The teaser format and the twelve-moment
+rotation are in <a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>Written</h2>
+<table>
+  <tr><th>#</th><th>Scenario</th><th>The question it answers</th><th>Who</th><th>Built today?</th><th>Day</th></tr>
+  <tr><td class="k">01</td><td><a href="one-door.html">one door</a></td>
+      <td>Want your agent to tell you it's live instead of asking you to review a pull request?</td>
+      <td>🌶️ Pepper</td>
+      <td>delegation half yes; the receipt needs the ask's key outbound and one settle variant</td>
+      <td class="k">6</td></tr>
+  <tr><td class="k">02</td><td><a href="closed-the-laptop.html">closed the laptop</a></td>
+      <td>Ever closed your laptop and lost the agent's work? (your agent was never in the laptop)</td>
+      <td>⚙️ Salgado</td>
+      <td>yes on an always-on box; a lone laptop may promise "nothing lost", never "the work ran on"</td>
+      <td class="k">10</td></tr>
+  <tr><td class="k">03</td><td><a href="told-it-to-be-careful.html">told it to be careful</a></td>
+      <td>Ever told an agent "be careful" and then watched it anyway?</td>
+      <td>🍅 Marco</td>
+      <td>yes: tiers, phone buttons, teach, remember; the "why I didn't ask" line and trash are gaps</td>
+      <td class="k">3</td></tr>
+  <tr><td class="k">04</td><td><a href="two-agents-one-codebase.html">two agents, one codebase</a></td>
+      <td>Two agents editing the same file, and the second one quietly undid the first?</td>
+      <td>🍅 Marco</td>
+      <td>yes: own copies, overlap refused pre-spawn, merged-state revalidation with revert</td>
+      <td class="k">5</td></tr>
+  <tr><td class="k">05</td><td><a href="stuck-or-slow.html">stuck or slow</a></td>
+      <td>Is it stuck, or just slow?</td>
+      <td>⭐ Polaris</td>
+      <td>clocks and salvage yes for dispatched work; residents are GH#1088; "takes about N" needs a duration memory</td>
+      <td class="k">8</td></tr>
+  <tr><td class="k">06</td><td><a href="it-remembers.html">it remembers what you decided</a></td>
+      <td>Explained the same thing to your AI three times this month?</td>
+      <td>🗿 Draal</td>
+      <td>recall, write paths and source label yes; the fact as a clickable line for the person is the gap</td>
+      <td class="k">4</td></tr>
+  <tr><td class="k">07</td><td><a href="the-day-it-got-a-name.html">the day it got a name</a></td>
+      <td>Ever wished the one good session could just… stay?</td>
+      <td>📐 Kosh</td>
+      <td>yes: the birth rite end to end, run 12 times here; a seat that exists before its first session is GH#1010</td>
+      <td class="k">1</td></tr>
+  <tr><td class="k">08</td><td><a href="every-weekday-at-six.html">every weekday at six</a></td>
+      <td>Ever set up a "daily" AI task and watched it die by Thursday?</td>
+      <td>⚙️ Salgado</td>
+      <td>yes: cron by resident name, durable, expired-with-reason; "did it run?" as one sentence is a join gap</td>
+      <td class="k">2</td></tr>
+  <tr><td class="k">09</td><td><a href="approved-from-the-dentists-chair.html">approved from the dentist's chair</a></td>
+      <td>Ever come back to find your agent waiting for a Yes since 10am?</td>
+      <td>🌶️ Pepper</td>
+      <td>yes: 2,398 phone decisions on this machine, 344 of them No; the return summary is a projection gap</td>
+      <td class="k">7</td></tr>
+  <tr><td class="k">10</td><td><a href="it-passes-tests-is-not-enough.html">"it passes tests" is not enough</a></td>
+      <td>Ever merged AI code because "the tests pass", and the test was asserting nothing?</td>
+      <td>🍅 Marco</td>
+      <td>yes: adversarial reviewer, typed evidence, merged-state revalidation; fail-on-base as a measurement is the gap</td>
+      <td class="k">9</td></tr>
+  <tr><td class="k">11</td><td><a href="the-question-that-never-reached-you.html">the question that never reached you</a></td>
+      <td>How many questions did your agents ask each other today, so they wouldn't have to ask you?</td>
+      <td>🌶️ Pepper</td>
+      <td>every rung exists with its own channel and guarantee; the count is recorded in five stores and joined in none</td>
+      <td class="k">11</td></tr>
+  <tr><td class="k">12</td><td><a href="your-project-came-with-its-agent.html">your project came with its agent</a></td>
+      <td>What if cloning a repo also cloned the person who knows it?</td>
+      <td>📐 Kosh</td>
+      <td><b>designed, not built</b>: SPEC_RESIDENTS §9, depends on GH#1010 then a loader issue; the card says so</td>
+      <td class="k">12</td></tr>
+</table>
+<p class="note">Twelve of twelve, one per day of the cycle. Every card is signed by a seat that
+ships; the six seats born on Sergio's machine (voice, working record, delivery channels, screens,
+consent code, interface) appear inside stories as what a crew grows into, never as the signature.
+Ten are built today with a named gap; 12 is design and the card carries the label.</p>
+</section>
+
+<section>
+<h2>The shape every scenario follows</h2>
+<table>
+  <tr><th>Section</th><th>What goes there</th><th>Rule</th></tr>
+  <tr><td class="k">the teaser</td>
+      <td>The card as a visitor sees it, alone at the top. Question · one beat of proof · who ·
+          the way out.</td>
+      <td>The question must be one the visitor already asks. The beat is a thing that happened,
+          never a capability.</td></tr>
+  <tr><td class="k">part one · the story</td>
+      <td>The moment as a conversation, in the person's words. Two panes when the moment has a
+          before/after.</td>
+      <td>No identifiers in anything a person reads. Outcome first; detail only if asked.</td></tr>
+  <tr><td class="k">part two · how it is sold</td>
+      <td>The four parts of this teaser and why in that order; rejected wording; what keeps it
+          honest.</td>
+      <td>A teaser may run ahead of the release like a film teaser does, but every line points at
+          something scheduled, never at the machine on one desk.</td></tr>
+  <tr><td class="k">part three · how it is built</td>
+      <td>What exists, with file:line; what does not, with what it takes; rejected shapes with
+          reasons; an evidence-typed checklist; questions named with an owner.</td>
+      <td>Measured on <code>main</code>. Nothing stated from memory. A gap is written as a gap.</td></tr>
+</table>
+</section>

@@ -1,0 +1,279 @@
+<!-- Scenario 06 — it remembers what you decided.
+     Same shape as scenario 01: the teaser a visitor sees, the story, how it
+     is sold, then how it is built. Measured on this machine while writing:
+     k brain_status --hours 24 (648 pulsos, 2,761 connections surfaced, 469 cited,
+     1,961 acted), memory.db (1,709 entities, 7,439 observations, 179 compiled
+     truths), learnings.db (645 rows), sessions.db (37,349 turn summaries), and
+     one real compiled truth ("Confabulation Guard", 5 observations).
+     The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
+<meta charset="utf-8">
+<title>scenario 06 — it remembers what you decided</title>
+<link rel="stylesheet" href="scenario.css">
+
+<p class="meta">scenario 06 · it remembers what you decided</p>
+
+<!-- ============ THE TEASER ============ -->
+<div class="stage">
+  <p class="moment"><span class="q">Explained the same thing to your AI three times</span>
+     this month?</p>
+  <p class="beat">Say it once. Six weeks later, in a different conversation, on a different
+     project, it says: "you decided against that in March — here's why, and here's the
+     session where you did." You can check it. It links.</p>
+  <div class="sig"><span class="seat">🗿 Draal</span> · memory and context</div>
+  <div class="foot">
+    <span class="day">day 4</span>
+    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
+  </div>
+</div>
+<p class="tag">the teaser · copy is placeholder shape, Cyrano writes it</p>
+
+<!-- ============ PART ONE — THE STORY ============ -->
+<div class="part">
+<p class="label">part one</p>
+<h1>The story</h1>
+<p class="lede">Every chat tool forgets you when the window closes. The workaround is a
+person re-explaining their own decisions, or a rules file that grows until nobody reads it. The
+cure is memory that is written by the system from what happened, and that shows its source
+when it speaks.</p>
+</div>
+
+<section>
+<h2>Six weeks later, a different project</h2>
+<div class="panes">
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · March 14 · the betting app</div>
+        <div class="txt">no, don't run it as a service. it needs my login to see the network
+share. run it as me at login instead, same as the other one.</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent</div>
+        <div class="txt">Switched it to a login item under your account. Noted the reason.</div>
+      </div></div>
+    </div>
+    <p class="tag">March · a decision, said once, in passing</p>
+  </div>
+  <div>
+    <div class="chat">
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you · April 29 · the game</div>
+        <div class="txt">set the game server up to start on boot</div>
+      </div></div>
+      <div class="msg her"><span class="who">🤖</span><div class="body">
+        <div class="nm">agent</div>
+        <div class="txt">Before I make it a service: in March you decided against running the
+betting app as a service because it needs your login to reach the network share, and ran it
+as you at login instead. <span class="ask">(that conversation ↗)</span>
+
+Does the game server need the share too? If so, same shape. If not, a service is fine and
+I'll do that.</div>
+      </div></div>
+      <div class="msg you"><span class="who">🧑</span><div class="body">
+        <div class="nm u">you</div>
+        <div class="txt">it does. same shape.</div>
+      </div></div>
+    </div>
+    <p class="tag">April · surfaced unasked, with the reason and the source · one question instead of a wrong build</p>
+  </div>
+</div>
+<p class="note"><b>Three properties make the moment.</b> It was never told to remember: the
+system wrote the fact from the turn. It spoke <i>before</i> the mistake, not after. And it
+showed where the fact came from, so the person can check it rather than trust it — the link
+goes to the March conversation, not to "my memory says".</p>
+</section>
+
+<!-- ============ PART TWO — HOW IT IS SOLD ============ -->
+<div class="part">
+<p class="label">part two</p>
+<h1>How it is sold</h1>
+<p class="lede">One moment a day. This is moment 4 of 12; the format and the others are in
+<a href="../ideas/teaser-moment-mock.html">the teaser format study</a>.</p>
+</div>
+
+<section>
+<h2>The four parts of this teaser</h2>
+<table>
+  <tr><th>Part</th><th>This scenario</th><th>Why</th></tr>
+  <tr><td class="k">the question</td>
+      <td><i>Explained the same thing to your AI three times this month?</i></td>
+      <td>Everyone who uses a chat tool for work has. The number makes it a memory, not a
+          feature.</td></tr>
+  <tr><td class="k">one beat of proof</td>
+      <td>Six weeks, a different project, and it says "you decided against that in March" with
+          the reason and a link.</td>
+      <td>Distance in time and distance in topic are the two things a context window cannot
+          bridge. Naming both is the proof. The link is what makes it checkable rather than a
+          claim.</td></tr>
+  <tr><td class="k">who does it</td>
+      <td>🗿 Draal · memory and context</td>
+      <td>Memory has an owner. His charter is recall, compaction, consolidation, and "was this
+          already done before redoing it".</td></tr>
+  <tr><td class="k">the way out</td>
+      <td><i>see all 12 →</i></td>
+      <td>Always visible.</td></tr>
+</table>
+<p class="note">Rejected wording: "long-term memory", "knowledge graph", "learns your
+preferences". The first two are architecture; the third is a promise about behaviour the person
+cannot check. The copy says what happened: it spoke first, gave the reason, and linked the
+source.</p>
+</section>
+
+<section>
+<h2>What keeps it honest</h2>
+<p>The three layers exist and run: on this machine, in the last 24 hours, the brain fired 648
+recalls and surfaced 2,761 connections, of which 469 were cited by the receiving turn and
+1,961 were acted on. The world-knowledge store holds 1,709 entities and 179 compiled truths;
+37,349 turn summaries are indexed. What the copy must not imply: that memory is a
+<i>transcript</i>. It is a store of <i>attempts</i> — a past turn's "decided" means a past
+agent said so, and the compiled truth carries a flag when its own guards doubt it. "You can
+check it" is the honest promise; "it is right" is not. The story's link is the check.</p>
+</section>
+
+<!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="part">
+<p class="label">part three</p>
+<h1>How it is built</h1>
+<p class="lede">Measured on <code>main</code> and on this machine's stores. The recall, the
+write path and the source link all exist. The gap is the shape of the sentence: today the
+surfaced fact arrives as a block for the model to use, not as a line the person reads.</p>
+<p class="meta">drawn against: brain/pulso.rs · brain/outcome.rs · memory/store.rs ·
+memory/compile_truth.rs · memory/nudge.rs · SPEC_MEMORY_V2.md · SPEC_BRAIN_V0.md (superseded
+note) · k brain_status · sqlite3 on the three stores</p>
+</div>
+
+<section>
+<h2>Three layers, three write paths</h2>
+<table>
+  <tr><th>Layer</th><th>What it holds</th><th>Written by</th><th>On this machine</th></tr>
+  <tr><td class="k">brain</td>
+      <td>Every turn's summary as a 768-dim vector; on every turn completion, top-5 cosine recall
+          across all other sessions; a match is buffered and delivered to the receiving session's
+          next message as <code>&lt;brain-context&gt;</code>. Each delivery is tracked: cited?
+          acted on? — three-valued, never "no" by default.</td>
+      <td>the engine, per turn (<code>run_pulso</code>)</td>
+      <td>37,349 summaries · 648 pulsos/24h · p50 116 ms</td></tr>
+  <tr><td class="k">world knowledge</td>
+      <td>People, projects, decisions, tools: entities with observations and a compiled truth
+          that is rewritten only when observations at least double, under four guards
+          (<code>empty</code>, <code>length_regression</code>, <code>length_inflation</code>,
+          <code>contradiction</code>). A flagged rewrite persists with its reason and renders a
+          ⚠️.</td>
+      <td>nightly consolidation + per-turn nudge (conf ≥ 9 to create an entity)</td>
+      <td>1,709 entities · 7,439 observations · 179 truths</td></tr>
+  <tr><td class="k">operational</td>
+      <td>How to work in a project: tool quirks, conventions. Rendered into a 4 KB frozen
+          snapshot at session start, ranked by confidence then recency; never re-queried
+          mid-session.</td>
+      <td>background nudge (challenger-filtered) + <code>k learn_add</code></td>
+      <td>645 rows</td></tr>
+</table>
+</section>
+
+<section>
+<h2>One real stored decision</h2>
+<pre>entity:        Confabulation Guard          (Decision · 5 observations)
+compiled truth: "a codified rule requiring that load-bearing facts be verified against
+                primary sources before being written to durable documents or handoff
+                summaries — handoff summaries themselves are never treated as sources…"</pre>
+<p class="note">Nobody typed that truth. Five observations across sessions were consolidated
+into it, and the guards passed. The story's "you decided against running it as a service"
+is this shape with a different subject — the NSSM entity on this machine already carries the
+real version: <i>used to run the daemon as a Windows service under user account ibagy so WSL is
+accessible</i>.</p>
+</section>
+
+<section>
+<h2>What exists for the story's three properties</h2>
+<table>
+  <tr><th>Property</th><th>Exists</th><th>Where</th></tr>
+  <tr><td>Never told to remember</td><td class="good">yes</td>
+      <td>Pulso on every TurnComplete; nudge + nightly consolidation write L1/L2 without a
+          command. <code>engine/chat.rs</code> spawns <code>run_pulso</code> next to the
+          extractor.</td></tr>
+  <tr><td>Speaks before the mistake</td><td class="good">yes, to the model</td>
+      <td>The match is merged into the <i>next user message</i> as <code>&lt;brain-context&gt;</code>
+          with goal/action/status/similarity, so the model has it before it acts. Layer 0
+          tells the model to surface ≥ 0.65 matches with a relevant action.</td></tr>
+  <tr><td>Shows the source</td><td class="good">yes</td>
+      <td>Every block carries an engine-owned session label and, when available, an exact
+          resume command. Layer 0 forbids inventing either. Sanitized for display since
+          GH#1128.</td></tr>
+  <tr><td>Checkable by the person</td><td class="bad">partly</td>
+      <td>The resume command is a terminal invocation. The story draws a link a stranger can
+          click. The PWA has <code>#/session/&lt;id&gt;</code>; nothing yet renders a surfaced
+          fact as a link to it.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>What does not exist yet</h2>
+<table>
+  <tr><th>Gap</th><th>What it takes</th></tr>
+  <tr><td>The fact as a line the person reads</td>
+      <td>Today the recall is <i>input to the model</i>; whether it becomes a sentence depends
+          on the model following Layer 0. The story's "in March you decided…" is a rendered
+          <code>brain-context</code> block: same identifier-ban rule as scenario 01, source label
+          as the link, never the raw block. An event the clients render, so the model cannot
+          skip it.</td></tr>
+  <tr><td>Cross-project recall for a stranger</td>
+      <td>Works here because every project's sessions live in one <code>sessions.db</code>. Holds
+          for a fresh install by construction; nothing to build, but the copy's "different
+          project" claim should be tested on a fresh box before it ships.</td></tr>
+  <tr><td>"Here's why"</td>
+      <td>A brain match carries goal/action/status; the <i>reason</i> for a decision is in the
+          L1 observation, if the nudge captured it. The story assumes the reason was written.
+          Honest copy: "here's what you said" — the reason if it was said.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Rejected, with reasons</h2>
+<table>
+  <tr><th>Shape</th><th>Why not</th></tr>
+  <tr><td class="k">"Remember this" as a command the person must issue</td>
+      <td>The person forgets to say it exactly when it matters. The write path is automatic;
+          <code>learn_add</code> exists for the rare explicit case.</td></tr>
+  <tr><td class="k">Paste the whole past conversation into context</td>
+      <td>Layer 0 forbids it: a summary and a label, one to two sentences, never the block. The
+          person sees a sentence and a link.</td></tr>
+  <tr><td class="k">Trust the memory</td>
+      <td>It is a memory of attempts. The compiled truth carries <code>auto_flagged</code> and
+          <code>flag_reason</code> for a reason. The link is the check; the copy sells the check.</td></tr>
+  <tr><td class="k">A rules file the person maintains</td>
+      <td>That is what the operational layer replaces: written by the system, ranked by
+          confidence, capped at 4 KB so it is actually read.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>Checklist</h2>
+<ol>
+  <li><b>Recall fires per turn, cross-session, excluding the current session.</b>
+      <span class="ev">[evidence: existing brain::store and brain::pulso tests]</span></li>
+  <li><b>Delivered block carries label + resume command, never invented.</b>
+      <span class="ev">[evidence: existing delivery tests; Layer 0 text]</span></li>
+  <li><b>Compiled truth guards flag rather than overwrite.</b> <span class="ev">[evidence:
+      existing compile_truth tests — four guards]</span></li>
+  <li><b>A surfaced fact renders as a line with a clickable source on all three clients.</b>
+      <span class="ev">[evidence: new — event + shared component; L1 test; screenshot]</span></li>
+  <li><b>Fresh-install cross-project recall.</b> <span class="ev">[evidence: new — two projects
+      on a clean box, decision in one surfaces in the other; output pasted]</span></li>
+</ol>
+</section>
+
+<section>
+<h2>Named, not decided</h2>
+<table>
+  <tr><th>Question</th><th>Whose</th></tr>
+  <tr><td>Does the person see the surfaced fact as its own line, or only through the agent's
+          sentence?</td>
+      <td class="k">Draal — recall surface · Vernier — contract</td></tr>
+  <tr><td>What a stranger's first week of memory looks like when the stores are empty</td>
+      <td class="k">Draal</td></tr>
+</table>
+</section>
