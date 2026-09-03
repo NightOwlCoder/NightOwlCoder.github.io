@@ -78,9 +78,11 @@ th{color:var(--dim);font-weight:500;font-size:13px;letter-spacing:.04em;text-tra
 .k{color:var(--seat)}
 footer{color:var(--dim);font-size:13px;margin-top:60px;border-top:1px solid var(--line);padding-top:18px}
 /* the crew's notes on any site page: behind a band, on a second background, never above it */
-.crew-band{margin:64px -22px 0;padding:18px 22px 6px;background:#161b22;border-top:3px solid var(--hot);color:var(--dim);font-size:14px}
+.crew-band,.crew-notes{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
+  padding-left:max(22px,calc(50vw - 438px));padding-right:max(22px,calc(50vw - 438px))}
+.crew-band{margin-top:64px;padding-top:18px;padding-bottom:6px;background:#161b22;border-top:3px solid var(--hot);color:var(--dim);font-size:14px}
 .crew-band b{color:var(--hot);font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:4px}
-.crew-band p{margin:0;max-width:80ch}
-.crew-notes{background:#161b22;margin:0 -22px -80px;padding:8px 22px 60px}
+.crew-band p{margin:0}
+.crew-notes{background:#161b22;margin-bottom:-80px;padding-top:8px;padding-bottom:60px}
 .crew-notes h1{font-size:22px;margin-top:20px}
 @media (max-width:640px){.stage{padding:28px 22px}nav{gap:14px;padding:14px 18px}}
