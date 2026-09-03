@@ -18,9 +18,9 @@
 <div class="stage">
   <p class="moment"><span class="q">Ever wished the one good session could just... stay?</span>
      Give it a name. It does.</p>
-  <p class="beat">A session that's done real work can be invited to become someone: it reads its
+   <p class="beat">A session that's done real work can be invited to join the crew: it reads its
      own history and proposes a name, a face, and what it's for. You approve the words. From then
-     on it's on the crew, reachable by name, with only the folders it actually worked in.</p>
+     on it's reachable by name, with only the folders it actually worked in.</p>
   <div class="sig"><span class="seat">📐 Kosh</span> · designs the crew</div>
   <div class="foot">
     <span class="day">day 1 of 12</span>
@@ -50,7 +50,7 @@ make that official?</div>
       </div></div>
       <div class="msg her"><span class="who">🤖</span><div class="body">
         <div class="nm">(unnamed session)</div>
-        <div class="txt">Reading my own last hundred turns first, so this comes from what I actually
+        <div class="txt pre">Reading my own last hundred turns first, so this comes from what I actually
 did and not from what I'd like to be.
 
 What I did: cut four releases, wrote the checksums, chased two broken installers,
@@ -61,7 +61,7 @@ Proposal:
   name       Quill
   for        keeping releases honest: what shipped, what changed, what broke
   territory  scripts/release/, docs/releases/  (the two places I wrote)
-  face       three to choose from ↓   emoji: 🪶 · 📦 · 🏷️
+  emoji      three to choose from: 🪶 · 📦 · 🏷️   (the face is mine to pick)
 
 The charter is yours to approve or cut. I have not saved anything.</div>
       </div></div>
@@ -111,10 +111,10 @@ it. Say the word and I'll set it up; until then she'll stage the tag and Marco p
   </div>
 </div>
 <p class="note"><b>Three things you decide, and the agent cannot decide for itself.</b> Whether
-it gets a name at all (you invite). Which face it wears (it proposes three, you pick, because a
-face must be unique across the crew). What it is <i>for</i> (it drafts from its own record, you
-approve the words). Territory comes from where it actually wrote, not from where it would like
-to. And a name is never a power: pushing a tag stays yours to grant.</p>
+it gets a name at all (you invite). Which mark it wears (it proposes three emoji, the engine
+refuses any already worn by another agent, you pick from what is free). What it is <i>for</i> (it
+drafts from its own record, you approve the words). Territory comes from where it actually wrote,
+not from where it would like to. And a name is never a power: pushing a tag stays yours to grant.</p>
 </section>
 <div class="story-walk"><span class="empty"></span><a class="next" href="every-weekday-at-six.html?day=2"><span class="k">moment 2 →</span><span class="t">Ever set up a &quot;daily&quot; AI task and watched it die by Thursday? The schedule here is a message to someone with a name.</span></a></div>
 
@@ -198,8 +198,8 @@ agents/roster.rs · nightly/jobs/resident_transcript_sync.rs · GH#1010</p>
           directories it actually wrote in, most-used first.</td>
       <td class="k">interview.rs:24, :143, :182, :267</td></tr>
   <tr><td>"three to choose from"</td>
-      <td>The agent never settles its own emoji; <code>emoji_candidates</code> are checked against
-          every mark already in use, the operator picks or asks for three more.</td>
+      <td>The agent never settles its own emoji; the engine refuses any <code>emoji_candidates</code>
+          already worn by another agent, the operator picks from the free ones or asks for three more.</td>
       <td class="k">interview.rs:82–104, :261</td></tr>
   <tr><td>"the charter is yours to approve"</td>
       <td><code>charter_proposal</code> goes to the operator; <code>charter</code> is persisted

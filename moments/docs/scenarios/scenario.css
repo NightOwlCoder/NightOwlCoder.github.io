@@ -77,7 +77,8 @@ a.dot:hover{background:var(--dim)}
 .body{flex:1;min-width:0}
 .you .txt{color:var(--you)}
 .her .txt{color:var(--text)}
-.txt{white-space:pre-wrap}
+.txt{white-space:normal}
+.txt.pre{white-space:pre-wrap}
 .nm{font-size:11px;color:var(--her);font-family:var(--mono);margin-bottom:2px}
 .nm.u{color:var(--dim)}
 .rule{height:1px;background:var(--line);margin:2px 0}
