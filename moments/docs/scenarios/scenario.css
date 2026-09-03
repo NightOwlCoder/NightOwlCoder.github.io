@@ -35,11 +35,12 @@ section{border-top:1px solid var(--line);padding-top:2px}
 .crew .part{margin-top:36px;border-top-color:#2a3441}
 .crew .part:first-child{margin-top:8px;border-top:0}
 .crew .part .label{color:var(--warn)}
+.crew .credit{color:var(--dimmer);font-size:11px;margin:10px 0 0;font-family:var(--mono)}
 .crew section{border-top-color:#2a3441}
 .crew table th,.crew table td{border-bottom-color:#2a3441}
 .panes{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 @media (max-width:900px){.panes{grid-template-columns:1fr}}
-.tag{color:var(--dimmer);font-size:11px;margin:6px 0 0;font-family:var(--mono)}
+.tag{color:var(--dimmer);font-size:12px;margin:8px 0 0;font-family:var(--mono);line-height:1.5}
 
 /* ── the teaser card: what the visitor sees ───── */
 .stage{background:linear-gradient(180deg,#0e141b,#0b0f14);border:1px solid var(--line);
