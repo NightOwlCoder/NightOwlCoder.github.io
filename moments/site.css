@@ -17,6 +17,24 @@ body.today .beat{font-size:clamp(19px,2.1vw,24px)}
 body.today .foot{margin-top:6vh}
 body.today footer{display:none}
 .stage{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:40px 44px;margin:8px 0 18px}
+/* the whole card is the link: one block, lifts on hover, no underline on 60px type;
+   the invitation lives in the bottom-right corner and its arrow answers the hover */
+.card-link{display:block;color:inherit;text-decoration:none;position:relative;border-radius:16px;
+  padding:22px 26px 62px;margin:-22px -26px 0;transition:background .18s ease,transform .18s ease,box-shadow .18s ease}
+.card-link:hover,.card-link:focus-visible{text-decoration:none;color:inherit;background:rgba(255,255,255,.035);
+  transform:translateY(-2px);box-shadow:0 14px 40px -18px rgba(0,0,0,.7)}
+.card-link:focus-visible{outline:2px solid var(--hot);outline-offset:4px}
+.card-link .moment,.card-link .beat{display:block}
+.card-link .sig{display:flex}
+.cta{position:absolute;right:26px;bottom:20px;display:inline-flex;align-items:center;gap:8px;
+  font-size:14px;font-weight:600;letter-spacing:.01em;color:var(--hot);opacity:.85;
+  padding:7px 14px;border:1px solid rgba(240,179,90,.35);border-radius:999px;background:rgba(240,179,90,.06)}
+.cta .arrow{display:inline-block;transition:transform .18s ease}
+.card-link:hover .cta{opacity:1;background:rgba(240,179,90,.14);border-color:rgba(240,179,90,.6)}
+.card-link:hover .cta .arrow{transform:translateX(4px)}
+body.today .card-link{max-width:calc(920px + 52px)}
+@media (max-width:640px){.card-link{padding:14px 16px 62px;margin:-14px -16px 0}.cta{right:16px;bottom:14px}}
+@media (prefers-reduced-motion:reduce){.card-link,.cta .arrow{transition:none}.card-link:hover{transform:none}}
 .moment{font-size:clamp(28px,4.6vw,44px);line-height:1.12;margin:0 0 20px;font-weight:600;letter-spacing:-.01em}
 .moment .q{color:var(--hot)}
 .beat{font-size:19px;color:#c9d4de;margin:0 0 26px;max-width:62ch}
