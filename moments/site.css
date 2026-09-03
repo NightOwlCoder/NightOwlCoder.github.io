@@ -1,11 +1,21 @@
 :root{--bg:#0b0f14;--panel:#121820;--line:#1f2933;--ink:#e6edf3;--dim:#8b98a5;--hot:#f0b35a;--seat:#7dd3fc;--ok:#3fb950}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
 a{color:var(--seat);text-decoration:none}a:hover{text-decoration:underline}
 nav{display:flex;gap:22px;align-items:center;padding:18px 28px;border-bottom:1px solid var(--line);font-size:14px;color:var(--dim)}
 nav .brand{color:var(--ink);font-weight:600;letter-spacing:.02em;margin-right:auto}
 nav a.on{color:var(--ink)}
 main{max-width:920px;margin:0 auto;padding:36px 22px 80px}
+/* the front page is the visitor's screen: one card, the height of the window, nothing else on it */
+body.today main{max-width:none;padding:0;min-height:calc(100vh - 61px);display:flex;flex-direction:column}
+.stage[hidden],body.today .stage[hidden]{display:none!important}
+body.today .stage{flex:1;display:flex;flex-direction:column;justify-content:center;border:0;border-radius:0;margin:0;
+  padding:6vh 8vw 4vh;background:radial-gradient(900px 420px at 18% 0%,rgba(240,179,90,.10),transparent 70%),var(--bg)}
+body.today .stage>*{max-width:920px;width:100%;margin-left:auto;margin-right:auto}
+body.today .moment{font-size:clamp(34px,5.4vw,60px)}
+body.today .beat{font-size:clamp(19px,2.1vw,24px)}
+body.today .foot{margin-top:6vh}
+body.today footer{display:none}
 .stage{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:40px 44px;margin:8px 0 18px}
 .moment{font-size:clamp(28px,4.6vw,44px);line-height:1.12;margin:0 0 20px;font-weight:600;letter-spacing:-.01em}
 .moment .q{color:var(--hot)}
@@ -14,8 +24,14 @@ main{max-width:920px;margin:0 auto;padding:36px 22px 80px}
 .sig .seat{color:var(--ink);font-weight:600}
 .sig .face{width:34px;height:34px;border-radius:8px;overflow:hidden;flex:none}
 .sig .face svg{width:100%;height:100%;display:block}
-.foot{display:flex;align-items:center;justify-content:space-between;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:14px}
-.dots{display:flex;gap:6px}.dot{width:7px;height:7px;border-radius:50%;background:#2b3742}.dot.on{background:var(--hot)}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:30px;padding-top:18px;border-top:1px solid var(--line);color:var(--dim);font-size:14px;white-space:nowrap}
+/* the dots are the cycle: each one opens that day, the arrows step through it */
+.walk{display:flex;align-items:center;gap:10px}
+.dots{display:flex;gap:7px}.dot{display:block;width:8px;height:8px;border-radius:50%;background:#2b3742}.dot.on{background:var(--hot)}
+a.dot:hover{background:var(--dim)}
+.step{color:var(--dim);font-size:22px;line-height:1;padding:2px 8px;border-radius:8px}
+.step:hover{color:var(--ink);background:var(--panel);text-decoration:none}
+.step.off{visibility:hidden}
 .tag{color:var(--dim);font-size:13px;margin:0 0 30px}
 h1{font-size:30px;margin:26px 0 8px;letter-spacing:-.01em}
 .lede{color:#c9d4de;font-size:18px;max-width:66ch;margin:0 0 26px}
@@ -43,4 +59,10 @@ th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vert
 th{color:var(--dim);font-weight:500;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
 .k{color:var(--seat)}
 footer{color:var(--dim);font-size:13px;margin-top:60px;border-top:1px solid var(--line);padding-top:18px}
+/* the crew's notes on any site page: behind a band, on a second background, never above it */
+.crew-band{margin:64px -22px 0;padding:18px 22px 6px;background:#161b22;border-top:3px solid var(--hot);color:var(--dim);font-size:14px}
+.crew-band b{color:var(--hot);font-size:11px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:4px}
+.crew-band p{margin:0;max-width:80ch}
+.crew-notes{background:#161b22;margin:0 -22px -80px;padding:8px 22px 60px}
+.crew-notes h1{font-size:22px;margin-top:20px}
 @media (max-width:640px){.stage{padding:28px 22px}nav{gap:14px;padding:14px 18px}}

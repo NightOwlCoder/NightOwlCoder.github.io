@@ -21,6 +21,22 @@ section{border-top:1px solid var(--line);padding-top:2px}
 .part .label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
              color:var(--hot);margin:0 0 4px}
 .part h1{font-size:20px;margin:0 0 6px}
+
+/* ── two readers, one file ─────────────────────────
+   Above the band: what a visitor sees (the card, the story, how it is sold).
+   Below it: the crew's notes on how ilha carries the moment. The band and the
+   second background are the seam; nothing above it names a file or a line. */
+.crew-band{margin:72px -30px 0;padding:18px 30px 6px;background:#161b22;
+           border-top:3px solid var(--warn);color:var(--dim);font-size:12.5px}
+.crew-band b{color:var(--warn);font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+             text-transform:uppercase;display:block;margin-bottom:4px}
+.crew-band p{margin:0;max-width:80ch}
+.crew{background:#161b22;margin:0 -30px -60px;padding:0 30px 60px}
+.crew .part{margin-top:36px;border-top-color:#2a3441}
+.crew .part:first-child{margin-top:8px;border-top:0}
+.crew .part .label{color:var(--warn)}
+.crew section{border-top-color:#2a3441}
+.crew table th,.crew table td{border-bottom-color:#2a3441}
 .panes{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
 @media (max-width:900px){.panes{grid-template-columns:1fr}}
 .tag{color:var(--dimmer);font-size:11px;margin:6px 0 0;font-family:var(--mono)}
@@ -43,8 +59,14 @@ section{border-top:1px solid var(--line);padding-top:2px}
 .foot a{color:var(--dim);text-decoration:none;border-bottom:1px dotted var(--dimmer)}
 .day{color:var(--dimmer)}
 .dots{display:flex;gap:5px;align-items:center}
-.dot{width:5px;height:5px;border-radius:50%;background:var(--line)}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--line);display:block}
 .dot.on{background:var(--hot)}
+/* the dots walk the cycle: each one is a link to that day's moment, the arrows step */
+a.dot:hover{background:var(--dim)}
+.step{color:var(--dim);text-decoration:none;font-size:15px;line-height:1;padding:0 6px;border:0}
+.step:hover{color:var(--text)}
+.step.off{visibility:hidden}
+.foot .walk{display:flex;align-items:center;gap:4px}
 
 /* ── the chat ─────────────────────────────────── */
 .chat{background:var(--panel);border:1px solid var(--line);border-radius:10px;

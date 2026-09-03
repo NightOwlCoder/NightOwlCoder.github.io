@@ -8,7 +8,7 @@
      (candidate, never culprit), notify_operator.rs (window + digest).
      Copy is placeholder. -->
 <meta charset="utf-8">
-<title>scenario 08 — every weekday at six</title>
+<title>scenario 08: every weekday at six</title>
 <link rel="stylesheet" href="scenario.css">
 
 <p class="meta">scenario 08 · every weekday at six</p>
@@ -22,11 +22,8 @@
      can't fire it tells you why instead of going quiet.</p>
   <div class="sig"><span class="seat">⚙️ Salgado</span> · delivery and resume</div>
   <div class="foot">
-    <span class="day">day 2</span>
-    <div class="dots"><span class="dot"></span><span class="dot on"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <span class="day">day 2 of 12</span>
+    <div class="walk"><a class="step" href="the-day-it-got-a-name.html" title="day 1">←</a><div class="dots"><a class="dot" href="the-day-it-got-a-name.html" title="day 1"></a><a class="dot on" href="every-weekday-at-six.html" title="day 2"></a><a class="dot" href="told-it-to-be-careful.html" title="day 3"></a><a class="dot" href="it-remembers.html" title="day 4"></a><a class="dot" href="two-agents-one-codebase.html" title="day 5"></a><a class="dot" href="one-door.html" title="day 6"></a><a class="dot" href="approved-from-the-dentists-chair.html" title="day 7"></a><a class="dot" href="stuck-or-slow.html" title="day 8"></a><a class="dot" href="it-passes-tests-is-not-enough.html" title="day 9"></a><a class="dot" href="closed-the-laptop.html" title="day 10"></a><a class="dot" href="the-question-that-never-reached-you.html" title="day 11"></a><a class="dot" href="your-project-came-with-its-agent.html" title="day 12"></a></div><a class="step" href="told-it-to-be-careful.html" title="day 3">→</a></div>
     <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
   </div>
 </div>
@@ -76,7 +73,7 @@ phone at 08:00, not at six. Want it at six anyway?</div>
 Yesterday: the installer fix merged; you told Marco to hold the release until the
 Windows path is tested.
 Today: 10:00 1:1 with Ana, 14:00 dentist (you moved it twice).
-Needs you before 9: Quill is waiting on your OK for the 0.5 release notes — 1 line.</div>
+Needs you before 9: Quill is waiting on your OK for the 0.5 release notes, 1 line.</div>
       </div></div>
       <div class="rule"></div>
       <div class="msg you"><span class="who">🧑</span><div class="body">
@@ -89,12 +86,12 @@ Needs you before 9: Quill is waiting on your OK for the 0.5 release notes — 1 
 digest had four items and hers was third; you may have scrolled past it. Here it is
 again.
 
-For the record: every fire is logged, and a job that <i>can't</i> fire tells us why —
+For the record: every fire is logged, and a job that <i>can't</i> fire tells us why:
 last week a one-off you'd set for the 25th expired because the machine was asleep
 at 09:00 and it says exactly that.</div>
       </div></div>
     </div>
-    <p class="tag">it ran; the answer names the fire, the delivery, and where it went — not "should have"</p>
+    <p class="tag">it ran. The answer names the fire, the delivery, and where it went, not "should have"</p>
   </div>
 </div>
 <p class="note"><b>Three things are different from a scheduled prompt.</b> The target is a
@@ -141,7 +138,7 @@ get an answer with a timestamp.</p>
 <h2>What keeps it honest</h2>
 <p>Every claim is read from this machine. Job 15 in the live cron table is exactly the story's
 job: <code>0 6 * * 1-5</code>, delivered to Bede, prompt "Your 06:00 morning open. Read
-career/2026/evergreen/scheduled-runs.md and follow the 06:00 section." — her standing notes, not
+career/2026/evergreen/scheduled-runs.md and follow the 06:00 section." Her standing notes, not
 a prompt written into the job. Job 28 is the story's expired one-off: <code>expired: one-shot
 missed its scheduled fire at 2026-08-25T09:00</code>, recorded, not silent. The 08:00 digest is
 the push window in <code>notify_operator.rs</code>: [08:00, 23:30), outside folds into one
@@ -150,6 +147,10 @@ stranger gives a morning routine to; the mechanism is identical for any name.</p
 </section>
 
 <!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="crew-band"><b>below this line: the crew's notes</b>
+<p>Everything above is what a visitor sees and reads. What follows is for the people building ilha and the agents that help them: how the engine carries this moment today, with file and line, and what is still missing. A visitor never needs it.</p></div>
+<div class="crew" id="built">
+
 <div class="part">
 <p class="label">part three</p>
 <h1>How it is built</h1>
@@ -277,3 +278,4 @@ paging you is the same idea as Bede's morning open, pointed inward.</p>
       <td class="k">product owner</td></tr>
 </table>
 </section>
+</div>

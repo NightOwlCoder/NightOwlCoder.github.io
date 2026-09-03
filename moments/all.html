@@ -1,6 +1,6 @@
 <!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ilha — all the moments</title><link rel="stylesheet" href="site.css">
-<nav><a class="brand" href="index.html">ilha</a>
+<title>ilha, all the moments</title><link rel="stylesheet" href="site.css">
+<body><nav><a class="brand" href="index.html">ilha</a>
 <a href="index.html">today</a><a href="all.html" class="on">all moments</a><a href="crew.html">the crew</a><a href="how.html">the promise</a></nav><main><h1>All the moments</h1>
 <p class="lede">One a day, in this order, then it starts again. Each card opens the scenario behind it: the story, how it is sold, how it is built.</p>
 <div class="grid"><a class="card" href="docs/scenarios/the-day-it-got-a-name.html">
@@ -80,7 +80,8 @@ const q=parseInt(new URLSearchParams(location.search).get('day'),10);
 const d=Math.floor(Date.now()/864e5)-20699;
 const i=(q>=1&&q<=12)?q-1:((d<0?0:d)%12+12)%12;
 document.querySelectorAll('a[href="all.html"],a[href="index.html"]').forEach(a=>{if(q>=1&&q<=12)a.search='?day='+q});
+document.addEventListener('keydown',e=>{const k={ArrowLeft:i,ArrowRight:i+2}[e.key];if(k>=1&&k<=12&&!e.metaKey&&!e.ctrlKey)location.search='?day='+k});
 document.querySelectorAll('.card')[i].classList.add('today');
 </script>
-<footer>Every card points at a scenario that is shipped or scheduled — <a href="how.html">the promise</a>.</footer>
+<footer>Every card points at a scenario that is shipped or scheduled: <a href="how.html">the promise</a>.</footer>
 </main>

@@ -7,7 +7,7 @@
      (where the engine runs on this network), GH#1075 (what a dead stream does today).
      The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
 <meta charset="utf-8">
-<title>scenario 02 — closed the laptop</title>
+<title>scenario 02: closed the laptop</title>
 <link rel="stylesheet" href="scenario.css">
 
 <p class="meta">scenario 02 · closed the laptop</p>
@@ -22,11 +22,8 @@
      gone.</p>
   <div class="sig"><span class="seat">⚙️ Salgado</span> · the machinery that carries messages</div>
   <div class="foot">
-    <span class="day">day 10</span>
-    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+    <span class="day">day 10 of 12</span>
+    <div class="walk"><a class="step" href="it-passes-tests-is-not-enough.html" title="day 9">←</a><div class="dots"><a class="dot" href="the-day-it-got-a-name.html" title="day 1"></a><a class="dot" href="every-weekday-at-six.html" title="day 2"></a><a class="dot" href="told-it-to-be-careful.html" title="day 3"></a><a class="dot" href="it-remembers.html" title="day 4"></a><a class="dot" href="two-agents-one-codebase.html" title="day 5"></a><a class="dot" href="one-door.html" title="day 6"></a><a class="dot" href="approved-from-the-dentists-chair.html" title="day 7"></a><a class="dot" href="stuck-or-slow.html" title="day 8"></a><a class="dot" href="it-passes-tests-is-not-enough.html" title="day 9"></a><a class="dot on" href="closed-the-laptop.html" title="day 10"></a><a class="dot" href="the-question-that-never-reached-you.html" title="day 11"></a><a class="dot" href="your-project-came-with-its-agent.html" title="day 12"></a></div><a class="step" href="the-question-that-never-reached-you.html" title="day 11">→</a></div>
     <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
   </div>
 </div>
@@ -37,7 +34,7 @@
 <p class="label">part one</p>
 <h1>The story</h1>
 <p class="lede">A chat tab dies with the tab. ilha's engine is a service on a machine, and every
-screen — terminal, browser, desktop app, phone — is a dumb terminal painting the same stream. A
+screen (terminal, browser, desktop app, phone) is a dumb terminal painting the same stream. A
 screen going away is not an event the work notices, <i>because the work was never on the
 screen</i>.</p>
 </div>
@@ -72,7 +69,7 @@ screen</i>.</p>
       <div class="msg her"><span class="who">🤖</span><div class="body">
         <div class="nm">agent</div>
         <div class="txt">While you were away: the twelve failures are three bugs. Nine share
-one — a date parser that assumes the local timezone. Two are a missing
+one, a date parser that assumes the local timezone. Two are a missing
 null check in the same file. One is genuinely separate, in the export path.
 
 I fixed nothing yet. Which one first?</div>
@@ -82,7 +79,7 @@ I fixed nothing yet. Which one first?</div>
         <div class="txt">the timezone one</div>
       </div></div>
     </div>
-    <p class="tag">five hours later, another device — the same conversation, one turn further</p>
+    <p class="tag">five hours later, another device: the same conversation, one turn further</p>
   </div>
 </div>
 <p class="note"><b>The laptop was a window.</b> Nothing was saved, restored, synced or resumed by
@@ -114,14 +111,14 @@ asked to see it. That is the whole architecture, sold as one evening.</p>
   <tr><td class="k">who does it</td>
       <td>⚙️ Salgado · the machinery that carries messages</td>
       <td>Queueing, delivery, resume and restart have an owner who is a person, not "the
-          cloud". <b>Signature is provisional</b> — see below.</td></tr>
+          cloud". <b>Signature is provisional</b>, see below.</td></tr>
   <tr><td class="k">the way out</td>
       <td><i>see all 12 →</i></td>
       <td>Always visible.</td></tr>
 </table>
 <p class="note">Rejected wording: "runs in the background", "the work ran on while the lid was
 shut". The first is what every product says. The second was this scenario's first draft and it
-is false for a person whose only machine is the laptop — see the next section. The copy now
+is false for a person whose only machine is the laptop, see the next section. The copy now
 says where the agent lives and lets the reader draw the consequence.</p>
 </section>
 
@@ -138,19 +135,23 @@ says where the agent lives and lets the reader draw the consequence.</p>
           Windows service on a desktop and as a launchd service on a Mac, both reached from a
           phone over a private network tunnel.</td></tr>
   <tr><td class="k">one laptop, engine installed on it</td>
-      <td>The engine sleeps with the lid. Nothing is lost — sessions are on disk and the
-          reconnect replays the transcript — but the work pauses, and a turn that was mid-stream
+      <td>The engine sleeps with the lid. Nothing is lost (sessions are on disk and the
+      reconnect replays the transcript) but the work pauses, and a turn that was mid-stream
           when the network went away ends when the connection does.</td>
       <td><i>Nothing is lost; pick up where you left off.</i> Never <i>the work ran on</i>.</td></tr>
 </table>
 <p>So the site, or the installer, has to know which shape the person has before this card is
-shown to them as a promise — or the release offers the first shape as a thing you can buy
+shown to them as a promise, or the release offers the first shape as a thing you can buy
 (a small cloud box ilha provisions), which is a product question and not a copy fix. The
 "while you were away" paragraph is the resume briefing the engine already writes; its wording
 is the engine's and reads as the agent's summary.</p>
 </section>
 
 <!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="crew-band"><b>below this line: the crew's notes</b>
+<p>Everything above is what a visitor sees and reads. What follows is for the people building ilha and the agents that help them: how the engine carries this moment today, with file and line, and what is still missing. A visitor never needs it.</p></div>
+<div class="crew" id="built">
+
 <div class="part">
 <p class="label">part three</p>
 <h1>How it is built</h1>
@@ -268,3 +269,4 @@ chat/session.rs · the network doc under docs/ · GH#1075</p>
       <td class="k">Vernier — surface contract</td></tr>
 </table>
 </section>
+</div>

@@ -6,7 +6,7 @@
      (the two silent deaths), actor_driver.rs salvage doctrine, and Polaris's
      charter. The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
 <meta charset="utf-8">
-<title>scenario 05 — stuck or slow</title>
+<title>scenario 05: stuck or slow</title>
 <link rel="stylesheet" href="scenario.css">
 
 <p class="meta">scenario 05 · stuck or slow</p>
@@ -20,11 +20,8 @@
      work is kept, and someone is told. Nothing waits for you to notice.</p>
   <div class="sig"><span class="seat">⭐ Polaris</span> · fleet health, measured</div>
   <div class="foot">
-    <span class="day">day 8</span>
-    <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot on"></span><span class="dot"></span>
-      <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+    <span class="day">day 8 of 12</span>
+    <div class="walk"><a class="step" href="approved-from-the-dentists-chair.html" title="day 7">←</a><div class="dots"><a class="dot" href="the-day-it-got-a-name.html" title="day 1"></a><a class="dot" href="every-weekday-at-six.html" title="day 2"></a><a class="dot" href="told-it-to-be-careful.html" title="day 3"></a><a class="dot" href="it-remembers.html" title="day 4"></a><a class="dot" href="two-agents-one-codebase.html" title="day 5"></a><a class="dot" href="one-door.html" title="day 6"></a><a class="dot" href="approved-from-the-dentists-chair.html" title="day 7"></a><a class="dot on" href="stuck-or-slow.html" title="day 8"></a><a class="dot" href="it-passes-tests-is-not-enough.html" title="day 9"></a><a class="dot" href="closed-the-laptop.html" title="day 10"></a><a class="dot" href="the-question-that-never-reached-you.html" title="day 11"></a><a class="dot" href="your-project-came-with-its-agent.html" title="day 12"></a></div><a class="step" href="it-passes-tests-is-not-enough.html" title="day 9">→</a></div>
     <a href="../ideas/teaser-moment-mock.html#all">see all 12 →</a>
   </div>
 </div>
@@ -50,7 +47,7 @@ later. The cure is a watchdog written in code, not in a prompt.</p>
       </div></div>
       <div class="msg her"><span class="who">🌶️</span><div class="body">
         <div class="nm">Pepper</div>
-        <div class="txt">Slow, not stuck. It's been running your test suite for 6 minutes —
+        <div class="txt">Slow, not stuck. It's been running your test suite for 6 minutes,
 the suite takes about 9. It has produced output in the last minute.
 
 I'll say something if that changes. You don't need to watch it.</div>
@@ -61,7 +58,7 @@ I'll say something if that changes. You don't need to watch it.</div>
         <div class="txt">The import is done: 2,300 rows in, 4 rejected with reasons in the log.</div>
       </div></div>
     </div>
-    <p class="tag">slow — measured against what it is doing, not against your patience</p>
+    <p class="tag">slow: measured against what it is doing, not against your patience</p>
   </div>
   <div>
     <div class="chat">
@@ -69,7 +66,7 @@ I'll say something if that changes. You don't need to watch it.</div>
         <div class="nm">Pepper · 02:14</div>
         <div class="txt">One of the overnight jobs stalled and I stopped it.
 
-The report generator went silent mid-turn — three minutes with nothing, then
+The report generator went silent mid-turn: three minutes with nothing, then
 five more. Its connection to the model hung. I ended the turn, kept the two
 sections it had already written, and it will restart from there in the morning
 rather than from scratch.
@@ -88,13 +85,13 @@ and wonder.</div>
 and is on four now.</div>
       </div></div>
     </div>
-    <p class="tag">stuck — ended by the clock, kept what was finished, restarted from there, and said so</p>
+    <p class="tag">stuck: ended by the clock, kept what was finished, restarted from there, and said so</p>
   </div>
 </div>
 <p class="note"><b>Two different answers to the same question, and a machine tells them
 apart.</b> "Slow" is a turn that is still producing; the answer names what it is doing and how
 long that usually takes. "Stuck" is silence past a fixed clock; the answer is that the turn was
-ended, the finished work kept, and a person told — <i>before</i> the person asked.</p>
+ended, the finished work kept, and a person told, <i>before</i> the person asked.</p>
 </section>
 
 <!-- ============ PART TWO — HOW IT IS SOLD ============ -->
@@ -136,13 +133,17 @@ past that aborts the turn so it ends with exactly one terminal state; three cont
 without progress declares a run STUCK and wakes its supervisor. The two-deaths incident in
 GH#1075 is the reason the copy can say "nothing waits for you to notice" only about
 <i>dispatched</i> work today; for the long-lived named agents the same guarantee is GH#1088 and
-still open. The story uses an overnight <i>job</i> on purpose — that path is covered. Pepper's
+still open. The story uses an overnight <i>job</i> on purpose: that path is covered. Pepper's
 "slow, not stuck" answer quotes fields the engine already writes (<code>in_turn</code>,
 <code>since</code>, <code>waiting_on</code>, <code>open_gate</code>); the "suite takes about 9"
 comparison is not yet a fact the engine holds.</p>
 </section>
 
 <!-- ============ PART THREE — HOW IT IS BUILT ============ -->
+<div class="crew-band"><b>below this line: the crew's notes</b>
+<p>Everything above is what a visitor sees and reads. What follows is for the people building ilha and the agents that help them: how the engine carries this moment today, with file and line, and what is still missing. A visitor never needs it.</p></div>
+<div class="crew" id="built">
+
 <div class="part">
 <p class="label">part three</p>
 <h1>How it is built</h1>
@@ -288,3 +289,4 @@ Polaris, Draal, Kosh) — Pepper does not read it directly today.</p>
       <td class="k">Polaris — measured, not guessed</td></tr>
 </table>
 </section>
+</div>
