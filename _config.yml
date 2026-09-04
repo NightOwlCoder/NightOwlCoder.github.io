@@ -107,6 +107,11 @@ defaults:
       path: "faceone.html"
     values:
       sitemap: false
+  # moments/ is reviewed by URL before launch: reachable, not listed
+  - scope:
+      path: "moments"
+    values:
+      sitemap: false
 
 future: true
 

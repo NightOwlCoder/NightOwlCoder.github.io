@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /contact.html
+Disallow: /moments/
 
 Sitemap: https://nightowlcoder.kovadj.dev/sitemap.xml
