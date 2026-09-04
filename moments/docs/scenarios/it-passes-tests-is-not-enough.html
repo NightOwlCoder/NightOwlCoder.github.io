@@ -10,10 +10,10 @@
      of the last 40 merged PRs carrying a machine review. Copy is placeholder. -->
 <meta charset="utf-8">
 <title>scenario 10: "it passes tests" is not enough</title>
-<link rel="stylesheet" href="scenario.css?v=a4db6b4238">
+<link rel="stylesheet" href="scenario.css?v=1587479c48">
 
 <nav class="site-nav"><a class="brand" href="../../index.html">ilha</a>
-<a href="../../index.html?day=9">today</a><a href="../../all.html?day=9">all moments</a><a href="../../crew.html">the crew</a><a href="../../how.html">the promise</a></nav>
+<a href="../../index.html?day=9">today</a><a href="../../all.html?day=9">all moments</a><a href="../../crew.html">the residents</a><a href="../../how.html">the promise</a></nav>
 <a class="return" href="../../index.html?day=9"><span class="arrow">←</span> back to moment 9</a>
 
 <!-- ============ THE TEASER ============ -->
@@ -22,8 +22,8 @@
      test tested nothing?</span> Here that's a P1.</p>
   <p class="beat">Every piece of work names what would prove it before the code exists: a test,
      an output, a screenshot. A second agent whose only job is to disbelieve checks each one. A
-     test that would pass against the old code is a finding, not a pass. You review the PR, never
-     the steps.</p>
+     test that would pass against the old code is a finding, not a pass. The residents review, the
+     residents merge. You hear that it's live.</p>
   <div class="sig"><span class="seat">🍅 Marco</span> · merges and builds</div>
   <div class="foot">
     <span class="day">day 9 of 12</span>
@@ -62,7 +62,7 @@ proves the function exists, not that it retries.
 [P1] Criterion 2 ("gives up after 3 with the last error") has evidence type
 <i>test</i> and no test is attached.
 
-[P2] Backoff is a hand-rolled loop; <code>retry::with_backoff</code> exists in
+[P2] Backoff is a hand-rolled loop. <code>retry::with_backoff</code> exists in
 <code>util/</code> and is used in two other exporters.
 
 Two P1s. Back to you.</div>
@@ -75,7 +75,7 @@ Two P1s. Back to you.</div>
       <div class="msg her"><span class="who">🔨</span><div class="body">
         <div class="nm">coder · 11:31</div>
         <div class="txt">Fixed. Test now injects two timeouts then a success and asserts 3 calls
-were made; fails on parent (1 call). Added <code>gives_up_after_three_with_last_error</code>.
+were made. Fails on parent (1 call). Added <code>gives_up_after_three_with_last_error</code>.
 Switched to <code>retry::with_backoff</code>, deleted 19 lines.</div>
       </div></div>
       <div class="msg her"><span class="who">🔍</span><div class="body">
@@ -86,18 +86,19 @@ their evidence. Diff is smaller than the first version.</div>
       <div class="rule"></div>
       <div class="msg her"><span class="who">🌶️</span><div class="body">
         <div class="nm">Pepper · 11:52</div>
-        <div class="txt">The exporter retry you asked for is in: PR #212, one file, +41 −19,
-both new tests fail without the change. Marco merged it into the feature branch
-and the full suite passed on the merged result. Ready for your look whenever.</div>
+        <div class="txt">The exporter retry you asked for is live. PR #212, one file, +41 −19,
+both new tests fail without the change, full suite green on the merged result,
+Marco merged it. Next export that hits a 503 will retry three times before it gives up.</div>
       </div></div>
     </div>
-    <p class="tag">the person sees one PR, with the proof attached, not two rounds of review</p>
+    <p class="tag">the residents reviewed, Marco merged, you hear it's live. The proof rides along for whoever wants it</p>
   </div>
 </div>
 <p class="note"><b>The person never saw 11:09.</b> The round trip between coder and reviewer is
-the crew's business; what reaches you is a PR whose tests are known to fail without the change,
-merged onto the branch with the suite re-run on the merged state. "The tests pass" arrives with
-the one fact that makes it mean something: they did not pass before.</p>
+the residents' business, and so is the merge. What reaches you is "it's live", with a PR behind it
+whose tests are known to fail without the change, re-run on the merged state before Marco
+merged it. "The tests pass" arrives with the one fact that makes it mean something: they did
+not pass before. The person tries the feature. Nobody asks them to read the diff.</p>
 </section>
 <div class="story-walk"><a class="prev" href="stuck-or-slow.html?day=8"><span class="k">← moment 8</span><span class="t">Is it stuck, or just slow? Stop refreshing to find out.</span></a><a class="next" href="closed-the-laptop.html?day=10"><span class="k">moment 10 →</span><span class="t">Closed the laptop and lost the thread? Your agent was never in the laptop.</span></a></div>
 
@@ -251,7 +252,7 @@ commands/end_feature.rs · commands/review_wait.rs · ilha-validation/{gate,quar
       <td>APPROVE is a judgment; the merged-state check is a measurement. A reviewer can be right
           about a branch and wrong about the merge.</td></tr>
   <tr><td class="k">Show the person the review thread</td>
-      <td>The round trip is crew work. The person is paged for decisions, never for status; they
+      <td>The round trip is the residents' work. The person is paged for decisions, never for status; they
           get one PR with the proof attached.</td></tr>
 </table>
 </section>

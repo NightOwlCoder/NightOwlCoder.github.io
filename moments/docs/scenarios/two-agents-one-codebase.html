@@ -7,10 +7,10 @@
      The teaser follows docs/ideas/teaser-moment-mock.html. Copy is placeholder. -->
 <meta charset="utf-8">
 <title>scenario 04: two agents, one codebase</title>
-<link rel="stylesheet" href="scenario.css?v=a4db6b4238">
+<link rel="stylesheet" href="scenario.css?v=1587479c48">
 
 <nav class="site-nav"><a class="brand" href="../../index.html">ilha</a>
-<a href="../../index.html?day=5">today</a><a href="../../all.html?day=5">all moments</a><a href="../../crew.html">the crew</a><a href="../../how.html">the promise</a></nav>
+<a href="../../index.html?day=5">today</a><a href="../../all.html?day=5">all moments</a><a href="../../crew.html">the residents</a><a href="../../how.html">the promise</a></nav>
 <a class="return" href="../../index.html?day=5"><span class="arrow">←</span> back to moment 5</a>
 
 <!-- ============ THE TEASER ============ -->
@@ -86,7 +86,7 @@ parser's config, so they don't run at once.</div>
         <div class="card warn">
           <div class="hd"><span class="seat">🔨 coder B</span><span class="role">merge undone</span></div>
           <div class="what">the export button that does nothing</div>
-          <div class="state"><span class="pip r"></span>its tests passed alone; two failed once it
+          <div class="state"><span class="pip r"></span>its tests passed alone, two failed once it
             sat next to A's change. Merge reverted, B is fixing it.</div>
         </div>
       </div></div>
@@ -106,7 +106,7 @@ the second the tests went red.</div>
 </div>
 <p class="note"><b>Three rules, all mechanical.</b> Every agent works in its own copy. Two
 agents may not hold the same file at the same time. The second is refused before it starts.
-Merges happen one at a time, and the tests run again on the <i>merged</i> state; red means the
+Merges happen one at a time, and the tests run again on the <i>merged</i> state. Red means the
 merge is undone. None of these is a request to the agents. They are things the agents cannot
 do otherwise.</p>
 </section>

@@ -76,6 +76,15 @@ table{width:100%;border-collapse:collapse;font-size:15px;margin:10px 0 26px}
 th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--dim);font-weight:500;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
 .k{color:var(--seat)}
+/* the promise page: a promise is a claim plus the mechanism that holds it; a gap is a claim we refuse to make yet */
+.promises,.gaps{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:14px;margin:18px 0 8px}
+.promise,.gap{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#0e141b}
+.promise h3,.gap h3{margin:0 0 8px;font-size:17px;letter-spacing:-.2px}
+.promise p,.gap p{margin:0;color:var(--dim);font-size:14.5px;line-height:1.5}
+.promise .held{margin-top:10px;font-family:var(--mono);font-size:11.5px;color:var(--cool);border-top:1px dashed var(--line);padding-top:8px}
+.gap{border-color:rgba(255,154,92,.35);background:#12100e}
+.gap h3{color:var(--hot)}
+h2{font-size:20px;margin:44px 0 6px}
 footer{color:var(--dim);font-size:13px;margin-top:60px;border-top:1px solid var(--line);padding-top:18px}
 /* the crew's notes on any site page: behind a band, on a second background, never above it */
 .crew-band,.crew-notes{margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);
