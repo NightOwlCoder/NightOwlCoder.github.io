@@ -213,7 +213,8 @@ agents/roster.rs · nightly/jobs/resident_transcript_sync.rs · GH#1010</p>
       <td class="k">trust.rs:8, :102</td></tr>
   <tr><td>"reachable by name"</td>
       <td>The roster is rendered into every prompt as one index line per resident
-          (<code>role — emoji name — purpose</code>); <code>add_to_inbox("Quill", …)</code>
+          (<code>role — emoji name — purpose</code>);
+          <code>add_to_inbox(target="Quill", text="&lt;question&gt;", kind="query")</code>
           resolves the name, an emoji mark, or a spoken alias.</td>
       <td class="k">builder.rs:515 · roster.rs:829 · alias.rs:65</td></tr>
 </table>

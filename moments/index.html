@@ -112,7 +112,7 @@
 <p class="tag" hidden>one moment a day · this is moment <span data-today>?</span> of 12 · <a href="all.html">see them all</a></p>
 <script>
 const q=parseInt(new URLSearchParams(location.search).get('day'),10);
-const d=Math.floor(Date.now()/864e5)-20699;
+const d=Math.floor(Date.now()/864e5)-20701;
 const i=(q>=1&&q<=12)?q-1:((d<0?0:d)%12+12)%12;
 document.querySelectorAll('a[href="all.html"],a[href="index.html"]').forEach(a=>{if(q>=1&&q<=12)a.search='?day='+q});
 document.addEventListener('keydown',e=>{const k={ArrowLeft:i,ArrowRight:i+2}[e.key];if(k>=1&&k<=12&&!e.metaKey&&!e.ctrlKey)location.search='?day='+k});
